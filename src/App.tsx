@@ -3,7 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from "motion/react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { 
   Dumbbell, 
   ChevronRight, 
@@ -16,8 +17,182 @@ import {
   Clock, 
   MessageSquare,
   Zap,
-  Target
+  Target,
+  Globe
 } from "lucide-react";
+
+type Language = 'es' | 'en';
+
+const translations = {
+  es: {
+    nav: {
+      home: "Inicio",
+      programs: "Programas",
+      presencial: "Presencial",
+      contact: "CONTACTAR"
+    },
+    hero: {
+      status: "[ ELIMINANDO TUS EXCUSAS ]",
+      title: "YOU ALWAYS STAY",
+      subtitle: "FOCUSED",
+      description: "Entrenamiento táctico inspirado en la excelencia militar. No es solo fitness, es una transformación radical de tu disciplina.",
+      cta_primary: "INICIAR TRANSFORMACIÓN",
+      cta_secondary: "VER HORARIOS"
+    },
+    about: {
+      vision: "Nuestra Visión",
+      title: "DISCIPLINA",
+      title_accent: "TÁCTICA",
+      description: "Creemos que el fitness físico es el reflejo de la fortaleza mental. Nuestros entrenamientos están diseñados para romper el ciclo de la complacencia y construir una versión inquebrantable de ti mismo.",
+      quote: "\"El foco es el arma más poderosa en el campo de batalla de tu vida diaria.\""
+    },
+    programs: {
+      title: "MISIONES",
+      title_accent: "DIGITALES",
+      subtitle: "Sistemas de entrenamiento de alto rendimiento adaptados a tu entorno.",
+      essential: {
+        title: "ESSENTIAL",
+        phase: "Phase 01: Core Systems",
+        price: "$250",
+        unit: "MXN / Mes",
+        features: [
+          "Protocolo de Valoración Inicial",
+          "Plan Operativo Personalizado",
+          "Acceso Total a Plataforma FOCUS",
+          "Manual de Hábitos de Rendimiento",
+          "Optimización de Nutrición Básica",
+          "Soporte Estratégico Mensual"
+        ],
+        cta: "INICIAR PROTOCOLO"
+      },
+      focused: {
+        title: "FOCUSED",
+        phase: "Phase 02: Elite Ops",
+        badge: "Most Active Mission",
+        price: "$500",
+        old_price: "$700 MXN",
+        unit: "MXN / Mes",
+        features: [
+          "Todo en el Protocolo Essential",
+          "Monitoreo Diario de Biométricos",
+          "Análisis de Técnica Operativa",
+          "Módulos Exclusivos (Hyrox/Abs)",
+          "Sesión Táctica 1:1 Semanal",
+          "Soporte Inmediato 24/7"
+        ],
+        cta: "MAXIMIZAR RENDIMIENTO"
+      }
+    },
+    clases: {
+      title: "CLASES",
+      title_accent: "PRESENCIALES",
+      individual_title: "Operación Individual",
+      group_title: "Estrategia Grupal (Mensual)",
+      items: [
+        { name: "Una Inserción (1 Clase)", price: "$450", meta: "Precio Regular" },
+        { name: "Refuerzo Semanal (2 Clases/Sem)", price: "$600", meta: "$300 x sesión" },
+        { name: "Batallón Completo (12 Clases/Mes)", price: "$2,500", meta: "$210 x sesión" },
+        { name: "Paquete \"FOCUSED\" (Individual)", price: "$3,500", meta: "Acceso total" },
+        { name: "Paquete \"PARTNERS\" (Dúo)", price: "$2,500 c/u", meta: "Entrena en pareja" },
+        { name: "Paquete \"THIRDS\" (Escuadrón)", price: "$2,200 c/u", meta: "Equipo de 3 personas" }
+      ]
+    },
+    quote: {
+      text: "\"La diferencia entre lo imposible y lo posible reside en la determinación de una persona.\"",
+      community: "FOCUS BOX COMMUNITY"
+    },
+    footer: {
+      description: "El primer centro de entrenamiento táctico dedicado a la transformación mental y física total.",
+      map: "Mapa Base",
+      contact_title: "Contacto Inmediato",
+      rights: "© 2026 FOCUS BOX & FITNESS // TODOS LOS DERECHOS RESERVADOS // ALPHA DIVISION"
+    }
+  },
+  en: {
+    nav: {
+      home: "Home",
+      programs: "Programs",
+      presencial: "On-site",
+      contact: "CONTACT"
+    },
+    hero: {
+      status: "[ ELIMINATING YOUR EXCUSES ]",
+      title: "YOU ALWAYS STAY",
+      subtitle: "FOCUSED",
+      description: "Tactical training inspired by military excellence. It's not just fitness, it's a radical transformation of your discipline.",
+      cta_primary: "START TRANSFORMATION",
+      cta_secondary: "VIEW SCHEDULE"
+    },
+    about: {
+      vision: "Our Vision",
+      title: "TACTICAL",
+      title_accent: "DISCIPLINE",
+      description: "We believe physical fitness is the reflection of mental strength. Our workouts are designed to break the cycle of complacency and build an unwavering version of yourself.",
+      quote: "\"Focus is the most powerful weapon on the battlefield of your daily life.\""
+    },
+    programs: {
+      title: "DIGITAL",
+      title_accent: "MISSIONS",
+      subtitle: "High-performance training systems adapted to your environment.",
+      essential: {
+        title: "ESSENTIAL",
+        phase: "Phase 01: Core Systems",
+        price: "$250",
+        unit: "MXN / Month",
+        features: [
+          "Initial Assessment Protocol",
+          "Personalized Operation Plan",
+          "Full Access to FOCUS Platform",
+          "Performance Habits Manual",
+          "Basic Nutrition Optimization",
+          "Monthly Strategic Support"
+        ],
+        cta: "START PROTOCOL"
+      },
+      focused: {
+        title: "FOCUSED",
+        phase: "Phase 02: Elite Ops",
+        badge: "Most Active Mission",
+        price: "$500",
+        old_price: "$700 MXN",
+        unit: "MXN / Month",
+        features: [
+          "All in Essential Protocol",
+          "Daily Biometric Monitoring",
+          "Operational Technique Analysis",
+          "Exclusive Modules (Hyrox/Abs)",
+          "1:1 Weekly Tactical Session",
+          "24/7 Immediate Support"
+        ],
+        cta: "MAXIMIZE PERFORMANCE"
+      }
+    },
+    clases: {
+      title: "ON-SITE",
+      title_accent: "CLASSES",
+      individual_title: "Individual Operation",
+      group_title: "Group Strategy (Monthly)",
+      items: [
+        { name: "One Insertion (1 Class)", price: "$450", meta: "Regular Price" },
+        { name: "Weekly Reinforcement (2 Classes/Wk)", price: "$600", meta: "$300 x session" },
+        { name: "Full Battalion (12 Classes/Mo)", price: "$2,500", meta: "$210 x session" },
+        { name: "Package \"FOCUSED\" (Individual)", price: "$3,500", meta: "Full access" },
+        { name: "Package \"PARTNERS\" (Duo)", price: "$2,500 ea", meta: "Train in pairs" },
+        { name: "Package \"THIRDS\" (Squad)", price: "$2,200 ea", meta: "Team of 3 people" }
+      ]
+    },
+    quote: {
+      text: "\"The difference between the impossible and the possible lies in a person's determination.\"",
+      community: "FOCUS BOX COMMUNITY"
+    },
+    footer: {
+      description: "The first tactical training center dedicated to total mental and physical transformation.",
+      map: "Base Map",
+      contact_title: "Immediate Contact",
+      rights: "© 2026 FOCUS BOX & FITNESS // ALL RIGHTS RESERVED // ALPHA DIVISION"
+    }
+  }
+};
 
 const COLORS = {
   primary: "#768455",
@@ -46,21 +221,13 @@ const TopoBackground = () => (
 
 const Logo = ({ className = "" }: { className?: string }) => (
   <div className={`relative flex items-center justify-center ${className}`}>
-    <div className="w-32 h-32 rounded-full border-4 border-[#768455] flex items-center justify-center p-2 bg-[#0B0B0B]">
-      <div className="relative w-full h-full border-2 border-[#768455]/50 rounded-full flex items-center justify-center">
-        <div className="absolute top-1 text-[8px] font-bold text-[#F2F2F2] tracking-widest text-center px-4">
-          YOU ALWAYS STAY FOCUSED
-        </div>
-        <svg viewBox="0 0 100 100" className="w-16 h-16 text-[#768455]" fill="none" stroke="currentColor" strokeWidth="2">
-          {/* Recreating the three-petal entwined symbol */}
-          <path d="M50 30 C60 10 90 40 50 70 C10 40 40 10 50 30" />
-          <path d="M30 60 C10 50 40 20 70 60 C40 90 10 70 30 60" />
-          <path d="M70 60 C90 50 60 20 30 60 C60 90 90 70 70 60" />
-        </svg>
-        <div className="absolute bottom-2 text-[10px] font-black text-[#F2F2F2] tracking-widest">
-          FOCUS
-        </div>
-      </div>
+    <div className="w-32 h-32 rounded-full border-4 border-[#768455] flex items-center justify-center p-2 bg-[#0B0B0B] overflow-hidden">
+      <img 
+        src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20FOCUS%20-%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIEZPQ1VTIC0gU0lOIEZPTkRPLnBuZyIsImlhdCI6MTc3NzE3NTIwMywiZXhwIjoxOTM0ODU1MjAzfQ.qqm2PyEbe2Z-IqtMvuOJu1SBJHVHfccrIG-LSW1-HSE" 
+        alt="Logo de Focus Box & Fitness - Entrenamiento Táctico y Acondicionamiento Físico" 
+        className="w-full h-full object-contain"
+        referrerPolicy="no-referrer"
+      />
     </div>
   </div>
 );
@@ -89,9 +256,28 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
       </motion.button>
     </form>
   );
-};
+};export default function App() {
+  const [currentView, setCurrentView] = useState<'home' | 'programas' | 'clases'>('home');
+  const [language, setLanguage] = useState<Language>('es');
 
-export default function App() {
+  useEffect(() => {
+    const browserLang = navigator.language.split('-')[0];
+    if (browserLang === 'en' || browserLang === 'es') {
+      setLanguage(browserLang as Language);
+    }
+  }, []);
+
+  const t = translations[language];
+
+  const navigateTo = (view: 'home' | 'programas' | 'clases') => {
+    setCurrentView(view);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(prev => prev === 'es' ? 'en' : 'es');
+  };
+
   return (
     <div className="min-h-screen bg-[#0B0B0B] text-[#F2F2F2] selection:bg-[#768455] selection:text-[#0B0B0B]">
       <div className="topo-bg-pattern opacity-10" />
@@ -99,233 +285,325 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-[#0B0B0B]/80 backdrop-blur-md border-b border-olive/20 px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-3">
+          <button 
+            onClick={() => navigateTo('home')}
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          >
              <div className="w-10 h-10 rounded-full border-2 border-olive flex items-center justify-center overflow-hidden">
                 <Logo className="scale-[0.3]" />
              </div>
              <span className="font-stencil text-2xl tracking-tighter">FOCUS BOX</span>
+          </button>
+          
+          <div className="hidden md:flex items-center gap-8 text-[10px] font-black tracking-widest uppercase">
+            <button 
+              onClick={() => navigateTo('home')} 
+              className={`hover:text-olive transition-colors ${currentView === 'home' ? 'text-olive' : ''}`}
+            >
+              {t.nav.home}
+            </button>
+            <button 
+              onClick={() => navigateTo('programas')} 
+              className={`hover:text-olive transition-colors ${currentView === 'programas' ? 'text-olive' : ''}`}
+            >
+              {t.nav.programs}
+            </button>
+            <button 
+              onClick={() => navigateTo('clases')} 
+              className={`hover:text-olive transition-colors ${currentView === 'clases' ? 'text-olive' : ''}`}
+            >
+              {t.nav.presencial}
+            </button>
+            
+            <div className="h-4 w-px bg-olive/20 mx-2" />
+            
+            <button 
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 hover:text-olive transition-colors group"
+            >
+              <Globe size={12} className="group-hover:rotate-12 transition-transform" />
+              {language === 'es' ? 'EN' : 'ES'}
+            </button>
           </div>
-          <div className="hidden md:flex gap-8 text-[10px] font-black tracking-widest uppercase">
-            <a href="#hero" className="hover:text-olive transition-colors">Inicio</a>
-            <a href="#about" className="hover:text-olive transition-colors">Visión</a>
-            <a href="#services" className="hover:text-olive transition-colors">Programas</a>
-            <a href="#classes" className="hover:text-olive transition-colors">Presencial</a>
-          </div>
+
           <button className="btn-tactical px-6 py-2 text-[10px] font-black tracking-widest">
-            CONTACTAR
+            {t.nav.contact}
           </button>
         </div>
       </nav>
 
-      {/* Hero Section - Immersive Vertical */}
-      <section id="hero" className="relative h-screen flex items-center justify-center text-center px-6 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/40 via-transparent to-[#0B0B0B]" />
-          {/* Subtle noise or overlay could go here */}
-        </div>
-        
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 max-w-4xl"
-        >
-          <div className="inline-block px-3 py-1 border border-olive text-olive text-[10px] font-black tracking-[0.4em] mb-8 animate-pulse">
-            [ ELIMINANDO TUS EXCUSAS ]
-          </div>
-          <h1 className="stencil text-7xl md:text-9xl leading-[0.8] mb-10">
-            YOU ALWAYS<br />STAY <span className="text-olive">FOCUSED</span>
-          </h1>
-          <p className="text-lg md:text-xl text-smoke/70 max-w-2xl mx-auto mb-12 font-medium tracking-wide">
-            Entrenamiento táctico inspirado en la excelencia militar. 
-            No es solo fitness, es una transformación radical de tu disciplina.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a href="#services" className="btn-tactical px-10 py-5 text-lg font-black tracking-[0.2em]">
-              INICIAR TRANSFORMACIÓN
-            </a>
-            <a href="#classes" className="border-2 border-smoke/20 hover:border-olive px-10 py-5 text-lg font-black tracking-[0.2em] transition-all">
-              VER HORARIOS
-            </a>
-          </div>
-        </motion.div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-30">
-          <ChevronRight size={32} className="rotate-90 text-olive" />
-        </div>
-      </section>
-
-      {/* Vision / About Section */}
-      <section id="about" className="py-32 px-6 bg-[#151619]">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-6">Nuestra Visión</div>
-              <h2 className="stencil text-5xl mb-8">DISCIPLINA <span className="text-olive">TÁCTICA</span></h2>
-              <div className="border-l-4 border-olive pl-8 space-y-6">
-                <p className="text-smoke/80 leading-relaxed font-medium">
-                  Creemos que el fitness físico es el reflejo de la fortaleza mental. Nuestros entrenamientos están diseñados para romper el ciclo de la complacencia y construir una versión inquebrantable de ti mismo.
+      <main className="pt-20">
+        {currentView === 'home' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* Hero Section - Immersive Vertical */}
+            <section id="hero" className="relative h-[90vh] flex items-center justify-center text-center px-6 overflow-hidden">
+              <div className="absolute inset-0 z-0">
+                <video 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%201.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyAxLm1wNCIsImlhdCI6MTc3NzE3NzIzMSwiZXhwIjoxOTM0ODU3MjMxfQ.g_Zu3WxZ8v3pRBDHuzHN4EChFYVDCzTjo6_6W9Dodas" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/70 via-[#0B0B0B]/20 to-[#0B0B0B]" />
+              </div>
+              
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="relative z-10 max-w-4xl"
+              >
+                <div className="inline-block px-3 py-1 border border-olive text-olive text-[10px] font-black tracking-[0.4em] mb-8 animate-pulse">
+                  {t.hero.status}
+                </div>
+                <h1 className="stencil text-7xl md:text-9xl leading-[0.8] mb-10">
+                  {t.hero.title}<br />{language === 'es' ? 'STAY' : ''} <span className="text-olive">{t.hero.subtitle}</span>
+                </h1>
+                <p className="text-lg md:text-xl text-smoke/70 max-w-2xl mx-auto mb-12 font-medium tracking-wide">
+                  {t.hero.description}
                 </p>
-                <p className="text-smoke/60 text-sm italic">
-                  "El foco es el arma más poderosa en el campo de batalla de tu vida diaria."
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                  <button 
+                    onClick={() => navigateTo('programas')}
+                    className="btn-tactical px-10 py-5 text-lg font-black tracking-[0.2em]"
+                  >
+                    {t.hero.cta_primary}
+                  </button>
+                  <button 
+                    onClick={() => navigateTo('clases')}
+                    className="border-2 border-smoke/20 hover:border-olive px-10 py-5 text-lg font-black tracking-[0.2em] transition-all"
+                  >
+                    {t.hero.cta_secondary}
+                  </button>
+                </div>
+              </motion.div>
+            </section>
+
+            {/* Vision / About Section */}
+            <section id="about" className="py-32 px-6 bg-[#151619]">
+              <div className="max-w-5xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-20 items-center">
+                  <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-6">{t.about.vision}</div>
+                    <h2 className="stencil text-5xl mb-8">{t.about.title} <span className="text-olive">{t.about.title_accent}</span></h2>
+                    <div className="border-l-4 border-olive pl-8 space-y-6">
+                      <p className="text-smoke/80 leading-relaxed font-medium">
+                        {t.about.description}
+                      </p>
+                      <p className="text-smoke/60 text-sm italic">
+                        {t.about.quote}
+                      </p>
+                    </div>
+                  </motion.div>
+                  <div className="relative">
+                    <div className="aspect-[4/5] bg-olive/10 border-2 border-olive/20 overflow-hidden rounded-sm group">
+                      <Logo className="absolute inset-0 m-auto scale-150 opacity-10 group-hover:opacity-30 transition-opacity" />
+                      <img 
+                        src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20FOCUS%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEZPQ1VTIDEucG5nIiwiaWF0IjoxNzc3MTc1NzU3LCJleHAiOjE3Nzc2MDc3NTd9.-DgsYnnIhLYkHObs6GHIuUcwrG11t4Vz7FD1TN0QeAY" 
+                        alt="Tactical Discipline" 
+                        className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-700" 
+                        referrerPolicy="no-referrer" 
+                      />
+                    </div>
+                    <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r-4 border-b-4 border-olive opacity-20" />
+                  </div>
+                </div>
+              </div>
+            </section>
+          </motion.div>
+        )}
+
+        {currentView === 'programas' && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="py-20 min-h-[85vh] flex items-center justify-center relative overflow-hidden"
+          >
+            {/* Background Image for Programas */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <img 
+                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOCUS%20FONDO%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT0NVUyBGT05ETyAyLnBuZyIsImlhdCI6MTc3NzE3ODg4MSwiZXhwIjoxOTM0ODU4ODgxfQ.qmblZXD7GNMVfg8MK4RWmWrBzlPEwcBtr4jaaAMM1Rs" 
+                alt="Fondo de entrenamiento táctico Focus Box fitness pesas kettlebells"
+                className="w-full h-full object-cover opacity-40 grayscale-0"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B] via-transparent to-[#0B0B0B]" />
+            </div>
+
+            {/* Background Accents */}
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-olive/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-olive/5 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
+              <div className="text-center mb-24 max-w-2xl mx-auto">
+                <div className="inline-block px-4 py-1 border border-olive/30 text-olive text-[10px] font-black tracking-[0.5em] uppercase mb-6 rounded-full">
+                  Elite Systems
+                </div>
+                <h2 className="stencil text-7xl md:text-8xl mb-6">{t.programs.title} <span className="text-olive">{t.programs.title_accent}</span></h2>
+                <div className="w-24 h-1 bg-olive mx-auto mb-8" />
+                <p className="text-smoke/60 text-sm font-medium tracking-widest uppercase">
+                  {t.programs.subtitle}
                 </p>
               </div>
-            </motion.div>
-            <div className="relative">
-              <div className="aspect-[4/5] bg-olive/10 border-2 border-olive/20 overflow-hidden rounded-sm group">
-                <Logo className="absolute inset-0 m-auto scale-150 opacity-10 group-hover:opacity-30 transition-opacity" />
-                <img 
-                  src="https://picsum.photos/seed/tactical-fitness/800/1000" 
-                  alt="Tactical Training" 
-                  className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-700" 
-                  referrerPolicy="no-referrer" 
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r-4 border-b-4 border-olive opacity-20" />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Services Section - Vertical Cards */}
-      <section id="services" className="py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
-            <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">Programas Online</div>
-            <h2 className="stencil text-6xl">ENTRENAMIENTO <span className="text-olive">DÉ ESCALA</span></h2>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
-            {/* Essential Card */}
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              className="glass-card p-12 border-white/5 group hover:border-olive/30 transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex justify-between items-start mb-8">
+              <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                {/* Essential Card */}
+                <motion.article 
+                  whileHover={{ y: -10 }}
+                  className="glass-card p-12 border-white/5 bg-white/[0.02] flex flex-col justify-between group hover:border-olive/40 hover:bg-white/[0.04] transition-all relative"
+                >
+                  <div className="absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-olive opacity-20 pointer-events-none" />
+                  
                   <div>
-                    <h3 className="stencil text-4xl mb-2">ESSENTIAL</h3>
-                    <div className="text-xs text-smoke/40 tracking-widest uppercase">Fundamental Transformation</div>
-                  </div>
-                  <Target size={40} className="text-olive/20 group-hover:text-olive transition-colors" />
-                </div>
-                <div className="text-5xl font-black text-olive mb-10">
-                  $250<span className="text-lg opacity-30 ml-2 font-normal">/ MES</span>
-                </div>
-                <ul className="space-y-4 mb-12 text-sm font-medium">
-                  {[
-                    "Valoración inicial profunda",
-                    "Plan de entrenamiento personalizado",
-                    "Acceso ilimitado a nuestra plataforma",
-                    "Checklist de hábitos de alto rendimiento",
-                    "Seguimiento mensual vía dashboard",
-                    "Soporte vía WhatsApp (Horario táctico)"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-4">
-                      <Check size={18} className="text-olive mt-1 shrink-0" />
-                      <span className="opacity-70 group-hover:opacity-100 transition-opacity">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <PayPalButton label="ADQUIRIR PLAN ESSENTIAL" />
-            </motion.div>
+                    <div className="flex justify-between items-start mb-10">
+                      <div>
+                        <h3 className="stencil text-5xl mb-2 text-smoke group-hover:text-olive transition-colors">{t.programs.essential.title}</h3>
+                        <div className="text-[10px] text-smoke/30 tracking-[0.2em] font-black uppercase">{t.programs.essential.phase}</div>
+                      </div>
+                      <div className="w-16 h-16 rounded-full border border-smoke/10 flex items-center justify-center group-hover:border-olive transition-all">
+                        <Target size={28} className="text-smoke/20 group-hover:text-olive transition-colors" />
+                      </div>
+                    </div>
 
-            {/* Focused Card - Featured */}
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              className="glass-card p-12 border-olive bg-olive/5 relative overflow-hidden flex flex-col justify-between shadow-[0_0_50px_rgba(118,132,85,0.1)]"
-            >
-              <div className="absolute top-0 right-0 bg-olive text-black text-[9px] font-black px-6 py-2 tracking-widest uppercase">
-                RECOMENDADO
-              </div>
-              <div>
-                <div className="flex justify-between items-start mb-8">
+                    <div className="flex items-baseline gap-2 mb-12">
+                      <span className="text-6xl font-black text-smoke">{t.programs.essential.price}</span>
+                      <span className="text-lg opacity-30 font-bold uppercase tracking-widest">{t.programs.essential.unit}</span>
+                    </div>
+
+                    <ul className="space-y-5 mb-16 text-sm font-medium tracking-wide">
+                      {t.programs.essential.features.map((item, i) => (
+                        <li key={i} className="flex items-center gap-4 group/item">
+                          <div className="w-2 h-2 rounded-full bg-olive/30 group-hover/item:bg-olive transition-all" />
+                          <span className="opacity-60 group-hover:opacity-100 transition-opacity">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="mt-auto">
+                    <PayPalButton label={t.programs.essential.cta} />
+                  </div>
+                </motion.article>
+
+                {/* Focused Card - Elite */}
+                <motion.article 
+                  whileHover={{ y: -10 }}
+                  className="glass-card p-12 border-olive bg-olive/[0.03] flex flex-col justify-between relative shadow-[0_30px_60px_-15px_rgba(118,132,85,0.15)] group hover:bg-olive/[0.06] transition-all"
+                >
+                  <div className="absolute top-0 right-0 bg-olive text-black text-[9px] font-black px-6 py-2 tracking-widest uppercase">
+                    {t.programs.focused.badge}
+                  </div>
+                  <div className="absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-olive opacity-50 pointer-events-none" />
+
                   <div>
-                    <h3 className="stencil text-4xl mb-2">FOCUSED</h3>
-                    <div className="text-xs text-olive tracking-widest uppercase">Elite Operational Support</div>
-                  </div>
-                  <Zap size={40} className="text-olive fill-olive/20" />
-                </div>
-                <div className="text-5xl font-black text-olive mb-10">
-                  $500<span className="text-lg opacity-30 ml-2 font-normal">/ MES</span>
-                  <span className="text-xl line-through opacity-20 ml-4">$700</span>
-                </div>
-                <ul className="space-y-4 mb-12 text-sm font-bold">
-                  {[
-                    "Todo en el plan Essential",
-                    "Seguimiento y ajustes diarios",
-                    "Análisis biométrico y de técnica",
-                    "Material táctico (Retos Hyrox, Abs Elite)",
-                    "Sesión mensual 1:1 de 15m con experto",
-                    "Soporte 24/7 de respuesta prioritaria"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-4">
-                      <Zap size={18} className="text-olive mt-1 shrink-0 fill-olive" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <PayPalButton label="PAGAR PLAN FOCUSED" featured />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Class Schedule Section */}
-      <section id="classes" className="py-32 px-6 bg-black">
-        <div className="max-w-4xl mx-auto">
-          <header className="text-center mb-20">
-            <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">Ubicación Física</div>
-            <h2 className="stencil text-5xl">CLASES <span className="text-olive">PRESENCIALES</span></h2>
-          </header>
-
-          <div className="space-y-16">
-            <div>
-              <h3 className="stencil text-2xl text-olive mb-8 opacity-60">Operación Individual</h3>
-              <div className="grid gap-4">
-                {[
-                  { name: "Una Inserción (1 Clase)", price: "$450", meta: "Precio Regular" },
-                  { name: "Refuerzo Semanal (2 Clases/Sem)", price: "$600", meta: "$300 x sesión" },
-                  { name: "Batallón Completo (12 Clases/Mes)", price: "$2,500", meta: "$210 x sesión" },
-                ].map((item, i) => (
-                  <div key={i} className="flex justify-between items-center p-6 border border-olive/10 hover:border-olive/40 transition-all group">
-                    <div>
-                      <div className="font-black tracking-widest uppercase group-hover:text-olive transition-colors">{item.name}</div>
-                      <div className="text-[9px] opacity-40 uppercase tracking-widest">{item.meta}</div>
+                    <div className="flex justify-between items-start mb-10">
+                      <div>
+                        <h3 className="stencil text-5xl mb-2 text-olive">{t.programs.focused.title}</h3>
+                        <div className="text-[10px] text-olive/50 tracking-[0.2em] font-black uppercase">{t.programs.focused.phase}</div>
+                      </div>
+                      <div className="w-16 h-16 rounded-full border border-olive/30 flex items-center justify-center bg-olive/10">
+                        <Zap size={28} className="text-olive fill-olive/20" />
+                      </div>
                     </div>
-                    <div className="text-2xl font-black text-olive">{item.price}</div>
+
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-6xl font-black text-olive">{t.programs.focused.price}</span>
+                      <span className="text-lg opacity-40 font-bold uppercase tracking-widest text-olive">{t.programs.focused.unit}</span>
+                    </div>
+                    <div className="text-sm line-through opacity-20 mb-12 font-black tracking-widest">{t.programs.focused.old_price}</div>
+
+                    <ul className="space-y-5 mb-16 text-sm font-bold tracking-wide">
+                      {t.programs.focused.features.map((item, i) => (
+                        <li key={i} className="flex items-center gap-4">
+                          <Zap size={16} className="text-olive shrink-0 fill-olive" />
+                          <span className="text-smoke">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                ))}
+
+                  <div className="mt-auto">
+                    <PayPalButton label={t.programs.focused.cta} featured />
+                  </div>
+                </motion.article>
+              </div>
+
+              <div className="mt-24 text-center">
+                <p className="text-[10px] font-black tracking-[0.4em] opacity-30 flex items-center justify-center gap-3">
+                  <span className="w-12 h-px bg-smoke/20" />
+                  ALPHA OPERATIONAL SYSTEM V2.5
+                  <span className="w-12 h-px bg-smoke/20" />
+                </p>
               </div>
             </div>
+          </motion.div>
+        )}
 
-            <div>
-              <h3 className="stencil text-2xl text-olive mb-8 opacity-60">Estrategia Grupal (Mensual)</h3>
-              <div className="grid gap-4">
-                {[
-                  { name: "Paquete \"FOCUSED\" (Individual)", price: "$3,500", meta: "Acceso total" },
-                  { name: "Paquete \"PARTNERS\" (Dúo)", price: "$2,500 c/u", meta: "Entrena en pareja" },
-                  { name: "Paquete \"THIRDS\" (Escuadrón)", price: "$2,200 c/u", meta: "Equipo de 3 personas" },
-                ].map((item, i) => (
-                  <div key={i} className="flex justify-between items-center p-6 border border-olive/10 hover:border-olive/40 transition-all group">
-                    <div>
-                      <div className="font-black tracking-widest uppercase group-hover:text-olive transition-colors">{item.name}</div>
-                      <div className="text-[9px] opacity-40 uppercase tracking-widest">{item.meta}</div>
+        {currentView === 'clases' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="py-12"
+          >
+            {/* Class Schedule Section */}
+            <section id="classes" className="py-20 px-6">
+              <div className="max-w-4xl mx-auto">
+                <header className="text-center mb-20">
+                  <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">Ubicación Física</div>
+                  <h2 className="stencil text-5xl">{t.clases.title} <span className="text-olive">{t.clases.title_accent}</span></h2>
+                </header>
+
+                <div className="space-y-16">
+                  <div>
+                    <h3 className="stencil text-2xl text-olive mb-8 opacity-60">{t.clases.individual_title}</h3>
+                    <div className="grid gap-4">
+                      {t.clases.items.slice(0, 3).map((item, i) => (
+                        <div key={i} className="flex justify-between items-center p-6 border border-olive/10 hover:border-olive/40 transition-all group font-stencil">
+                          <div>
+                            <div className="font-black tracking-widest uppercase group-hover:text-olive transition-colors">{item.name}</div>
+                            <div className="text-[9px] opacity-40 uppercase tracking-widest">{item.meta}</div>
+                          </div>
+                          <div className="text-2xl font-black text-olive">{item.price}</div>
+                        </div>
+                      ))}
                     </div>
-                    <div className="text-2xl font-black text-olive">{item.price}</div>
                   </div>
-                ))}
+
+                  <div>
+                    <h3 className="stencil text-2xl text-olive mb-8 opacity-60">{t.clases.group_title}</h3>
+                    <div className="grid gap-4">
+                      {t.clases.items.slice(3).map((item, i) => (
+                        <div key={i} className="flex justify-between items-center p-6 border border-olive/10 hover:border-olive/40 transition-all group font-stencil">
+                          <div>
+                            <div className="font-black tracking-widest uppercase group-hover:text-olive transition-colors">{item.name}</div>
+                            <div className="text-[9px] opacity-40 uppercase tracking-widest">{item.meta}</div>
+                          </div>
+                          <div className="text-2xl font-black text-olive">{item.price}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </section>
+          </motion.div>
+        )}
+      </main>
 
       {/* Trust Section */}
       <section className="py-24 border-y border-olive/10 text-center px-6">
@@ -334,9 +612,9 @@ export default function App() {
             {[1, 2, 3, 4, 5].map(i => <Zap key={i} className="text-olive fill-olive" size={16} />)}
           </div>
           <blockquote className="stencil text-2xl md:text-4xl leading-tight">
-            "La diferencia entre lo imposible y lo posible reside en la determinación de una persona."
+            {t.quote.text}
           </blockquote>
-          <div className="text-[10px] font-black tracking-[0.5em] text-olive uppercase">FOCUS BOX COMMUNITY</div>
+          <div className="text-[10px] font-black tracking-[0.5em] text-olive uppercase">{t.quote.community}</div>
         </div>
       </section>
 
@@ -344,25 +622,26 @@ export default function App() {
       <footer className="py-32 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-20 items-start">
           <div className="space-y-8">
-            <Logo className="w-24 h-24 mb-4" />
+            <button onClick={() => navigateTo('home')}>
+              <Logo className="w-24 h-24 mb-4 hover:scale-105 transition-transform" />
+            </button>
             <div className="stencil text-4xl leading-tight">FOCUS BOX<br />FITNESS</div>
             <p className="text-xs text-smoke/40 uppercase tracking-widest leading-relaxed">
-              El primer centro de entrenamiento táctico dedicado a la transformación mental y física total.
+              {t.footer.description}
             </p>
           </div>
           
           <div className="space-y-6">
-             <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase">Mapa Base</div>
+             <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase">{t.footer.map}</div>
              <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
-                <li><a href="#hero" className="hover:text-olive transition-colors">Inicio</a></li>
-                <li><a href="#about" className="hover:text-olive transition-colors">Visión</a></li>
-                <li><a href="#services" className="hover:text-olive transition-colors">Programas</a></li>
-                <li><a href="#classes" className="hover:text-olive transition-colors">Clases</a></li>
+                <li><button onClick={() => navigateTo('home')} className="hover:text-olive transition-colors">{t.nav.home}</button></li>
+                <li><button onClick={() => navigateTo('programas')} className="hover:text-olive transition-colors">{t.nav.programs}</button></li>
+                <li><button onClick={() => navigateTo('clases')} className="hover:text-olive transition-colors">{t.nav.presencial}</button></li>
              </ul>
           </div>
 
           <div className="space-y-8">
-             <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase">Contacto Inmediato</div>
+             <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase">{t.footer.contact_title}</div>
              <div className="space-y-4">
                 <div className="flex items-center gap-4 group">
                    <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all">
@@ -387,7 +666,7 @@ export default function App() {
           </div>
         </div>
         <div className="mt-32 text-center text-[8px] opacity-20 tracking-[1em] uppercase">
-          © 2026 FOCUS BOX & FITNESS // ALL RIGHTS RESERVED // ALPHA DIVISION
+          {t.footer.rights}
         </div>
       </footer>
     </div>

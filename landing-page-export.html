@@ -3,10 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOCUS Box & Fitness - Tactical Landing</title>
+    <title>Focus Box & Fitness | Entrenamiento Táctico y Rutinas de Alto Rendimiento</title>
+    <meta name="description" content="Focus Box & Fitness ofrece acondicionamiento físico de élite, ejercicio funcional inspirado en la excelencia militar y rutinas personalizadas para Hyrox y alto rendimiento.">
+    <meta name="keywords" content="fitness coaching, workout routines, entrenamiento funcional, personal trainer, conditioning programs, Focus Box, entrenamiento táctico, disciplina militar, Hyrox México, rutinas de ejercicio">
+    
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Focus Box & Fitness",
+        "image": "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20FOCUS%20-%20SIN%20FONDO.png",
+        "description": "Entrenamiento táctico y acondicionamiento físico de alto rendimiento.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "MX"
+        },
+        "priceRange": "$$$",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Plan Essential",
+            "price": "250",
+            "priceCurrency": "MXN"
+          },
+          {
+            "@type": "Offer",
+            "name": "Plan Focused",
+            "price": "500",
+            "priceCurrency": "MXN"
+          }
+        ]
+      }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
+        /* Language Toggle Styles */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(118, 132, 85, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--primary);
+            color: var(--smoke);
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .lang-switch:hover {
+            background: var(--primary);
+            color: var(--bg);
+        }
+    </style>
+    <script>
+        const translations = {
+            es: {
+                hero_status: "[ STATUS: READY FOR COMBAT ]",
+                hero_title: "YOU ALWAYS STAY <span>FOCUSED</span>",
+                hero_desc: "Sistema de entrenamiento táctico diseñado para aquellos que buscan exceder sus límites. Disciplina militar, resultados élite.",
+                hero_cta1: "INICIAR TRANSFORMACIÓN",
+                hero_cta2: "VER HORARIOS",
+                prog_title: "MISIONES <span>DIGITALES</span>",
+                prog_desc: "Sistemas de entrenamiento de alto rendimiento adaptados a tu entorno.",
+                ess_title: "ESSENTIAL",
+                ess_unit: "MXN / Mes",
+                ess_cta: "INICIAR PROTOCOLO",
+                foc_title: "FOCUSED",
+                foc_unit: "MXN / Mes",
+                foc_cta: "MAXIMIZAR RENDIMIENTO",
+                prices_header: "P R E C I O S",
+                prices_ind: "POR CLASE (1-4 PERSONAS)",
+                price_1: "1 Clase",
+                price_2: "2 Clases x Semana",
+                price_12: "12 Clases x Mes",
+                prices_grp: "MENSUALIDAD (5 CLASES / SEM)",
+                pkg_foc: "Paquete \"FOCUSED\" (1 Persona)",
+                pkg_partners: "Paquete \"PARTNERS\" (2 Personas)",
+                pkg_thirds: "Paquete \"THIRDS\" (3 Personas)",
+                footer_copy: "A L P H A &nbsp; O P E R A T I O N A L &nbsp; S Y S T E M &nbsp; V 2 . 5"
+            },
+            en: {
+                hero_status: "[ STATUS: READY FOR COMBAT ]",
+                hero_title: "YOU ALWAYS STAY <span>FOCUSED</span>",
+                hero_desc: "Tactical training system designed for those looking to exceed their limits. Military discipline, elite results.",
+                hero_cta1: "START TRANSFORMATION",
+                hero_cta2: "VIEW SCHEDULE",
+                prog_title: "DIGITAL <span>MISSIONS</span>",
+                prog_desc: "High-performance training systems adapted to your environment.",
+                ess_title: "ESSENTIAL",
+                ess_unit: "MXN / Month",
+                ess_cta: "START PROTOCOL",
+                foc_title: "FOCUSED",
+                foc_unit: "MXN / Month",
+                foc_cta: "MAXIMIZE PERFORMANCE",
+                prices_header: "P R I C I N G",
+                prices_ind: "PER CLASS (1-4 PEOPLE)",
+                price_1: "1 Class",
+                price_2: "2 Classes per Week",
+                price_12: "12 Classes per Month",
+                prices_grp: "MONTHLY (5 CLASSES / WEEK)",
+                pkg_foc: "\"FOCUSED\" Package (1 Person)",
+                pkg_partners: "\"PARTNERS\" Package (2 People)",
+                pkg_thirds: "\"THIRDS\" Package (3 People)",
+                footer_copy: "A L P H A &nbsp; O P E R A T I O N A L &nbsp; S Y S T E M &nbsp; V 2 . 5"
+            }
+        };
+
+        let currentLang = 'es';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            const t = translations[currentLang];
+            
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const key = el.getAttribute('data-t');
+                if (t[key]) {
+                    el.innerHTML = t[key];
+                }
+            });
+            
+            document.querySelector('.lang-switch span').textContent = currentLang === 'es' ? 'EN' : 'ES';
+            localStorage.setItem('focus-lang', currentLang);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('focus-lang');
+            if (savedLang && savedLang !== currentLang) {
+                toggleLanguage();
+            } else {
+                const browserLang = navigator.language.split('-')[0];
+                if (browserLang === 'en' && currentLang !== 'en') {
+                    toggleLanguage();
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <button class="lang-switch" onclick="toggleLanguage()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span>EN</span>
+    </button>
             --primary: #768455;
             --bg: #0B0B0B;
             --smoke: #F2F2F2;
@@ -71,6 +217,27 @@
             align-items: center;
             padding: 120px 0 60px;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(11, 11, 11, 0.7) 0%, rgba(11, 11, 11, 0.2) 50%, rgba(11, 11, 11, 1) 100%);
+            z-index: 0;
         }
 
         .hero-grid {
@@ -78,6 +245,8 @@
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-status {
@@ -212,48 +381,121 @@
 
         /* Pricing Cards */
         .section-padding {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title .pre-title {
+            display: inline-block;
+            padding: 4px 15px;
+            border: 1px solid rgba(118, 132, 85, 0.3);
+            color: var(--primary);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-radius: 50px;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1;
             margin-bottom: 20px;
         }
 
+        .section-title p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        #pricing {
+            position: relative;
+            overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-accents {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .accent {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(118, 132, 85, 0.05);
+            filter: blur(100px);
+            border-radius: 50%;
+        }
+
+        .accent-1 { top: 10%; left: 5%; }
+        .accent-2 { bottom: 10%; right: 5%; }
+
         .pricing-grid {
+            position: relative;
+            z-index: 2;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
             max-width: 1000px;
             margin: 0 auto;
         }
 
         .card {
-            background: rgba(21, 22, 25, 0.8);
+            background: rgba(21, 22, 25, 0.4);
             backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 40px;
             border-radius: 4px;
             position: relative;
             overflow: hidden;
-            transition: 0.4s;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
+            transform: translateY(-15px);
+            border-color: rgba(118, 132, 85, 0.4);
+            background: rgba(21, 22, 25, 0.6);
         }
 
         .card.featured {
             border-width: 2px;
             border-color: var(--primary);
-            box-shadow: 0 0 40px rgba(118, 132, 85, 0.2);
-            background: linear-gradient(135deg, rgba(21,22,25,0.9) 0%, rgba(118, 132, 85, 0.1) 100%);
+            box-shadow: 0 30px 60px -15px rgba(118, 132, 85, 0.15);
+            background: rgba(118, 132, 85, 0.03);
+        }
+
+        .card.featured:hover {
+            background: rgba(118, 132, 85, 0.06);
+        }
+
+        .card .phase {
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            opacity: 0.3;
+            text-transform: uppercase;
+            margin-bottom: 5px;
         }
 
         .badge {
@@ -261,59 +503,86 @@
             top: 0;
             right: 0;
             background: var(--primary);
-            padding: 4px 15px;
-            font-size: 10px;
+            color: var(--bg);
+            padding: 6px 20px;
+            font-size: 9px;
             font-weight: 900;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
         }
 
         .card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            line-height: 1;
         }
 
         .price {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 30px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
         }
 
         .price span {
-            font-size: 1rem;
-            opacity: 0.5;
-            color: var(--smoke);
+            font-size: 0.9rem;
+            opacity: 0.4;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
-        .price .old-price {
-            font-size: 1.2rem;
+        .price-meta {
+            margin-bottom: 40px;
+        }
+        
+        .old-price {
+            font-size: 0.9rem;
             text-decoration: line-through;
-            opacity: 0.3;
-            margin-left: 10px;
+            opacity: 0.2;
+            font-weight: 900;
+            letter-spacing: 0.2em;
         }
 
         .features {
             list-style: none;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            flex-grow: 1;
         }
 
         .features li {
-            font-size: 0.9rem;
-            margin-bottom: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 18px;
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            color: rgba(242, 242, 242, 0.8);
+            align-items: center;
+            gap: 12px;
+            color: rgba(242, 242, 242, 0.6);
+            transition: 0.3s;
+        }
+
+        .card:hover .features li {
+            color: rgba(242, 242, 242, 1);
         }
 
         .features li::before {
-            content: '✓';
-            color: var(--primary);
-            font-weight: 900;
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            opacity: 0.4;
+            flex-shrink: 0;
+        }
+
+        .card.featured .features li::before {
+            background-color: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
         }
 
         .paypal-placeholder {
             width: 100%;
+            margin-top: auto;
         }
 
         /* Class Tables */
@@ -484,102 +753,112 @@
     <div class="topo-fade"></div>
 
     <!-- Header / Hero -->
-    <section class="hero">
+    <header class="hero">
+        <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            class="hero-video"
+            poster="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOCUS%20FONDO%202.png"
+        >
+            <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%201.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyAxLm1wNCIsImlhdCI6MTc3NzE3NzIzMSwiZXhwIjoxOTM0ODU3MjMxfQ.g_Zu3WxZ8v3pRBDHuzHN4EChFYVDCzTjo6_6W9Dodas" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
         <div class="container hero-grid">
-            <div class="fade-in">
-                <div class="hero-status">[ STATUS: READY FOR COMBAT ]</div>
-                <h1>YOU ALWAYS STAY <span>FOCUSED</span></h1>
-                <p>Sistema de entrenamiento táctico diseñado para aquellos que buscan exceder sus límites. Disciplina militar, resultados élite.</p>
+            <section class="fade-in">
+                <div class="hero-status" data-t="hero_status">[ STATUS: READY FOR COMBAT ]</div>
+                <h1 data-t="hero_title">YOU ALWAYS STAY <span>FOCUSED</span></h1>
+                <p data-t="hero_desc">Sistema de entrenamiento táctico diseñado para aquellos que buscan exceder sus límites. Disciplina militar, resultados élite.</p>
                 <div class="btn-group">
-                    <a href="#pricing" class="btn-primary">INICIAR TRANSFORMACIÓN</a>
-                    <a href="#classes" class="btn-secondary">VER HORARIOS</a>
+                    <a href="#pricing" class="btn-primary" data-t="hero_cta1">INICIAR TRANSFORMACIÓN</a>
+                    <a href="#classes" class="btn-secondary" data-t="hero_cta2">VER HORARIOS</a>
                 </div>
-            </div>
+            </section>
             <div class="logo-wrap fade-in">
-                <div class="logo-circle">
-                    <div class="logo-inner">
-                        <div class="logo-text-top">YOU ALWAYS STAY FOCUSED</div>
-                        <svg class="logo-symbol" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M50 30 C60 10 90 40 50 70 C10 40 40 10 50 30" />
-                            <path d="M30 60 C10 50 40 20 70 60 C40 90 10 70 30 60" />
-                            <path d="M70 60 C90 50 60 20 30 60 C60 90 90 70 70 60" />
-                        </svg>
-                        <div class="logo-text-bottom">FOCUS</div>
-                    </div>
+                <div class="logo-circle" style="overflow: hidden;">
+                    <img 
+                        src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20FOCUS%20-%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIEZPQ1VTIC0gU0lOIEZPTkRPLnBuZyIsImlhdCI6MTc3NzE3NTIwMywiZXhwIjoxOTM0ODU1MjAzfQ.qqm2PyEbe2Z-IqtMvuOJu1SBJHVHfccrIG-LSW1-HSE" 
+                        alt="Logo de Focus Box & Fitness - Entrenamiento funcional de alto rendimiento" 
+                        style="width: 100%; height: 100%; object-fit: contain; padding: 20px;"
+                    >
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- Pricing Section -->
     <section id="pricing" class="section-padding">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>PROGRAMAS ONLINE</h2>
-                <div style="width: 60px; height: 2px; background: var(--primary); margin: 0 auto;"></div>
-            </div>
+        <div class="pricing-bg">
+            <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOCUS%20FONDO%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT0NVUyBGT05ETyAyLnBuZyIsImlhdCI6MTc3NzE3ODg4MSwiZXhwIjoxOTM0ODU4ODgxfQ.qmblZXD7GNMVfg8MK4RWmWrBzlPEwcBtr4jaaAMM1Rs" alt="Entrenamiento táctico Focus Box fitness pesas kettlebells" style="opacity: 0.4;">
+        </div>
+        <div class="pricing-overlay"></div>
+        <div class="pricing-accents">
+            <div class="accent accent-1"></div>
+            <div class="accent accent-2"></div>
+        </div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <header class="section-title fade-in">
+                <div class="pre-title">Elite Systems</div>
+                <h2 data-t="prog_title">MISIONES <span>DIGITALES</span></h2>
+                <p data-t="prog_desc">Sistemas de entrenamiento de alto rendimiento adaptados a tu entorno.</p>
+            </header>
 
             <div class="pricing-grid">
                 <!-- Essential -->
-                <div class="card fade-in">
-                    <h3>ESSENTIAL</h3>
-                    <div class="price">$250<span> / MES</span></div>
+                <article class="card fade-in">
+                    <div class="phase">Phase 01: Core Systems</div>
+                    <h3 data-t="ess_title">ESSENTIAL</h3>
+                    <div class="price">$250 <span data-t="ess_unit">MXN / Mes</span></div>
+                    <div class="price-meta"></div>
                     <ul class="features">
-                        <li>Valoración inicial</li>
-                        <li>Plan personalizado a tus objetivos</li>
-                        <li>Acceso ilimitado a la app</li>
-                        <li>PDF de conceptos básicos</li>
-                        <li>Checklist de hábitos diarios</li>
-                        <li>Seguimiento 1 vez por mes</li>
-                        <li>Soporte WA (L-V 6-8 PM)</li>
+                        <li>Protocolo de Valoración Inicial</li>
+                        <li>Plan Operativo Personalizado</li>
+                        <li>Acceso Total a Plataforma FOCUS</li>
+                        <li>Manual de Hábitos de Rendimiento</li>
+                        <li>Optimización de Nutrición Básica</li>
+                        <li>Soporte Estratégico Mensual</li>
                     </ul>
                     <div class="paypal-placeholder">
                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                             <input type="hidden" name="cmd" value="_s-xclick" />
                             <input type="hidden" name="hosted_button_id" value="6QCRB4S7A2ZEJ" />
                             <input type="hidden" name="currency_code" value="MXN" />
-                            <button type="submit" name="submit" class="btn-primary" style="width: 100%;">ADQUIRIR PLAN ESSENTIAL</button>
+                            <button type="submit" name="submit" class="btn-primary" style="width: 100%;" data-t="ess_cta">INICIAR PROTOCOLO</button>
                         </form>
                     </div>
-                </div>
+                </article>
 
                 <!-- Focused -->
-                <div class="card featured fade-in">
-                    <div class="badge">RECOMENDADO</div>
-                    <h3>FOCUSED</h3>
-                    <div class="price">
-                        $500<span> / MES</span>
-                        <span class="old-price">$700</span>
+                <article class="card featured fade-in">
+                    <div class="badge">Most Active Mission</div>
+                    <div class="phase">Phase 02: Elite Ops</div>
+                    <h3 style="color: var(--primary);" data-t="foc_title">FOCUSED</h3>
+                    <div class="price">$500 <span data-t="foc_unit">MXN / Mes</span></div>
+                    <div class="price-meta">
+                        <span class="old-price">$700 MXN</span>
                     </div>
                     <ul class="features">
-                        <li>Valoración inicial + ajustes constantes</li>
-                        <li>Revisión técnica de ejercicios</li>
-                        <li>Material exclusivo (Hyrox, Abs)</li>
-                        <li>Sesión 1:1 online (15m revisión)</li>
-                        <li>Acceso prioritario a mensajes</li>
-                        <li>Seguimiento diario y ajustes</li>
-                        <li>WA sin restricciones de horario</li>
+                        <li>Todo en el Protocolo Essential</li>
+                        <li>Monitoreo Diario de Biométricos</li>
+                        <li>Análisis de Técnica Operativa</li>
+                        <li>Módulos Exclusivos (Hyrox/Abs)</li>
+                        <li>Sesión Táctica 1:1 Semanal</li>
+                        <li>Soporte Inmediato 24/7</li>
                     </ul>
                     <div class="paypal-placeholder">
                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                             <input type="hidden" name="cmd" value="_s-xclick" />
                             <input type="hidden" name="hosted_button_id" value="6QCRB4S7A2ZEJ" />
                             <input type="hidden" name="currency_code" value="MXN" />
-                            <button type="submit" name="submit" class="btn-primary" style="width: 100%; background: white; color: black;">TRANSFORMARSE AHORA</button>
+                            <button type="submit" name="submit" class="btn-primary" style="width: 100%; background: var(--primary); color: var(--bg);" data-t="foc_cta">MAXIMIZAR RENDIMIENTO</button>
                         </form>
                     </div>
-                </div>
+                </article>
             </div>
 
-            <div class="special-offers container fade-in">
-                <div class="offer-item">
-                    <h4>PRUEBALO GRATIS</h4>
-                    <p>Toma la decisión hoy y recibe 2 semanas de prueba del plan FOCUSED para experimentar el sistema.</p>
-                </div>
-                <div class="offer-item">
-                    <h4>REFIERE A UN AMIGO</h4>
-                    <p>Por cada referido recibe un 10% de descuento en tu mensualidad de forma vitalicia.</p>
-                </div>
+            <div style="margin-top: 80px; text-align: center;" class="fade-in">
+                <p style="font-size: 10px; font-weight: 900; letter-spacing: 0.4em; opacity: 0.3; text-transform: uppercase;" data-t="footer_copy">A L P H A &nbsp; O P E R A T I O N A L &nbsp; S Y S T E M &nbsp; V 2 . 5</p>
             </div>
         </div>
     </section>
@@ -588,22 +867,22 @@
     <section id="classes" class="section-padding" style="background: rgba(0,0,0,0.3);">
         <div class="container fade-in">
             <div class="table-wrap">
-                <div class="table-header">P R E C I O S</div>
+                <div class="table-header" data-t="prices_header">P R E C I O S</div>
                 
-                <h3 class="stencil" style="margin: 40px 0 20px; color: var(--primary);">POR CLASE (1-4 PERSONAS)</h3>
+                <h3 class="stencil" style="margin: 40px 0 20px; color: var(--primary);" data-t="prices_ind">POR CLASE (1-4 PERSONAS)</h3>
                 <div class="table-row">
-                    <div class="row-info"><div class="name">1 Clase</div></div>
+                    <div class="row-info"><div class="name" data-t="price_1">1 Clase</div></div>
                     <div class="row-price"><div class="amt">$450</div></div>
                 </div>
                 <div class="table-row">
-                    <div class="row-info"><div class="name">2 Clases x Semana</div></div>
+                    <div class="row-info"><div class="name" data-t="price_2">2 Clases x Semana</div></div>
                     <div class="row-price">
                         <div class="amt">$600</div>
                         <div class="sub">$300 x clase</div>
                     </div>
                 </div>
                 <div class="table-row">
-                    <div class="row-info"><div class="name">12 Clases x Mes</div></div>
+                    <div class="row-info"><div class="name" data-t="price_12">12 Clases x Mes</div></div>
                     <div class="row-price">
                         <div class="amt">$2,500</div>
                         <div class="sub">$210 x clase</div>
@@ -611,23 +890,23 @@
                 </div>
                 <p style="font-size: 10px; opacity: 0.4; margin-top: 10px; letter-spacing: 0.2em; text-transform: uppercase;">* Pregunta por las promociones grupales</p>
 
-                <h3 class="stencil" style="margin: 60px 0 20px; color: var(--primary);">MENSUALIDAD (5 CLASES / SEM)</h3>
+                <h3 class="stencil" style="margin: 60px 0 20px; color: var(--primary);" data-t="prices_grp">MENSUALIDAD (5 CLASES / SEM)</h3>
                 <div class="table-row">
-                    <div class="row-info"><div class="name">Paquete "FOCUSED" (1 Persona)</div></div>
+                    <div class="row-info"><div class="name" data-t="pkg_foc">Paquete "FOCUSED" (1 Persona)</div></div>
                     <div class="row-price">
                         <div class="amt">$3,500</div>
                         <div class="sub">$175 x clase</div>
                     </div>
                 </div>
                 <div class="table-row">
-                    <div class="row-info"><div class="name">Paquete "PARTNERS" (2 Personas)</div></div>
+                    <div class="row-info"><div class="name" data-t="pkg_partners">Paquete "PARTNERS" (2 Personas)</div></div>
                     <div class="row-price">
                         <div class="amt">$2,500 c/u</div>
                         <div class="sub">$125 x clase</div>
                     </div>
                 </div>
                 <div class="table-row">
-                    <div class="row-info"><div class="name">Paquete "THIRDS" (3 Personas)</div></div>
+                    <div class="row-info"><div class="name" data-t="pkg_thirds">Paquete "THIRDS" (3 Personas)</div></div>
                     <div class="row-price">
                         <div class="amt">$2,200 c/u</div>
                         <div class="sub">$110 x clase</div>
