@@ -365,7 +365,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                   {t.hero.status}
                 </div>
                 <h1 className="stencil text-7xl md:text-9xl leading-[0.8] mb-10">
-                  {t.hero.title}<br />{language === 'es' ? 'STAY' : ''} <span className="text-olive">{t.hero.subtitle}</span>
+                  {t.hero.title}<br /> <span className="text-olive">{t.hero.subtitle}</span>
                 </h1>
                 <p className="text-lg md:text-xl text-smoke/70 max-w-2xl mx-auto mb-12 font-medium tracking-wide">
                   {t.hero.description}
