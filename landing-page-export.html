@@ -137,13 +137,28 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('focus-lang');
-            if (savedLang && savedLang !== currentLang) {
-                toggleLanguage();
+            if (savedLang) {
+                if (savedLang !== currentLang) toggleLanguage();
             } else {
-                const browserLang = navigator.language.split('-')[0];
-                if (browserLang === 'en' && currentLang !== 'en') {
-                    toggleLanguage();
-                }
+                // Geo-detection for USA/Europe
+                fetch('https://ipapi.co/json/')
+                    .then(res => res.json())
+                    .then(data => {
+                        const isUS = data.country_code === 'US';
+                        const isEU = data.continent_code === 'EU';
+                        const browserLang = navigator.language.split('-')[0];
+
+                        if ((isUS || isEU || browserLang === 'en') && currentLang !== 'en') {
+                            toggleLanguage();
+                        }
+                    })
+                    .catch(() => {
+                        // Fallback to browser language
+                        const browserLang = navigator.language.split('-')[0];
+                        if (browserLang === 'en' && currentLang !== 'en') {
+                            toggleLanguage();
+                        }
+                    });
             }
         });
     </script>

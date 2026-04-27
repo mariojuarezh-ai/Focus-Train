@@ -264,10 +264,33 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
+    // Phase 1: Robust Browser Language Detection
     const browserLang = navigator.language.split('-')[0];
-    if (browserLang === 'en' || browserLang === 'es') {
-      setLanguage(browserLang as Language);
+    if (browserLang === 'en') {
+      setLanguage('en');
+    } else if (browserLang === 'es') {
+      setLanguage('es');
     }
+
+    // Phase 2: Geographic Detection via IP (USA/Europe -> English)
+    const detectLocation = async () => {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        
+        const countryCode = data.country_code; // e.g., 'US', 'GB', 'DE', 'FR'
+        const continentCode = data.continent_code; // e.g., 'NA', 'EU'
+
+        // If in USA or Europe continent, default to English
+        if (countryCode === 'US' || continentCode === 'EU') {
+          setLanguage('en');
+        }
+      } catch (error) {
+        console.warn("Geographic detection failed, falling back to browser language:", error);
+      }
+    };
+
+    detectLocation();
   }, []);
 
   const t = translations[language];
