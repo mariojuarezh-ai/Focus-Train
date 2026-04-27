@@ -37,7 +37,7 @@ const translations = {
       status: "[ ELIMINANDO TUS EXCUSAS ]",
       title: "YOU ALWAYS STAY",
       subtitle: "FOCUSED",
-      description: "Entrenamiento táctico inspirado en la excelencia militar. No es solo fitness, es una transformación radical de tu disciplina.",
+      description: "Entrenamiento táctico y acondicionamiento físico de élite inspirado en la disciplina militar. Optimiza tu rendimiento con rutinas funcionales diseñadas para superar tus límites.",
       cta_primary: "INICIAR TRANSFORMACIÓN",
       cta_secondary: "VER HORARIOS"
     },
@@ -45,8 +45,8 @@ const translations = {
       vision: "Nuestra Visión",
       title: "DISCIPLINA",
       title_accent: "TÁCTICA",
-      description: "Creemos que el fitness físico es el reflejo de la fortaleza mental. Nuestros entrenamientos están diseñados para romper el ciclo de la complacencia y construir una versión inquebrantable de ti mismo.",
-      quote: "\"El foco es el arma más poderosa en el campo de batalla de tu vida diaria.\""
+      description: "Focus Box & Fitness es el estándar en entrenamiento táctico y acondicionamiento físico especializado. Nuestra metodología combina la disciplina militar con ejercicios de alto rendimiento para forjar una mentalidad y un cuerpo inquebrantables.",
+      quote: "\"El foco es el arma más poderosos en el campo de batalla de tu vida diaria.\""
     },
     programs: {
       title: "MISIONES",
@@ -121,7 +121,7 @@ const translations = {
       status: "[ ELIMINATING YOUR EXCUSES ]",
       title: "YOU ALWAYS STAY",
       subtitle: "FOCUSED",
-      description: "Tactical training inspired by military excellence. It's not just fitness, it's a radical transformation of your discipline.",
+      description: "Elite tactical training and physical conditioning inspired by military discipline. Optimize your performance with functional routines designed to exceed your limits.",
       cta_primary: "START TRANSFORMATION",
       cta_secondary: "VIEW SCHEDULE"
     },
@@ -129,7 +129,7 @@ const translations = {
       vision: "Our Vision",
       title: "TACTICAL",
       title_accent: "DISCIPLINE",
-      description: "We believe physical fitness is the reflection of mental strength. Our workouts are designed to break the cycle of complacency and build an unwavering version of yourself.",
+      description: "Focus Box & Fitness is the standard for specialized tactical training and physical conditioning. Our methodology combines military discipline with high-performance exercises to forge an unbreakable mindset and body.",
       quote: "\"Focus is the most powerful weapon on the battlefield of your daily life.\""
     },
     programs: {
