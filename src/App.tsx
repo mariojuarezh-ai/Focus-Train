@@ -18,7 +18,9 @@ import {
   MessageSquare,
   Zap,
   Target,
-  Globe
+  Globe,
+  Menu,
+  X
 } from "lucide-react";
 
 type Language = 'es' | 'en';
@@ -259,6 +261,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
 };export default function App() {
   const [currentView, setCurrentView] = useState<'home' | 'programas' | 'clases'>('home');
   const [language, setLanguage] = useState<Language>('es');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const browserLang = navigator.language.split('-')[0];
@@ -271,6 +274,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
 
   const navigateTo = (view: 'home' | 'programas' | 'clases') => {
     setCurrentView(view);
+    setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -283,16 +287,16 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
       <div className="topo-bg-pattern opacity-10" />
       
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0B0B0B]/80 backdrop-blur-md border-b border-olive/20 px-6 py-4">
+      <nav className="fixed top-0 w-full z-50 bg-[#0B0B0B]/90 backdrop-blur-md border-b border-olive/20 px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <button 
             onClick={() => navigateTo('home')}
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity z-50"
           >
-             <div className="w-10 h-10 rounded-full border-2 border-olive flex items-center justify-center overflow-hidden">
-                <Logo className="scale-[0.3]" />
+             <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-olive flex items-center justify-center overflow-hidden">
+                <Logo className="scale-[0.25] md:scale-[0.3]" />
              </div>
-             <span className="font-stencil text-2xl tracking-tighter">FOCUS BOX</span>
+             <span className="font-stencil text-xl md:text-2xl tracking-tighter">FOCUS BOX</span>
           </button>
           
           <div className="hidden md:flex items-center gap-8 text-[10px] font-black tracking-widest uppercase">
@@ -326,10 +330,72 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
             </button>
           </div>
 
-          <button className="btn-tactical px-6 py-2 text-[10px] font-black tracking-widest">
-            {t.nav.contact}
-          </button>
+          <div className="flex items-center gap-4">
+            <button className="hidden sm:block btn-tactical px-6 py-2 text-[10px] font-black tracking-widest uppercase">
+              {t.nav.contact}
+            </button>
+            
+            {/* Mobile Menu Toggle */}
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden z-50 p-2 text-olive hover:bg-olive/10 transition-colors"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Navigation Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed inset-0 bg-[#0B0B0B] z-40 flex flex-col items-center justify-center space-y-8 px-6"
+            >
+              <div className="flex flex-col items-center space-y-6 w-full max-w-sm">
+                <button 
+                  onClick={() => navigateTo('home')} 
+                  className={`stencil text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'home' ? 'text-olive' : 'text-smoke'}`}
+                >
+                  {t.nav.home}
+                </button>
+                <button 
+                  onClick={() => navigateTo('programas')} 
+                  className={`stencil text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'programas' ? 'text-olive' : 'text-smoke'}`}
+                >
+                  {t.nav.programs}
+                </button>
+                <button 
+                  onClick={() => navigateTo('clases')} 
+                  className={`stencil text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'clases' ? 'text-olive' : 'text-smoke'}`}
+                >
+                  {t.nav.presencial}
+                </button>
+                
+                <div className="w-12 h-px bg-olive/30" />
+                
+                <button 
+                  onClick={toggleLanguage}
+                  className="flex items-center gap-3 stencil text-sm text-olive hover:text-accent transition-colors"
+                >
+                  <Globe size={18} />
+                  {language === 'es' ? 'SWITCH TO ENGLISH' : 'CAMBIAR A ESPAÑOL'}
+                </button>
+
+                <button className="btn-tactical w-full py-4 stencil text-lg tracking-[0.2em]">
+                  {t.nav.contact}
+                </button>
+              </div>
+
+              {/* Decorative elements for mobile menu */}
+              <div className="absolute top-1/4 -left-12 w-64 h-64 bg-olive/5 rounded-full blur-[80px]" />
+              <div className="absolute bottom-1/4 -right-12 w-64 h-64 bg-olive/5 rounded-full blur-[80px]" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       <main className="pt-20">
@@ -364,10 +430,10 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 <div className="inline-block px-3 py-1 border border-olive text-olive text-[10px] font-black tracking-[0.4em] mb-8 animate-pulse">
                   {t.hero.status}
                 </div>
-                <h1 className="stencil text-7xl md:text-9xl leading-[0.8] mb-10">
+                <h1 className="stencil text-5xl md:text-9xl leading-[0.8] mb-10">
                   {t.hero.title}<br /> <span className="text-olive">{t.hero.subtitle}</span>
                 </h1>
-                <p className="text-lg md:text-xl text-smoke/70 max-w-2xl mx-auto mb-12 font-medium tracking-wide">
+                <p className="text-base md:text-xl text-smoke/70 max-w-2xl mx-auto mb-12 font-medium tracking-wide">
                   {t.hero.description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -448,46 +514,46 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-olive/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-olive/5 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
-              <div className="text-center mb-24 max-w-2xl mx-auto">
+            <div className="max-w-7xl mx-auto px-6 py-32 w-full relative z-10">
+              <div className="text-center mb-16 md:mb-24 max-w-2xl mx-auto">
                 <div className="inline-block px-4 py-1 border border-olive/30 text-olive text-[10px] font-black tracking-[0.5em] uppercase mb-6 rounded-full">
                   Elite Systems
                 </div>
-                <h2 className="stencil text-7xl md:text-8xl mb-6">{t.programs.title} <span className="text-olive">{t.programs.title_accent}</span></h2>
-                <div className="w-24 h-1 bg-olive mx-auto mb-8" />
-                <p className="text-smoke/60 text-sm font-medium tracking-widest uppercase">
+                <h2 className="stencil text-5xl md:text-8xl mb-6">{t.programs.title} <span className="text-olive">{t.programs.title_accent}</span></h2>
+                <div className="w-16 md:w-24 h-1 bg-olive mx-auto mb-8" />
+                <p className="text-smoke/60 text-xs md:text-sm font-medium tracking-widest uppercase px-4">
                   {t.programs.subtitle}
                 </p>
               </div>
 
-              <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
                 {/* Essential Card */}
                 <motion.article 
                   whileHover={{ y: -10 }}
-                  className="glass-card p-12 border-white/5 bg-white/[0.02] flex flex-col justify-between group hover:border-olive/40 hover:bg-white/[0.04] transition-all relative"
+                  className="glass-card p-8 md:p-12 border-white/5 bg-white/[0.02] flex flex-col justify-between group hover:border-olive/40 hover:bg-white/[0.04] transition-all relative"
                 >
-                  <div className="absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-olive opacity-20 pointer-events-none" />
+                  <div className="hidden md:block absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-olive opacity-20 pointer-events-none" />
                   
                   <div>
                     <div className="flex justify-between items-start mb-10">
                       <div>
-                        <h3 className="stencil text-5xl mb-2 text-smoke group-hover:text-olive transition-colors">{t.programs.essential.title}</h3>
+                        <h3 className="stencil text-4xl md:text-5xl mb-2 text-smoke group-hover:text-olive transition-colors">{t.programs.essential.title}</h3>
                         <div className="text-[10px] text-smoke/30 tracking-[0.2em] font-black uppercase">{t.programs.essential.phase}</div>
                       </div>
-                      <div className="w-16 h-16 rounded-full border border-smoke/10 flex items-center justify-center group-hover:border-olive transition-all">
-                        <Target size={28} className="text-smoke/20 group-hover:text-olive transition-colors" />
+                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-smoke/10 flex items-center justify-center group-hover:border-olive transition-all">
+                        <Target size={24} className="text-smoke/20 group-hover:text-olive transition-colors" />
                       </div>
                     </div>
 
-                    <div className="flex items-baseline gap-2 mb-12">
-                      <span className="text-6xl font-black text-smoke">{t.programs.essential.price}</span>
-                      <span className="text-lg opacity-30 font-bold uppercase tracking-widest">{t.programs.essential.unit}</span>
+                    <div className="flex items-baseline gap-2 mb-8 md:mb-12">
+                      <span className="text-5xl md:text-6xl font-black text-smoke">{t.programs.essential.price}</span>
+                      <span className="text-sm md:text-lg opacity-30 font-bold uppercase tracking-widest">{t.programs.essential.unit}</span>
                     </div>
 
-                    <ul className="space-y-5 mb-16 text-sm font-medium tracking-wide">
+                    <ul className="space-y-4 md:space-y-5 mb-12 md:mb-16 text-xs md:text-sm font-medium tracking-wide">
                       {t.programs.essential.features.map((item, i) => (
-                        <li key={i} className="flex items-center gap-4 group/item">
-                          <div className="w-2 h-2 rounded-full bg-olive/30 group-hover/item:bg-olive transition-all" />
+                        <li key={i} className="flex items-center gap-3 md:gap-4 group/item">
+                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-olive/30 group-hover/item:bg-olive transition-all" />
                           <span className="opacity-60 group-hover:opacity-100 transition-opacity">{item}</span>
                         </li>
                       ))}
@@ -502,34 +568,34 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 {/* Focused Card - Elite */}
                 <motion.article 
                   whileHover={{ y: -10 }}
-                  className="glass-card p-12 border-olive bg-olive/[0.03] flex flex-col justify-between relative shadow-[0_30px_60px_-15px_rgba(118,132,85,0.15)] group hover:bg-olive/[0.06] transition-all"
+                  className="glass-card p-8 md:p-12 border-olive bg-olive/[0.03] flex flex-col justify-between relative shadow-[0_30px_60px_-15px_rgba(118,132,85,0.15)] group hover:bg-olive/[0.06] transition-all"
                 >
-                  <div className="absolute top-0 right-0 bg-olive text-black text-[9px] font-black px-6 py-2 tracking-widest uppercase">
+                  <div className="absolute top-0 right-0 bg-olive text-black text-[9px] font-black px-4 md:px-6 py-2 tracking-widest uppercase">
                     {t.programs.focused.badge}
                   </div>
-                  <div className="absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-olive opacity-50 pointer-events-none" />
+                  <div className="hidden md:block absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-olive opacity-50 pointer-events-none" />
 
                   <div>
                     <div className="flex justify-between items-start mb-10">
                       <div>
-                        <h3 className="stencil text-5xl mb-2 text-olive">{t.programs.focused.title}</h3>
+                        <h3 className="stencil text-4xl md:text-5xl mb-2 text-olive">{t.programs.focused.title}</h3>
                         <div className="text-[10px] text-olive/50 tracking-[0.2em] font-black uppercase">{t.programs.focused.phase}</div>
                       </div>
-                      <div className="w-16 h-16 rounded-full border border-olive/30 flex items-center justify-center bg-olive/10">
-                        <Zap size={28} className="text-olive fill-olive/20" />
+                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-olive/30 flex items-center justify-center bg-olive/10">
+                        <Zap size={24} className="text-olive fill-olive/20" />
                       </div>
                     </div>
 
                     <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-6xl font-black text-olive">{t.programs.focused.price}</span>
-                      <span className="text-lg opacity-40 font-bold uppercase tracking-widest text-olive">{t.programs.focused.unit}</span>
+                      <span className="text-5xl md:text-6xl font-black text-olive">{t.programs.focused.price}</span>
+                      <span className="text-sm md:text-lg opacity-40 font-bold uppercase tracking-widest text-olive">{t.programs.focused.unit}</span>
                     </div>
-                    <div className="text-sm line-through opacity-20 mb-12 font-black tracking-widest">{t.programs.focused.old_price}</div>
+                    <div className="text-xs md:text-sm line-through opacity-20 mb-8 md:mb-12 font-black tracking-widest">{t.programs.focused.old_price}</div>
 
-                    <ul className="space-y-5 mb-16 text-sm font-bold tracking-wide">
+                    <ul className="space-y-4 md:space-y-5 mb-12 md:mb-16 text-xs md:text-sm font-bold tracking-wide">
                       {t.programs.focused.features.map((item, i) => (
-                        <li key={i} className="flex items-center gap-4">
-                          <Zap size={16} className="text-olive shrink-0 fill-olive" />
+                        <li key={i} className="flex items-center gap-3 md:gap-4">
+                          <Zap size={14} className="text-olive shrink-0 fill-olive" />
                           <span className="text-smoke">{item}</span>
                         </li>
                       ))}
