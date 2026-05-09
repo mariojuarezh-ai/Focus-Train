@@ -6,6 +6,7 @@
     <title>Focus Box & Fitness | Entrenamiento Táctico y Acondicionamiento Físico</title>
     <meta name="description" content="Entrenamiento táctico y acondicionamiento físico de élite. Focus Box & Fitness: disciplina militar y rutinas de alto rendimiento para Hyrox y fitness funcional.">
     <meta name="keywords" content="entrenamiento táctico, acondicionamiento físico, disciplina militar, fitness funcional, Hyrox México, Focus Box, alto rendimiento, rutinas de ejercicio">
+    <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
     
     <!-- JSON-LD Schema Markup -->
     <script type="application/ld+json">
@@ -62,6 +63,76 @@
         .lang-switch:hover {
             background: var(--primary);
             color: var(--bg);
+        }
+
+        /* Spotify Widget Styles */
+        .music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            background: rgba(118, 132, 85, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .music-toggle:hover {
+            background: var(--primary);
+            color: var(--bg);
+            transform: scale(1.1);
+        }
+        .music-widget {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 1000;
+            width: 320px;
+            background: rgba(11, 11, 11, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--primary);
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+        }
+        .music-widget.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+        .music-toggle.hidden-fab {
+            transform: scale(0) rotate(-90deg);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .music-header {
+            font-size: 8px;
+            font-weight: 900;
+            letter-spacing: 0.3em;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(118, 132, 85, 0.2);
+            padding-bottom: 5px;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
     <script>
@@ -135,6 +206,17 @@
             localStorage.setItem('focus-lang', currentLang);
         }
 
+        function toggleMusic() {
+            const widget = document.getElementById('spotify-widget');
+            widget.classList.toggle('open');
+        }
+
+        function closeMusic() {
+            const widget = document.getElementById('spotify-widget');
+            widget.classList.remove('open');
+            document.getElementById('spotify-fab').style.display = 'none';
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('focus-lang');
             if (savedLang) {
@@ -168,13 +250,21 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
         <span>EN</span>
     </button>
-            --primary: #768455;
-            --bg: #0B0B0B;
-            --smoke: #F2F2F2;
-            --accent: #A3B18A;
-            --glass: rgba(118, 132, 85, 0.05);
-            --glass-border: rgba(118, 132, 85, 0.2);
-        }
+
+    <div id="spotify-widget" class="music-widget">
+        <div class="music-header">
+            <span>Audio Intel // Comms</span>
+            <div style="display: flex; gap: 10px;">
+                <span style="cursor:pointer; opacity: 0.8;" onclick="toggleMusic()" title="Minimizar">—</span>
+                <span style="cursor:pointer; opacity: 0.5;" onclick="closeMusic()" title="Cerrar">✕</span>
+            </div>
+        </div>
+        <iframe style="border-radius:2px" src="https://open.spotify.com/embed/playlist/7ke8MsoH2gF3zNguHGKU38?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    
+    <button id="spotify-fab" class="music-toggle" onclick="toggleMusic()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+    </button>
 
         * {
             margin: 0;
@@ -801,8 +891,72 @@
             </div>
         </div>
     </header>
+    <div style="background: var(--bg); overflow: hidden;">
+    <!-- Vision Section -->
+    <section id="about" class="section-padding" style="padding: 100px 0;">
+        <div class="container" style="display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center;">
+            <style>
+                #about .container { max-width: 1000px; }
+                @media (min-width: 768px) {
+                    #about .container { grid-template-columns: 1fr 1fr !important; }
+                }
+                .vision-img-container {
+                    position: relative;
+                    min-height: 400px;
+                    background: rgba(118, 132, 85, 0.05);
+                    border: 1px solid rgba(118, 132, 85, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                }
+                @media (min-width: 768px) {
+                    .vision-img-container { min-height: 500px; }
+                }
+                .vision-img-container img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                    transition: 0.7s ease;
+                }
+                .vision-img-container:hover img {
+                    transform: scale(1.05);
+                }
+            </style>
+            <div class="fade-in">
+                <div class="pre-title">Nuestra Visión</div>
+                <h2 class="stencil">DISCIPLINA <span style="color: var(--primary);">TÁCTICA</span></h2>
+                <div style="border-left: 4px solid var(--primary); padding-left: 30px; margin-top: 30px;">
+                    <p style="opacity: 0.8; font-weight: 500; line-height: 1.8;">Focus Box & Fitness es el estándar en entrenamiento táctico y acondicionamiento físico especializado. Nuestra metodología combina la disciplina militar con ejercicios de alto rendimiento para forjar una mentalidad y un cuerpo inquebrantables.</p>
+                    <p style="opacity: 0.6; font-size: 14px; font-style: italic; margin-top: 20px;">"El foco es el arma más poderosos en el campo de batalla de tu vida diaria."</p>
+                </div>
+            </div>
+            <div class="vision-img-container fade-in">
+                <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOCUS%20GYM.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT0NVUyBHWU0ucG5nIiwiaWF0IjoxNzc4MzM2NjIyLCJleHAiOjE5MzYwMTY2MjJ9.ZdcNJvfHmDTvRbUylf_bQnDcNgSGUnwSjqxUqUP5tAw" alt="Focus Box Tactical Gym">
+            </div>
+        </div>
+    </section>
+    </div>
 
-    <!-- Pricing Section -->
+    <!-- Instagram Intel Feed -->
+    <section id="intel" class="section-padding" style="background: transparent;">
+        <div class="container">
+            <div class="section-title fade-in text-center" style="margin-bottom: 60px; text-align: center;">
+                <div class="pre-title">RECON DIVISION</div>
+                <h2 class="stencil">FEED DE <span style="color: var(--primary);">INTELIGENCIA</span></h2>
+                <p style="opacity: 0.6; font-size: 14px; text-transform: uppercase; margin-top: 10px;">Actividad reciente en el campo de entrenamiento.</p>
+            </div>
+            
+            <div class="fade-in" style="background: rgba(0,0,0,0.4); border: 1px solid rgba(118,132,85,0.2); padding: 20px; border-radius: 4px; backdrop-filter: blur(10px);">
+                <rssapp-carousel id="IeEWIwn3AuyEJncT"></rssapp-carousel>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;" class="fade-in">
+                <a href="https://www.instagram.com/focusboxfitness/" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 900; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid rgba(118, 132, 85, 0.3); padding-bottom: 5px;">Sigue la Operación en Instagram</a>
+            </div>
+        </div>
+    </section>
+
     <section id="pricing" class="section-padding">
         <div class="pricing-bg">
             <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOCUS%20FONDO%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT0NVUyBGT05ETyAyLnBuZyIsImlhdCI6MTc3NzE3ODg4MSwiZXhwIjoxOTM0ODU4ODgxfQ.qmblZXD7GNMVfg8MK4RWmWrBzlPEwcBtr4jaaAMM1Rs" alt="Entrenamiento táctico Focus Box fitness pesas kettlebells" style="opacity: 0.4;">
@@ -927,6 +1081,35 @@
                         <div class="sub">$110 x clase</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section-padding" style="border-top: 1px solid rgba(118, 132, 85, 0.1); border-bottom: 1px solid rgba(118, 132, 85, 0.1); text-align: center; background: transparent;">
+        <div class="container" style="max-width: 800px;">
+            <div class="fade-in" style="margin-bottom: 50px;">
+                <div style="position: relative; min-height: 400px; max-width: 900px; margin: 0 auto; overflow: hidden; border-radius: 2px; border: 1px solid rgba(118, 132, 85, 0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5); background: rgba(0,0,0,0.2);">
+                    <img 
+                        src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20FOCUS%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEZPQ1VTIDIucG5nIiwiaWF0IjoxNzc4MzM4NzU1LCJleHAiOjE5MzYwMTg3NTV9.03XM2TbkP_bk-KJPpTF1-C-9rF6U8kNl07IYlPNjuoI" 
+                        alt="Determinación Focus Box" 
+                        style="width: 100%; height: auto; display: block; filter: none;"
+                    >
+                </div>
+            </div>
+            
+            <div class="fade-in" style="margin-top: 40px;">
+                <div style="display: flex; justify-content: center; gap: 8px; margin-bottom: 30px;">
+                    <span style="color: var(--primary);">✦</span>
+                    <span style="color: var(--primary);">✦</span>
+                    <span style="color: var(--primary);">✦</span>
+                    <span style="color: var(--primary);">✦</span>
+                    <span style="color: var(--primary);">✦</span>
+                </div>
+                <blockquote class="stencil" style="font-size: clamp(1.5rem, 4vw, 2.5rem); line-height: 1.2; color: var(--smoke); margin-bottom: 20px;">
+                    "La diferencia entre lo imposible y lo posible reside en la determinación de una persona."
+                </blockquote>
+                <div style="font-size: 10px; font-weight: 900; letter-spacing: 0.5em; color: var(--primary); text-transform: uppercase;">FOCUS BOX COMMUNITY</div>
             </div>
         </div>
     </section>

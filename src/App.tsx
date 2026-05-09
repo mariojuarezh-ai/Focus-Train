@@ -20,7 +20,9 @@ import {
   Target,
   Globe,
   Menu,
-  X
+  X,
+  Music,
+  Minus
 } from "lucide-react";
 
 type Language = 'es' | 'en';
@@ -108,6 +110,11 @@ const translations = {
       map: "Mapa Base",
       contact_title: "Contacto Inmediato",
       rights: "© 2026 FOCUS BOX & FITNESS // TODOS LOS DERECHOS RESERVADOS // ALPHA DIVISION"
+    },
+    intel: {
+      title: "FEED DE",
+      title_accent: "INTELIGENCIA",
+      subtitle: "Actividad reciente en el campo de entrenamiento."
     }
   },
   en: {
@@ -192,6 +199,11 @@ const translations = {
       map: "Base Map",
       contact_title: "Immediate Contact",
       rights: "© 2026 FOCUS BOX & FITNESS // ALL RIGHTS RESERVED // ALPHA DIVISION"
+    },
+    intel: {
+      title: "INTEL",
+      title_accent: "FEED",
+      subtitle: "Recent activity from the training grounds."
     }
   }
 };
@@ -262,6 +274,71 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
   const [currentView, setCurrentView] = useState<'home' | 'programas' | 'clases'>('home');
   const [language, setLanguage] = useState<Language>('es');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMusicOpen, setIsMusicOpen] = useState(false);
+  const [showMusicFab, setShowMusicFab] = useState(true);
+  const [spotifyUser, setSpotifyUser] = useState<any>(null);
+  const [spotifyToken, setSpotifyToken] = useState<string | null>(localStorage.getItem('spotify_token'));
+
+  useEffect(() => {
+    // Listen for Spotify Auth success message
+    const handleSpotifyMessage = (event: MessageEvent) => {
+      if (event.data?.type === 'SPOTIFY_AUTH_SUCCESS') {
+        const { access_token } = event.data.payload;
+        setSpotifyToken(access_token);
+        localStorage.setItem('spotify_token', access_token);
+        fetchSpotifyProfile(access_token);
+      }
+    };
+
+    window.addEventListener('message', handleSpotifyMessage);
+    return () => window.removeEventListener('message', handleSpotifyMessage);
+  }, []);
+
+  const fetchSpotifyProfile = async (token: string) => {
+    try {
+      const response = await fetch('/api/spotify/me', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setSpotifyUser(data);
+      } else if (response.status === 401) {
+        setSpotifyToken(null);
+        localStorage.removeItem('spotify_token');
+        setSpotifyUser(null);
+      }
+    } catch (err) {
+      console.error("Failed to fetch Spotify profile:", err);
+    }
+  };
+
+  useEffect(() => {
+    if (spotifyToken) {
+      fetchSpotifyProfile(spotifyToken);
+    }
+  }, []);
+
+  const loginWithSpotify = async () => {
+    try {
+      const response = await fetch('/api/auth/spotify/url');
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to get auth URL");
+      }
+      const { url } = await response.json();
+      if (!url) throw new Error("Auth URL is empty");
+      window.open(url, 'spotify_login', 'width=600,height=800');
+    } catch (err) {
+      console.error("Failed to start Spotify login:", err);
+      alert("Error: Asegúrate de configurar SPOTIFY_CLIENT_ID y SPOTIFY_CLIENT_SECRET en la configuración del proyecto.");
+    }
+  };
+
+  const logoutSpotify = () => {
+    setSpotifyToken(null);
+    setSpotifyUser(null);
+    localStorage.removeItem('spotify_token');
+  };
 
   useEffect(() => {
     // Phase 1: Robust Browser Language Detection
@@ -353,7 +430,16 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
             </button>
           </div>
 
-          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4">
+            <button 
+              onClick={() => {
+                setIsMusicOpen(true);
+                setShowMusicFab(true);
+              }}
+              className="hidden sm:flex items-center gap-2 text-olive hover:text-accent transition-colors px-3 font-black tracking-[0.2em] text-[10px]"
+            >
+              <Music size={14} /> COMMS
+            </button>
             <button className="hidden sm:block btn-tactical px-6 py-2 text-[10px] font-black tracking-widest uppercase">
               {t.nav.contact}
             </button>
@@ -420,6 +506,75 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
           )}
         </AnimatePresence>
       </nav>
+
+        {/* Tactical Spotify Player */}
+        <div className={`fixed bottom-6 right-6 z-[60] flex flex-col items-end transition-all duration-500 ${showMusicFab ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}>
+          <div className={`mb-4 w-[300px] md:w-[350px] glass-card border-olive/30 p-2 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.7)] transition-all duration-300 transform ${isMusicOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-10 pointer-events-none'}`}>
+            <div className="flex justify-between items-center px-2 py-1 mb-2 border-b border-olive/10">
+              <div className="flex items-center gap-2">
+                {spotifyUser ? (
+                  <div className="flex items-center gap-2">
+                    {spotifyUser.images?.[0]?.url && (
+                      <img src={spotifyUser.images[0].url} alt="" className="w-4 h-4 rounded-full border border-olive/30" />
+                    )}
+                    <span className="text-[8px] font-black tracking-widest text-olive uppercase truncate max-w-[100px]">
+                      {spotifyUser.display_name}
+                    </span>
+                    <button onClick={logoutSpotify} className="text-[7px] text-red-400/60 hover:text-red-400 transition-colors uppercase font-bold">Close Session</button>
+                  </div>
+                ) : (
+                  <button 
+                    onClick={loginWithSpotify}
+                    className="text-[8px] font-black tracking-widest text-[#1DB954] hover:text-white transition-colors uppercase border border-[#1DB954]/30 px-2 py-0.5 rounded-full"
+                  >
+                    Sync Spotify
+                  </button>
+                )}
+              </div>
+              <div className="flex items-center gap-3">
+                <button 
+                  onClick={() => setIsMusicOpen(false)} 
+                  className="text-olive hover:text-accent transition-colors p-1"
+                  title="Minimizar"
+                >
+                  <Minus size={14} />
+                </button>
+                <button 
+                  onClick={() => {
+                    setIsMusicOpen(false);
+                    setShowMusicFab(false);
+                  }} 
+                  className="text-olive/50 hover:text-red-400 transition-colors p-1"
+                  title="Cerrar"
+                >
+                  <X size={14} />
+                </button>
+              </div>
+            </div>
+            <iframe 
+              style={{ borderRadius: '4px' }} 
+              src={`https://open.spotify.com/embed/playlist/7ke8MsoH2gF3zNguHGKU38?utm_source=generator&theme=0${spotifyToken ? '&access_token=' + spotifyToken : ''}`} 
+              width="100%" 
+              height="352" 
+              frameBorder="0" 
+              allowFullScreen 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy"
+            ></iframe>
+          </div>
+          
+          <motion.button
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsMusicOpen(!isMusicOpen)}
+            className={`w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl ${
+              isMusicOpen ? 'bg-olive border-olive text-black' : 'bg-black/80 backdrop-blur-md border-olive/40 text-olive hover:border-olive'
+            }`}
+          >
+            {isMusicOpen ? <X size={24} /> : <Music size={24} className={isMusicOpen ? '' : 'animate-pulse text-olive'} />}
+          </motion.button>
+        </div>
+      {/* End Spotify Player */}
 
       <main className="pt-20">
         {currentView === 'home' && (
@@ -498,17 +653,44 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                     </div>
                   </motion.div>
                   <div className="relative">
-                    <div className="aspect-[4/5] bg-olive/10 border-2 border-olive/20 overflow-hidden rounded-sm group">
-                      <Logo className="absolute inset-0 m-auto scale-150 opacity-10 group-hover:opacity-30 transition-opacity" />
+                    <div className="aspect-auto min-h-[400px] md:min-h-[500px] bg-olive/5 border-2 border-olive/10 overflow-hidden rounded-sm group flex items-center justify-center">
                       <img 
-                        src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20FOCUS%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEZPQ1VTIDEucG5nIiwiaWF0IjoxNzc3MTc1NzU3LCJleHAiOjE3Nzc2MDc3NTd9.-DgsYnnIhLYkHObs6GHIuUcwrG11t4Vz7FD1TN0QeAY" 
+                        src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOCUS%20GYM.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT0NVUyBHWU0ucG5nIiwiaWF0IjoxNzc4MzM2NjIyLCJleHAiOjE5MzYwMTY2MjJ9.ZdcNJvfHmDTvRbUylf_bQnDcNgSGUnwSjqxUqUP5tAw" 
                         alt="Tactical Discipline" 
-                        className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-700" 
+                        className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105" 
                         referrerPolicy="no-referrer" 
                       />
                     </div>
-                    <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r-4 border-b-4 border-olive opacity-20" />
+                    <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r-4 border-b-4 border-olive opacity-20 hidden md:block" />
                   </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Instagram Intel Feed */}
+            <section id="intel" className="py-32 px-6">
+              <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-16">
+                  <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">RECON DIVISION</div>
+                  <h2 className="stencil text-5xl md:text-7xl mb-6">{t.intel.title} <span className="text-olive">{t.intel.title_accent}</span></h2>
+                  <p className="text-smoke/60 text-sm font-medium tracking-widest uppercase">{t.intel.subtitle}</p>
+                </div>
+                
+                <div className="glass-card border-olive/20 p-4 bg-black/40">
+                  {/* @ts-ignore */}
+                  <rssapp-carousel id="IeEWIwn3AuyEJncT"></rssapp-carousel>
+                </div>
+
+                <div className="mt-12 text-center">
+                  <a 
+                    href="https://www.instagram.com/focusboxfitness/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 text-olive hover:text-accent transition-colors font-black tracking-widest text-[10px] uppercase border-b border-olive/30 pb-1"
+                  >
+                    Sigue la Operación en Instagram
+                    <span className="w-1.5 h-1.5 rounded-full bg-olive animate-pulse" />
+                  </a>
                 </div>
               </div>
             </section>
@@ -696,14 +878,25 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
 
       {/* Trust Section */}
       <section className="py-24 border-y border-olive/10 text-center px-6">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <div className="flex justify-center gap-2">
-            {[1, 2, 3, 4, 5].map(i => <Zap key={i} className="text-olive fill-olive" size={16} />)}
+        <div className="max-w-4xl mx-auto space-y-12">
+          <div className="relative min-h-[400px] md:min-h-[600px] w-full max-w-4xl mx-auto overflow-hidden rounded-sm border border-olive/10 shadow-2xl bg-black/20">
+            <img 
+              src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20FOCUS%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEZPQ1VTIDIucG5nIiwiaWF0IjoxNzc4MzM4NzU1LCJleHAiOjE5MzYwMTg3NTV9.03XM2TbkP_bk-KJPpTF1-C-9rF6U8kNl07IYlPNjuoI" 
+              alt="Determinación Focus Box" 
+              className="w-full h-full object-contain transition-all duration-700"
+              referrerPolicy="no-referrer"
+            />
           </div>
-          <blockquote className="stencil text-2xl md:text-4xl leading-tight">
-            {t.quote.text}
-          </blockquote>
-          <div className="text-[10px] font-black tracking-[0.5em] text-olive uppercase">{t.quote.community}</div>
+          
+          <div className="max-w-3xl mx-auto space-y-8">
+            <div className="flex justify-center gap-2">
+              {[1, 2, 3, 4, 5].map(i => <Zap key={i} className="text-olive fill-olive" size={16} />)}
+            </div>
+            <blockquote className="stencil text-2xl md:text-4xl leading-tight text-smoke">
+              {t.quote.text}
+            </blockquote>
+            <div className="text-[10px] font-black tracking-[0.5em] text-olive uppercase">{t.quote.community}</div>
+          </div>
         </div>
       </section>
 
