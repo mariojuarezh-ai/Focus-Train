@@ -24,6 +24,11 @@ import {
   Music,
   Minus
 } from "lucide-react";
+import { HyroxGuide } from "./components/HyroxGuide";
+import { StenfitGuide } from "./components/StenfitGuide";
+
+import { Testimonials } from './components/Testimonials';
+import { FAQ } from './components/FAQ';
 
 type Language = 'es' | 'en';
 
@@ -33,6 +38,8 @@ const translations = {
       home: "Inicio",
       programs: "Programas",
       presencial: "Presencial",
+      hyrox: "Hyrox Training",
+      stenfit: "Stenfit",
       contact: "CONTACTAR"
     },
     hero: {
@@ -57,15 +64,17 @@ const translations = {
       essential: {
         title: "ESSENTIAL",
         phase: "Phase 01: Core Systems",
-        price: "$250",
+        price: "$300",
         unit: "MXN / Mes",
+        description: "El plan ESSENTIAL es ideal para gente que busca un plan personalizado con lo necesario para avanzar en sus objetivos",
         features: [
-          "Protocolo de Valoración Inicial",
-          "Plan Operativo Personalizado",
-          "Acceso Total a Plataforma FOCUS",
-          "Manual de Hábitos de Rendimiento",
-          "Optimización de Nutrición Básica",
-          "Soporte Estratégico Mensual"
+          "Valoración inicial",
+          "Plan personalizado a tus objetivos",
+          "Acceso ilimitado a la app",
+          "PDF de regalo con conceptos básicos para tu plan",
+          "Checklist de regalo \"hábitos diarios\" (formato descargable)",
+          "Seguimiento y ajustes de plan 1 vez por mes",
+          "Interacción vía WA solo en horario establecido (L-V de 6-8 pm)"
         ],
         cta: "INICIAR PROTOCOLO"
       },
@@ -74,20 +83,40 @@ const translations = {
         phase: "Phase 02: Elite Ops",
         badge: "Most Active Mission",
         price: "$500",
-        old_price: "$700 MXN",
+        old_price: "$700",
         unit: "MXN / Mes",
+        description: "El plan FOCUSED no solo es entrenamiento, es acompañamiento en tiempo real que garantiza resultados",
         features: [
-          "Todo en el Protocolo Essential",
-          "Monitoreo Diario de Biométricos",
-          "Análisis de Técnica Operativa",
-          "Módulos Exclusivos (Hyrox/Abs)",
-          "Sesión Táctica 1:1 Semanal",
-          "Soporte Inmediato 24/7"
+          "Valoración inicial + ajustes constantes",
+          "Plan personalizado a tus objetivos",
+          "Acceso ilimitado a la app",
+          "PDF de regalo con conceptos básicos para tu plan",
+          "Checklist de regalo \"hábitos diarios\" (formato descargable)",
+          "Seguimiento diario y modificaciones/ajustes semanales",
+          "Interacción vía WA (dudas, cambios, videos, etc...) sin restricciones de horario",
+          "Revisión técnica de ejercicios",
+          "Acceso prioritario a mensajes",
+          "Material exclusivo (retos hyrox, rutinas abs, consejos fit)",
+          "Agenda de sesión 1:1 online (videollamada 10-15 de revisión)"
         ],
         cta: "MAXIMIZAR RENDIMIENTO"
+      },
+      offers: {
+        title: "OFERTAS ESPECIALES",
+        items: [
+          {
+            title: "PRUÉBALO GRATIS",
+            description: "Toma la decisión hoy y recibe 2 semanas de prueba del plan FOCUSED."
+          },
+          {
+            title: "REFIERE A UN AMIGO",
+            description: "Por cada referido recibe un 10% de descuento."
+          }
+        ]
       }
     },
     clases: {
+      subtitle: "Ubicación Física",
       title: "CLASES",
       title_accent: "PRESENCIALES",
       individual_title: "Operación Individual",
@@ -114,7 +143,13 @@ const translations = {
     intel: {
       title: "FEED DE",
       title_accent: "INTELIGENCIA",
-      subtitle: "Actividad reciente en el campo de entrenamiento."
+      subtitle: "Actividad reciente en el campo de entrenamiento.",
+      instagram_link: "Sigue la Operación en Instagram"
+    },
+    ui: {
+      minimize: "Minimizar",
+      close: "Cerrar",
+      branding: "ALPHA OPERATIONAL SYSTEM V2.5"
     }
   },
   en: {
@@ -122,6 +157,8 @@ const translations = {
       home: "Home",
       programs: "Programs",
       presencial: "On-site",
+      hyrox: "Hyrox Training",
+      stenfit: "Stenfit",
       contact: "CONTACT"
     },
     hero: {
@@ -146,15 +183,17 @@ const translations = {
       essential: {
         title: "ESSENTIAL",
         phase: "Phase 01: Core Systems",
-        price: "$250",
-        unit: "MXN / Month",
+        price: "$30",
+        unit: "USD / Month",
+        description: "The ESSENTIAL plan is ideal for people looking for a personalized plan with what's necessary to advance in their goals",
         features: [
-          "Initial Assessment Protocol",
-          "Personalized Operation Plan",
-          "Full Access to FOCUS Platform",
-          "Performance Habits Manual",
-          "Basic Nutrition Optimization",
-          "Monthly Strategic Support"
+          "Initial assessment",
+          "Personalized plan tailored to your goals",
+          "Unlimited access to the app",
+          "Complimentary PDF with basic concepts for your plan",
+          "Complimentary 'daily habits' checklist (downloadable format)",
+          "Tracking and plan adjustments once a month",
+          "WA interaction only during set hours (Mon-Fri 6-8 pm)"
         ],
         cta: "START PROTOCOL"
       },
@@ -162,21 +201,41 @@ const translations = {
         title: "FOCUSED",
         phase: "Phase 02: Elite Ops",
         badge: "Most Active Mission",
-        price: "$500",
-        old_price: "$700 MXN",
-        unit: "MXN / Month",
+        price: "$50",
+        old_price: "$70",
+        unit: "USD / Month",
+        description: "The FOCUSED plan is not just training; it's real-time accompaniment that guarantees results",
         features: [
-          "All in Essential Protocol",
-          "Daily Biometric Monitoring",
-          "Operational Technique Analysis",
-          "Exclusive Modules (Hyrox/Abs)",
-          "1:1 Weekly Tactical Session",
-          "24/7 Immediate Support"
+          "Initial assessment + constant adjustments",
+          "Personalized plan tailored to your goals",
+          "Unlimited access to the app",
+          "Complimentary PDF with basic concepts for your plan",
+          "Complimentary 'daily habits' checklist (downloadable format)",
+          "Daily tracking and weekly modifications/adjustments",
+          "WA interaction (questions, changes, videos, etc...) with no time restrictions",
+          "Technical review of exercises",
+          "Priority message access",
+          "Exclusive material (hyrox challenges, abs routines, fit tips)",
+          "1:1 online session scheduling (10-15 min review video call)"
         ],
         cta: "MAXIMIZE PERFORMANCE"
+      },
+      offers: {
+        title: "SPECIAL OFFERS",
+        items: [
+          {
+            title: "TRY IT FOR FREE",
+            description: "Make the decision today and receive 2 weeks trial of the FOCUSED plan."
+          },
+          {
+            title: "REFER A FRIEND",
+            description: "For each referral, receive a 10% discount."
+          }
+        ]
       }
     },
     clases: {
+      subtitle: "Physical Location",
       title: "ON-SITE",
       title_accent: "CLASSES",
       individual_title: "Individual Operation",
@@ -203,7 +262,13 @@ const translations = {
     intel: {
       title: "INTEL",
       title_accent: "FEED",
-      subtitle: "Recent activity from the training grounds."
+      subtitle: "Recent activity from the training grounds.",
+      instagram_link: "Follow the Operation on Instagram"
+    },
+    ui: {
+      minimize: "Minimize",
+      close: "Close",
+      branding: "ALPHA OPERATIONAL SYSTEM V2.5"
     }
   }
 };
@@ -271,7 +336,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
     </form>
   );
 };export default function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'programas' | 'clases'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'programas' | 'clases' | 'hyrox' | 'stenfit'>('home');
   const [language, setLanguage] = useState<Language>('es');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMusicOpen, setIsMusicOpen] = useState(false);
@@ -372,7 +437,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
 
   const t = translations[language];
 
-  const navigateTo = (view: 'home' | 'programas' | 'clases') => {
+  const navigateTo = (view: 'home' | 'programas' | 'clases' | 'hyrox') => {
     setCurrentView(view);
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -399,33 +464,70 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
              <span className="font-stencil text-xl md:text-2xl tracking-tighter">FOCUS BOX</span>
           </button>
           
-          <div className="hidden md:flex items-center gap-8 text-[10px] font-black tracking-widest uppercase">
+          <div className="hidden md:flex items-center gap-6">
+            
+            {/* Dynamic Menu Dropdown */}
+            <div className="relative group">
+              <button className="flex items-center gap-2 hover:text-olive transition-colors font-black tracking-widest uppercase text-[15px] py-2">
+                <Menu size={18} />
+                <span>{language === 'es' ? 'MENÚ' : 'MENU'}</span>
+              </button>
+              
+              {/* Dropdown Content */}
+              <div className="absolute top-full left-0 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 w-56">
+                <div className="bg-[#0B0B0B]/95 backdrop-blur-xl border border-olive/20 rounded-sm p-5 flex flex-col gap-6 shadow-2xl relative overflow-hidden">
+                  {/* Tactical decorative elements */}
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-olive/10 blur-xl rounded-full" />
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-olive/20" />
+                  
+                  <button 
+                    onClick={() => navigateTo('home')} 
+                    className={`text-left text-sm font-black tracking-widest uppercase hover:text-olive transition-colors flex items-center justify-between group/item ${currentView === 'home' ? 'text-olive' : 'text-smoke/80'}`}
+                  >
+                    <span>{t.nav.home}</span>
+                    <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'home' ? 'opacity-100 translate-x-0' : ''}`} />
+                  </button>
+                  <button 
+                    onClick={() => navigateTo('programas')} 
+                    className={`text-left text-sm font-black tracking-widest uppercase hover:text-olive transition-colors flex items-center justify-between group/item ${currentView === 'programas' ? 'text-olive' : 'text-smoke/80'}`}
+                  >
+                    <span>{t.nav.programs}</span>
+                    <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'programas' ? 'opacity-100 translate-x-0' : ''}`} />
+                  </button>
+                  <button 
+                    onClick={() => navigateTo('hyrox')} 
+                    className={`text-left text-sm font-black tracking-widest uppercase hover:text-olive transition-colors flex items-center justify-between group/item ${currentView === 'hyrox' ? 'text-olive' : 'text-smoke/80'}`}
+                  >
+                    <span>{t.nav.hyrox}</span>
+                    <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'hyrox' ? 'opacity-100 translate-x-0' : ''}`} />
+                  </button>
+                  <button 
+                    onClick={() => navigateTo('clases')} 
+                    className={`text-left text-sm font-black tracking-widest uppercase hover:text-olive transition-colors flex items-center justify-between group/item ${currentView === 'clases' ? 'text-olive' : 'text-smoke/80'}`}
+                  >
+                    <span>{t.nav.presencial}</span>
+                    <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'clases' ? 'opacity-100 translate-x-0' : ''}`} />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="h-4 w-px bg-olive/20 mx-2" />
+
             <button 
-              onClick={() => navigateTo('home')} 
-              className={`hover:text-olive transition-colors ${currentView === 'home' ? 'text-olive' : ''}`}
+              onClick={() => navigateTo('stenfit')} 
+              className={`hover:text-olive transition-colors flex items-center justify-center ${currentView === 'stenfit' ? 'text-olive' : ''}`}
             >
-              {t.nav.home}
-            </button>
-            <button 
-              onClick={() => navigateTo('programas')} 
-              className={`hover:text-olive transition-colors ${currentView === 'programas' ? 'text-olive' : ''}`}
-            >
-              {t.nav.programs}
-            </button>
-            <button 
-              onClick={() => navigateTo('clases')} 
-              className={`hover:text-olive transition-colors ${currentView === 'clases' ? 'text-olive' : ''}`}
-            >
-              {t.nav.presencial}
+              <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/STENFIT.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9TVEVORklULnBuZyIsImlhdCI6MTc3ODk5Mjk3MSwiZXhwIjoxOTM2NjcyOTcxfQ.Fb1lNFaN34GL7k0h08NY31eA2BMaGveAMofNrSxvL7Q" alt="Stenfit" className={`h-4 lg:h-5 transition-opacity ${currentView === 'stenfit' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`} />
             </button>
             
             <div className="h-4 w-px bg-olive/20 mx-2" />
             
             <button 
               onClick={toggleLanguage}
-              className="flex items-center gap-2 hover:text-olive transition-colors group"
+              className="flex items-center gap-2 hover:text-olive transition-colors group font-black tracking-widest text-[15px] uppercase"
             >
-              <Globe size={12} className="group-hover:rotate-12 transition-transform" />
+              <Globe size={14} className="group-hover:rotate-12 transition-transform" />
               {language === 'es' ? 'EN' : 'ES'}
             </button>
           </div>
@@ -436,11 +538,11 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 setIsMusicOpen(true);
                 setShowMusicFab(true);
               }}
-              className="hidden sm:flex items-center gap-2 text-olive hover:text-accent transition-colors px-3 font-black tracking-[0.2em] text-[10px]"
+              className="hidden sm:flex items-center gap-2 text-olive hover:text-accent transition-colors px-3 font-black tracking-[0.2em] text-[15px]"
             >
               <Music size={14} /> COMMS
             </button>
-            <button className="hidden sm:block btn-tactical px-6 py-2 text-[10px] font-black tracking-widest uppercase">
+            <button className="hidden sm:block btn-tactical px-6 py-2 text-[15px] font-black tracking-widest uppercase">
               {t.nav.contact}
             </button>
             
@@ -467,21 +569,33 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
               <div className="flex flex-col items-center space-y-6 w-full max-w-sm">
                 <button 
                   onClick={() => navigateTo('home')} 
-                  className={`stencil text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'home' ? 'text-olive' : 'text-smoke'}`}
+                  className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'home' ? 'text-olive' : 'text-smoke'}`}
                 >
                   {t.nav.home}
                 </button>
                 <button 
                   onClick={() => navigateTo('programas')} 
-                  className={`stencil text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'programas' ? 'text-olive' : 'text-smoke'}`}
+                  className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'programas' ? 'text-olive' : 'text-smoke'}`}
                 >
                   {t.nav.programs}
                 </button>
                 <button 
+                  onClick={() => navigateTo('hyrox')} 
+                  className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'hyrox' ? 'text-olive' : 'text-smoke'}`}
+                >
+                  {t.nav.hyrox}
+                </button>
+                <button 
                   onClick={() => navigateTo('clases')} 
-                  className={`stencil text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'clases' ? 'text-olive' : 'text-smoke'}`}
+                  className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'clases' ? 'text-olive' : 'text-smoke'}`}
                 >
                   {t.nav.presencial}
+                </button>
+                <button 
+                  onClick={() => navigateTo('stenfit')} 
+                  className={`stencil text-3xl hover:text-olive transition-colors w-full flex justify-center ${currentView === 'stenfit' ? 'text-olive' : 'text-smoke'}`}
+                >
+                  <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/STENFIT.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9TVEVORklULnBuZyIsImlhdCI6MTc3ODk5Mjk3MSwiZXhwIjoxOTM2NjcyOTcxfQ.Fb1lNFaN34GL7k0h08NY31eA2BMaGveAMofNrSxvL7Q" alt="Stenfit" className={`h-8 transition-opacity ${currentView === 'stenfit' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`} />
                 </button>
                 
                 <div className="w-12 h-px bg-olive/30" />
@@ -535,7 +649,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 <button 
                   onClick={() => setIsMusicOpen(false)} 
                   className="text-olive hover:text-accent transition-colors p-1"
-                  title="Minimizar"
+                  title={t.ui.minimize}
                 >
                   <Minus size={14} />
                 </button>
@@ -545,7 +659,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                     setShowMusicFab(false);
                   }} 
                   className="text-olive/50 hover:text-red-400 transition-colors p-1"
-                  title="Cerrar"
+                  title={t.ui.close}
                 >
                   <X size={14} />
                 </button>
@@ -594,7 +708,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                   playsInline
                   className="w-full h-full object-cover"
                 >
-                  <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%201.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyAxLm1wNCIsImlhdCI6MTc3NzE3NzIzMSwiZXhwIjoxOTM0ODU3MjMxfQ.g_Zu3WxZ8v3pRBDHuzHN4EChFYVDCzTjo6_6W9Dodas" type="video/mp4" />
+                  <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%203.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyAzLm1wNCIsImlhdCI6MTc3ODk4MDc5MCwiZXhwIjoxOTM2NjYwNzkwfQ.9hCvsNHxVNJaQI-qMngwzSVPrm7aKZnQs2kb5nrmlGk" type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/70 via-[#0B0B0B]/20 to-[#0B0B0B]" />
               </div>
@@ -688,12 +802,15 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 text-olive hover:text-accent transition-colors font-black tracking-widest text-[10px] uppercase border-b border-olive/30 pb-1"
                   >
-                    Sigue la Operación en Instagram
+                    {t.intel.instagram_link}
                     <span className="w-1.5 h-1.5 rounded-full bg-olive animate-pulse" />
                   </a>
                 </div>
               </div>
             </section>
+            
+            <FAQ language={language} />
+            
           </motion.div>
         )}
 
@@ -755,14 +872,18 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                       <span className="text-sm md:text-lg opacity-30 font-bold uppercase tracking-widest">{t.programs.essential.unit}</span>
                     </div>
 
-                    <ul className="space-y-4 md:space-y-5 mb-12 md:mb-16 text-xs md:text-sm font-medium tracking-wide">
+                    <ul className="space-y-4 md:space-y-5 mb-8 md:mb-10 text-xs md:text-sm font-medium tracking-wide">
                       {t.programs.essential.features.map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 md:gap-4 group/item">
-                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-olive/30 group-hover/item:bg-olive transition-all" />
-                          <span className="opacity-60 group-hover:opacity-100 transition-opacity">{item}</span>
+                        <li key={i} className="flex items-start gap-3 md:gap-4 group/item">
+                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-olive/30 group-hover/item:bg-olive transition-all mt-1.5 shrink-0" />
+                          <span className="opacity-60 group-hover:opacity-100 transition-opacity leading-relaxed">{item}</span>
                         </li>
                       ))}
                     </ul>
+                    
+                    <p className="text-olive/80 font-mono text-xs md:text-sm mb-12 md:mb-16 italic border-l-2 border-olive/30 pl-4">
+                      {t.programs.essential.description}
+                    </p>
                   </div>
                   
                   <div className="mt-auto">
@@ -797,14 +918,18 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                     </div>
                     <div className="text-xs md:text-sm line-through opacity-20 mb-8 md:mb-12 font-black tracking-widest">{t.programs.focused.old_price}</div>
 
-                    <ul className="space-y-4 md:space-y-5 mb-12 md:mb-16 text-xs md:text-sm font-bold tracking-wide">
+                    <ul className="space-y-4 md:space-y-5 mb-8 md:mb-10 text-xs md:text-sm font-bold tracking-wide">
                       {t.programs.focused.features.map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 md:gap-4">
-                          <Zap size={14} className="text-olive shrink-0 fill-olive" />
-                          <span className="text-smoke">{item}</span>
+                        <li key={i} className="flex items-start gap-3 md:gap-4">
+                          <Zap size={14} className="text-olive shrink-0 fill-olive mt-0.5" />
+                          <span className="text-smoke leading-relaxed">{item}</span>
                         </li>
                       ))}
                     </ul>
+                    
+                    <p className="text-olive font-mono text-xs md:text-sm mb-12 md:mb-16 italic border-l-2 border-olive/60 pl-4 bg-olive/5 p-3">
+                      {t.programs.focused.description}
+                    </p>
                   </div>
 
                   <div className="mt-auto">
@@ -813,10 +938,39 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 </motion.article>
               </div>
 
+              {/* Special Offers Section */}
+              <div className="mt-16 md:mt-24 max-w-5xl mx-auto border-t border-b border-olive/30 py-8 relative">
+                <div className="absolute -top-1.5 left-0 w-3 h-3 border border-olive bg-[#0B0B0B] transform rotate-45" />
+                <div className="absolute -top-1.5 right-0 w-3 h-3 border border-olive bg-[#0B0B0B] transform rotate-45" />
+                <div className="absolute -bottom-1.5 left-0 w-3 h-3 border border-olive bg-[#0B0B0B] transform rotate-45" />
+                <div className="absolute -bottom-1.5 right-0 w-3 h-3 border border-olive bg-[#0B0B0B] transform rotate-45" />
+                
+                <div className="grid md:grid-cols-3 gap-8 items-center px-4 md:px-8">
+                  <div className="text-center md:text-left border-b md:border-b-0 md:border-r border-olive/20 pb-8 md:pb-0 md:pr-8">
+                    <h3 className="stencil text-3xl md:text-4xl text-olive flex flex-col uppercase">
+                      {t.programs.offers.title.split(' ').map((word, i) => (
+                        <span key={i} className={i === 1 ? 'opacity-70' : ''}>{word}</span>
+                      ))}
+                    </h3>
+                  </div>
+                  
+                  <div className="md:col-span-2 grid sm:grid-cols-2 gap-8 md:gap-12">
+                     {t.programs.offers.items.map((offer, idx) => (
+                       <div key={idx} className="space-y-3">
+                         <h4 className="font-mono font-bold tracking-widest text-sm md:text-base text-smoke uppercase border-b border-olive/30 pb-2">{offer.title}</h4>
+                         <p className="text-xs md:text-sm font-medium opacity-70 leading-relaxed text-olive">{offer.description}</p>
+                       </div>
+                     ))}
+                  </div>
+                </div>
+              </div>
+              
+              <Testimonials language={language} />
+
               <div className="mt-24 text-center">
                 <p className="text-[10px] font-black tracking-[0.4em] opacity-30 flex items-center justify-center gap-3">
                   <span className="w-12 h-px bg-smoke/20" />
-                  ALPHA OPERATIONAL SYSTEM V2.5
+                  {t.ui.branding}
                   <span className="w-12 h-px bg-smoke/20" />
                 </p>
               </div>
@@ -835,7 +989,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
             <section id="classes" className="py-20 px-6">
               <div className="max-w-4xl mx-auto">
                 <header className="text-center mb-20">
-                  <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">Ubicación Física</div>
+                  <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">{t.clases.subtitle}</div>
                   <h2 className="stencil text-5xl">{t.clases.title} <span className="text-olive">{t.clases.title_accent}</span></h2>
                 </header>
 
@@ -874,31 +1028,40 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
             </section>
           </motion.div>
         )}
+
+        {currentView === 'hyrox' && (
+          <HyroxGuide language={language} />
+        )}
+
+        {currentView === 'stenfit' && (
+          <StenfitGuide language={language} />
+        )}
       </main>
 
-      {/* Trust Section */}
-      <section className="py-24 border-y border-olive/10 text-center px-6">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <div className="relative min-h-[400px] md:min-h-[600px] w-full max-w-4xl mx-auto overflow-hidden rounded-sm border border-olive/10 shadow-2xl bg-black/20">
-            <img 
-              src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20FOCUS%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEZPQ1VTIDIucG5nIiwiaWF0IjoxNzc4MzM4NzU1LCJleHAiOjE5MzYwMTg3NTV9.03XM2TbkP_bk-KJPpTF1-C-9rF6U8kNl07IYlPNjuoI" 
-              alt="Determinación Focus Box" 
-              className="w-full h-full object-contain transition-all duration-700"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-          
-          <div className="max-w-3xl mx-auto space-y-8">
-            <div className="flex justify-center gap-2">
-              {[1, 2, 3, 4, 5].map(i => <Zap key={i} className="text-olive fill-olive" size={16} />)}
+      {currentView === 'home' && (
+        <section className="py-24 border-y border-olive/10 text-center px-6">
+          <div className="max-w-4xl mx-auto space-y-12">
+            <div className="relative min-h-[400px] md:min-h-[600px] w-full max-w-4xl mx-auto overflow-hidden rounded-sm border border-olive/10 shadow-2xl bg-black/20">
+              <img 
+                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20FOCUS%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEZPQ1VTIDIucG5nIiwiaWF0IjoxNzc4MzM4NzU1LCJleHAiOjE5MzYwMTg3NTV9.03XM2TbkP_bk-KJPpTF1-C-9rF6U8kNl07IYlPNjuoI" 
+                alt="Determinación Focus Box" 
+                className="w-full h-full object-contain transition-all duration-700"
+                referrerPolicy="no-referrer"
+              />
             </div>
-            <blockquote className="stencil text-2xl md:text-4xl leading-tight text-smoke">
-              {t.quote.text}
-            </blockquote>
-            <div className="text-[10px] font-black tracking-[0.5em] text-olive uppercase">{t.quote.community}</div>
+            
+            <div className="max-w-3xl mx-auto space-y-8">
+              <div className="flex justify-center gap-2">
+                {[1, 2, 3, 4, 5].map(i => <Zap key={i} className="text-olive fill-olive" size={16} />)}
+              </div>
+              <blockquote className="stencil text-2xl md:text-4xl leading-tight text-smoke">
+                {t.quote.text}
+              </blockquote>
+              <div className="text-[10px] font-black tracking-[0.5em] text-olive uppercase">{t.quote.community}</div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Footer */}
       <footer className="py-32 px-6">
@@ -918,6 +1081,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
              <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
                 <li><button onClick={() => navigateTo('home')} className="hover:text-olive transition-colors">{t.nav.home}</button></li>
                 <li><button onClick={() => navigateTo('programas')} className="hover:text-olive transition-colors">{t.nav.programs}</button></li>
+                <li><button onClick={() => navigateTo('hyrox')} className="hover:text-olive transition-colors">{t.nav.hyrox}</button></li>
                 <li><button onClick={() => navigateTo('clases')} className="hover:text-olive transition-colors">{t.nav.presencial}</button></li>
              </ul>
           </div>
