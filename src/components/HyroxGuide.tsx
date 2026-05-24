@@ -210,7 +210,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           <div className="md:col-span-2 relative h-full min-h-[300px] group hidden md:block">
             <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
             <img 
-              src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX%203.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWCAzLnBuZyIsImlhdCI6MTc3ODk5NDE2NiwiZXhwIjoxNzc5NDI2MTY2fQ.98zaono9YpLJLO-5LfcBvxNJYxz1oIYaDJxUxCo3qxw" 
+              src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX%203.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWCAzLnBuZyIsImlhdCI6MTc3OTU1NTE3OCwiZXhwIjoxOTM3MjM1MTc4fQ.rO7ykK2-Lvw5QhGdg2XXfEe4CUNDde3U8bp3y9v7EwE" 
               alt="Hyrox Roxzone Focus" 
               className="absolute inset-0 w-full h-full object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500 border border-olive/30 shadow-2xl"
             />
@@ -222,7 +222,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
              <div className="relative group h-[400px] md:h-[500px] hidden md:block">
                <div className="absolute inset-0 bg-olive/20 -translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:-translate-x-2 group-hover:translate-y-2"></div>
                <img 
-                 src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX4.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWDQucG5nIiwiaWF0IjoxNzc4OTk0MjU1LCJleHAiOjE3Nzk0MjYyNTV9.qLX-GuHMylyprsRwjSGDoOusuHhUBSITNEu7MGr4wRY" 
+                 src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX4.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWDQucG5nIiwiaWF0IjoxNzc5NTU1MjUwLCJleHAiOjE5MzcyMzUyNTB9.sAz2om2nCSeIemlIRvWwbgLSpdIpx0b5PlJF4X9yTgU" 
                  alt="Hyrox Conclusion Focus" 
                  className="absolute inset-0 w-full h-full object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500 border border-olive/30 shadow-2xl"
                />

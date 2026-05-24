@@ -51,6 +51,8 @@ const stenfitTexts = {
         subSteps: [
           {
             title: "Si usas Android:",
+            image: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/PLAYSTORE%20ESP%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9QTEFZU1RPUkUgRVNQIFNJTiBGT05ETy5wbmciLCJpYXQiOjE3Nzk1NTQ2NjIsImV4cCI6MTkzNzIzNDY2Mn0.rIp5DtAsE0g7YED2lSbTcCOx_LMo4dNKEYho6aS-BAU",
+            link: "https://play.google.com/store/apps/details?id=com.stenfit.stenfit&hl=en_US&gl=US&pli=1",
             items: [
               "Abre la aplicación Google Play Store en tu teléfono.",
               "En el buscador de la parte superior, escribe \"Stenfit\".",
@@ -59,6 +61,8 @@ const stenfitTexts = {
           },
           {
             title: "Si usas iPhone (iOS):",
+            image: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/DESCARGA%20APPSTORE%20ESP%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ERVNDQVJHQSBBUFBTVE9SRSBFU1AgU0lOIEZPTkRPLnBuZyIsImlhdCI6MTc3OTAzNTg2MCwiZXhwIjoxOTM2NzE1ODYwfQ.Zp13LmWHRII_NGwHFL5Shqk66Gycin3Ng59vw47Xc8c",
+            link: "https://apps.apple.com/es/app/stenfit/id1511592863",
             items: [
               "Abre la App Store en tu dispositivo.",
               "Toca la lupa de búsqueda e ingresa \"Stenfit\".",
@@ -143,6 +147,8 @@ const stenfitTexts = {
         subSteps: [
           {
             title: "If you use Android:",
+            image: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/PLAYSTORE%20ENG%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9QTEFZU1RPUkUgRU5HIFNJTiBGT05ETy5wbmciLCJpYXQiOjE3NzkwMzYxNDksImV4cCI6MTkzNjcxNjE0OX0.JetdEuJqzPm4r-rx14-3_xaReNVqeYFuCkvPouplZII",
+            link: "https://play.google.com/store/apps/details?id=com.stenfit.stenfit&hl=en_US&gl=US&pli=1",
             items: [
               "Open the Google Play Store app on your phone.",
               "In the search bar at the top, type \"Stenfit\".",
@@ -151,6 +157,8 @@ const stenfitTexts = {
           },
           {
             title: "If you use iPhone (iOS):",
+            image: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/DESCARGA%20APPSTORE%20ENG%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ERVNDQVJHQSBBUFBTVE9SRSBFTkcgU0lOIEZPTkRPLnBuZyIsImlhdCI6MTc3OTAzNTc4MSwiZXhwIjoxOTM2NzE1NzgxfQ.vCUel0dcBz92SW2BLiY1ZT0PFoV6471nel9O_4jXFcM",
+            link: "https://apps.apple.com/es/app/stenfit/id1511592863",
             items: [
               "Open the App Store on your device.",
               "Tap the search icon and enter \"Stenfit\".",
@@ -297,17 +305,28 @@ export const StenfitGuide = ({ language }: StenfitGuideProps) => {
 
                     {step.subSteps && (
                       <div className="grid md:grid-cols-2 gap-6 mt-6">
-                        {step.subSteps.map((subStep, subIdx) => (
-                          <div key={subIdx} className="bg-black/40 border border-olive/10 p-5 rounded-sm">
+                        {step.subSteps.map((subStep: any, subIdx: number) => (
+                          <div key={subIdx} className="bg-black/40 border border-olive/10 p-5 rounded-sm flex flex-col h-full">
                             <h4 className="font-bold text-olive mb-4 uppercase tracking-wider text-xs">{subStep.title}</h4>
-                            <ul className="space-y-3 font-mono text-sm text-smoke/80">
-                              {subStep.items.map((item, itemIdx) => (
+                            <ul className="space-y-3 font-mono text-sm text-smoke/80 flex-grow">
+                              {subStep.items.map((item: string, itemIdx: number) => (
                                 <li key={itemIdx} className="flex gap-3 items-start">
                                   <span className="w-1.5 h-1.5 rounded-full bg-olive shrink-0 mt-1.5" />
                                   <span className="leading-relaxed text-xs">{item}</span>
                                 </li>
                               ))}
                             </ul>
+                            {subStep.image && (
+                              <div className="mt-6 pt-6 border-t border-olive/10 flex justify-center">
+                                {subStep.link ? (
+                                  <a href={subStep.link} target="_blank" rel="noopener noreferrer">
+                                    <img src={subStep.image} alt={subStep.title} className="h-12 w-auto object-contain hover:scale-105 transition-transform cursor-pointer" />
+                                  </a>
+                                ) : (
+                                  <img src={subStep.image} alt={subStep.title} className="h-12 w-auto object-contain hover:scale-105 transition-transform cursor-pointer" />
+                                )}
+                              </div>
+                            )}
                           </div>
                         ))}
                       </div>

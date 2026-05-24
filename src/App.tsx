@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Dumbbell, 
@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { HyroxGuide } from "./components/HyroxGuide";
 import { StenfitGuide } from "./components/StenfitGuide";
+import { TransformationsCarousel } from "./components/TransformationsCarousel";
 
 import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
@@ -40,6 +41,7 @@ const translations = {
       presencial: "Presencial",
       hyrox: "Hyrox Training",
       stenfit: "Stenfit",
+      comunidad: "Comunidad",
       contact: "CONTACTAR"
     },
     hero: {
@@ -113,21 +115,30 @@ const translations = {
             description: "Por cada referido recibe un 10% de descuento."
           }
         ]
+      },
+      platform: {
+        disclaimer: "Todas las misiones digitales son enlazadas a través de nuestra plataforma oficial. Una vez realizada tu suscripción, se te entregará tu acceso. Para conocer más sobre el uso de la app, visita la sección STENFIT.",
+        cta: "VER TUTORIAL STENFIT"
       }
     },
     clases: {
       subtitle: "Ubicación Física",
       title: "CLASES",
       title_accent: "PRESENCIALES",
-      individual_title: "Operación Individual",
-      group_title: "Estrategia Grupal (Mensual)",
+      individual_title: "POR CLASE",
+      individual_subtitle: "1-4 personas",
+      group_title: "MENSUALIDAD",
+      group_subtitle: "5 clases a la semana",
+      group_promo: "*precio especial por grupo*",
+      group_promo_desc: "Pregunta por las promociones grupales",
       items: [
-        { name: "Una Inserción (1 Clase)", price: "$450", meta: "Precio Regular" },
-        { name: "Refuerzo Semanal (2 Clases/Sem)", price: "$600", meta: "$300 x sesión" },
-        { name: "Batallón Completo (12 Clases/Mes)", price: "$2,500", meta: "$210 x sesión" },
-        { name: "Paquete \"FOCUSED\" (Individual)", price: "$3,500", meta: "Acceso total" },
-        { name: "Paquete \"PARTNERS\" (Dúo)", price: "$2,500 c/u", meta: "Entrena en pareja" },
-        { name: "Paquete \"THIRDS\" (Escuadrón)", price: "$2,200 c/u", meta: "Equipo de 3 personas" }
+        { name: "1 clase", subname: "", price: "$450", meta: "Precio Regular" },
+        { name: "2 clases x semana", subname: "", price: "$600", meta: "$300 x clase" },
+        { name: "12 clases x mes", subname: "", price: "$2,500", meta: "$210 x clase" },
+        { name: "Paquete \"FOCUSED\"", subname: "1 persona", price: "$3,500", meta: "$175 x clase" },
+        { name: "Paquete \"PARTNERS\"", subname: "2 personas", price: "$2,500 c/u", meta: "$125 x clase" },
+        { name: "Paquete \"THIRDS\"", subname: "3 personas", price: "$2,200 c/u", meta: "$110 x clase" },
+        { name: "Paquete \"GANGS\"", subname: "4-6 personas", price: "$1,800 c/u", meta: "$90 x clase" }
       ]
     },
     quote: {
@@ -159,6 +170,7 @@ const translations = {
       presencial: "On-site",
       hyrox: "Hyrox Training",
       stenfit: "Stenfit",
+      comunidad: "Community",
       contact: "CONTACT"
     },
     hero: {
@@ -232,21 +244,30 @@ const translations = {
             description: "For each referral, receive a 10% discount."
           }
         ]
+      },
+      platform: {
+        disclaimer: "All digital missions are linked through our official platform. Once your subscription is made, you will receive your access. To learn more about using the app, visit the STENFIT section.",
+        cta: "VIEW STENFIT TUTORIAL"
       }
     },
     clases: {
       subtitle: "Physical Location",
       title: "ON-SITE",
       title_accent: "CLASSES",
-      individual_title: "Individual Operation",
-      group_title: "Group Strategy (Monthly)",
+      individual_title: "PER CLASS",
+      individual_subtitle: "1-4 people",
+      group_title: "MONTHLY",
+      group_subtitle: "5 classes per week",
+      group_promo: "*special group price*",
+      group_promo_desc: "Ask about group promotions",
       items: [
-        { name: "One Insertion (1 Class)", price: "$450", meta: "Regular Price" },
-        { name: "Weekly Reinforcement (2 Classes/Wk)", price: "$600", meta: "$300 x session" },
-        { name: "Full Battalion (12 Classes/Mo)", price: "$2,500", meta: "$210 x session" },
-        { name: "Package \"FOCUSED\" (Individual)", price: "$3,500", meta: "Full access" },
-        { name: "Package \"PARTNERS\" (Duo)", price: "$2,500 ea", meta: "Train in pairs" },
-        { name: "Package \"THIRDS\" (Squad)", price: "$2,200 ea", meta: "Team of 3 people" }
+        { name: "1 class", subname: "", price: "$450", meta: "Regular Price" },
+        { name: "2 classes x week", subname: "", price: "$600", meta: "$300 x class" },
+        { name: "12 classes x month", subname: "", price: "$2,500", meta: "$210 x class" },
+        { name: "Package \"FOCUSED\"", subname: "1 person", price: "$3,500", meta: "$175 x class" },
+        { name: "Package \"PARTNERS\"", subname: "2 people", price: "$2,500 ea", meta: "$125 x class" },
+        { name: "Package \"THIRDS\"", subname: "3 people", price: "$2,200 ea", meta: "$110 x class" },
+        { name: "Package \"GANGS\"", subname: "4-6 people", price: "$1,800 ea", meta: "$90 x class" }
       ]
     },
     quote: {
@@ -336,13 +357,33 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
     </form>
   );
 };export default function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'programas' | 'clases' | 'hyrox' | 'stenfit'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'programas' | 'clases' | 'hyrox' | 'stenfit' | 'comunidad'>('home');
   const [language, setLanguage] = useState<Language>('es');
+  const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMusicOpen, setIsMusicOpen] = useState(false);
   const [showMusicFab, setShowMusicFab] = useState(true);
   const [spotifyUser, setSpotifyUser] = useState<any>(null);
   const [spotifyToken, setSpotifyToken] = useState<string | null>(localStorage.getItem('spotify_token'));
+
+  const desktopMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (desktopMenuRef.current && !desktopMenuRef.current.contains(event.target as Node)) {
+        setIsDesktopMenuOpen(false);
+      }
+    };
+
+    if (isDesktopMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDesktopMenuOpen]);
 
   useEffect(() => {
     // Listen for Spotify Auth success message
@@ -437,9 +478,10 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
 
   const t = translations[language];
 
-  const navigateTo = (view: 'home' | 'programas' | 'clases' | 'hyrox') => {
+  const navigateTo = (view: 'home' | 'programas' | 'clases' | 'hyrox' | 'stenfit' | 'comunidad') => {
     setCurrentView(view);
     setIsMenuOpen(false);
+    setIsDesktopMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -467,14 +509,23 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
           <div className="hidden md:flex items-center gap-6">
             
             {/* Dynamic Menu Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center gap-2 hover:text-olive transition-colors font-black tracking-widest uppercase text-[15px] py-2">
+            <div 
+              ref={desktopMenuRef}
+              className="relative group"
+              onMouseEnter={() => setIsDesktopMenuOpen(true)}
+              onMouseLeave={() => setIsDesktopMenuOpen(false)}
+            >
+              <button 
+                className={`flex items-center gap-2 hover:text-olive transition-colors font-black tracking-widest uppercase text-[15px] py-2 ${isDesktopMenuOpen ? 'text-olive' : ''}`}
+              >
                 <Menu size={18} />
                 <span>{language === 'es' ? 'MENÚ' : 'MENU'}</span>
               </button>
               
               {/* Dropdown Content */}
-              <div className="absolute top-full left-0 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 w-56">
+              <div 
+                className={`absolute top-full left-0 pt-4 transition-all duration-300 w-56 ${isDesktopMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+              >
                 <div className="bg-[#0B0B0B]/95 backdrop-blur-xl border border-olive/20 rounded-sm p-5 flex flex-col gap-6 shadow-2xl relative overflow-hidden">
                   {/* Tactical decorative elements */}
                   <div className="absolute top-0 right-0 w-16 h-16 bg-olive/10 blur-xl rounded-full" />
@@ -507,6 +558,13 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                   >
                     <span>{t.nav.presencial}</span>
                     <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'clases' ? 'opacity-100 translate-x-0' : ''}`} />
+                  </button>
+                  <button 
+                    onClick={() => navigateTo('comunidad')} 
+                    className={`text-left text-sm font-black tracking-widest uppercase hover:text-olive transition-colors flex items-center justify-between group/item ${currentView === 'comunidad' ? 'text-olive' : 'text-smoke/80'}`}
+                  >
+                    <span>{t.nav.comunidad}</span>
+                    <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'comunidad' ? 'opacity-100 translate-x-0' : ''}`} />
                   </button>
                 </div>
               </div>
@@ -590,6 +648,12 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                   className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'clases' ? 'text-olive' : 'text-smoke'}`}
                 >
                   {t.nav.presencial}
+                </button>
+                <button 
+                  onClick={() => navigateTo('comunidad')} 
+                  className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'comunidad' ? 'text-olive' : 'text-smoke'}`}
+                >
+                  {t.nav.comunidad}
                 </button>
                 <button 
                   onClick={() => navigateTo('stenfit')} 
@@ -938,6 +1002,32 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 </motion.article>
               </div>
 
+              {/* Stenfit Platform Banner */}
+              <div className="mt-16 max-w-5xl mx-auto glass-card border-olive/30 p-8 md:p-12 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-olive/5" />
+                <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-olive/10 to-transparent" />
+                
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                  <div className="shrink-0">
+                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-olive/20 flex items-center justify-center bg-black/50 p-6 md:p-8">
+                       <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/STENFIT.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9TVEVORklULnBuZyIsImlhdCI6MTc3ODk5Mjk3MSwiZXhwIjoxOTM2NjcyOTcxfQ.Fb1lNFaN34GL7k0h08NY31eA2BMaGveAMofNrSxvL7Q" alt="Stenfit" className="w-full h-auto opacity-70 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                  </div>
+                  
+                  <div className="flex-grow text-center md:text-left">
+                    <p className="text-sm md:text-base font-medium text-smoke/90 leading-relaxed mb-6">
+                      {t.programs.platform.disclaimer}
+                    </p>
+                    <button 
+                      onClick={() => navigateTo('stenfit')}
+                      className="btn-tactical py-3 px-8 text-sm uppercase tracking-widest font-black"
+                    >
+                      {t.programs.platform.cta}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               {/* Special Offers Section */}
               <div className="mt-16 md:mt-24 max-w-5xl mx-auto border-t border-b border-olive/30 py-8 relative">
                 <div className="absolute -top-1.5 left-0 w-3 h-3 border border-olive bg-[#0B0B0B] transform rotate-45" />
@@ -965,8 +1055,6 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 </div>
               </div>
               
-              <Testimonials language={language} />
-
               <div className="mt-24 text-center">
                 <p className="text-[10px] font-black tracking-[0.4em] opacity-30 flex items-center justify-center gap-3">
                   <span className="w-12 h-px bg-smoke/20" />
@@ -995,30 +1083,57 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
 
                 <div className="space-y-16">
                   <div>
-                    <h3 className="stencil text-2xl text-olive mb-8 opacity-60">{t.clases.individual_title}</h3>
+                    <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-8 border-b-2 border-olive/30 pb-4">
+                      <h3 className="stencil text-3xl md:text-4xl text-olive tracking-widest">{t.clases.individual_title}</h3>
+                      <span className="text-xs font-black tracking-widest uppercase text-smoke/70 flex items-center gap-1"><span className="text-red-500">◆</span> {t.clases.individual_subtitle}</span>
+                    </div>
                     <div className="grid gap-4">
                       {t.clases.items.slice(0, 3).map((item, i) => (
-                        <div key={i} className="flex justify-between items-center p-6 border border-olive/10 hover:border-olive/40 transition-all group font-stencil">
-                          <div>
-                            <div className="font-black tracking-widest uppercase group-hover:text-olive transition-colors">{item.name}</div>
-                            <div className="text-[9px] opacity-40 uppercase tracking-widest">{item.meta}</div>
+                        <div key={i} className="flex justify-between items-center py-4 border-b border-olive/10 group font-stencil">
+                          <div className="flex items-center gap-2">
+                            <span className="text-smoke/50 text-xl">•</span>
+                            <div>
+                              <div className="font-black tracking-widest uppercase text-lg group-hover:text-olive transition-colors">{item.name}</div>
+                            </div>
                           </div>
-                          <div className="text-2xl font-black text-olive">{item.price}</div>
+                          <div className="flex flex-col items-end gap-1">
+                            <div className="text-2xl font-black text-smoke">{item.price}</div>
+                            {item.meta && item.meta !== "Precio Regular" && item.meta !== "Regular Price" && (
+                              <div className="bg-olive/40 px-2 py-0.5 text-xs text-smoke font-black tracking-widest uppercase border border-olive/50">{item.meta}</div>
+                            )}
+                          </div>
                         </div>
                       ))}
                     </div>
+                    <div className="mt-8 flex flex-col gap-2 items-start">
+                      <span className="font-black tracking-widest uppercase text-smoke/90 text-sm md:text-base">{t.clases.group_promo}</span>
+                      <span className="bg-olive/40 px-2 py-1 text-[10px] md:text-xs text-smoke font-black tracking-widest uppercase border border-olive/50">{t.clases.group_promo_desc}</span>
+                    </div>
                   </div>
 
-                  <div>
-                    <h3 className="stencil text-2xl text-olive mb-8 opacity-60">{t.clases.group_title}</h3>
+                  <div className="pt-8">
+                    <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-8 border-b-2 border-olive/30 pb-4">
+                      <h3 className="stencil text-3xl md:text-4xl text-olive tracking-widest">{t.clases.group_title}</h3>
+                      <span className="text-xs font-black tracking-widest uppercase text-smoke/70"><span className="text-olive">◆</span> {t.clases.group_subtitle}</span>
+                    </div>
                     <div className="grid gap-4">
                       {t.clases.items.slice(3).map((item, i) => (
-                        <div key={i} className="flex justify-between items-center p-6 border border-olive/10 hover:border-olive/40 transition-all group font-stencil">
-                          <div>
-                            <div className="font-black tracking-widest uppercase group-hover:text-olive transition-colors">{item.name}</div>
-                            <div className="text-[9px] opacity-40 uppercase tracking-widest">{item.meta}</div>
+                        <div key={i} className="flex justify-between items-center py-4 border-b border-olive/10 group font-stencil">
+                          <div className="flex items-start gap-2">
+                            <span className="text-smoke/50 text-xl mt-[-2px]">•</span>
+                            <div className="flex flex-col">
+                              <div className="font-black tracking-widest uppercase text-lg group-hover:text-olive transition-colors">{item.name}</div>
+                              {item.subname && (
+                                <div className="text-[10px] md:text-xs opacity-60 uppercase tracking-widest font-black flex items-center gap-1 pl-4 mt-1"><span className="text-red-500">◆</span> {item.subname}</div>
+                              )}
+                            </div>
                           </div>
-                          <div className="text-2xl font-black text-olive">{item.price}</div>
+                          <div className="flex flex-col items-end gap-1">
+                            <div className="text-2xl font-black text-smoke">{item.price}</div>
+                            {item.meta && (
+                              <div className="bg-olive/40 px-2 py-0.5 text-xs text-smoke font-black tracking-widest uppercase border border-olive/50">{item.meta}</div>
+                            )}
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -1035,6 +1150,31 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
 
         {currentView === 'stenfit' && (
           <StenfitGuide language={language} />
+        )}
+
+        {currentView === 'comunidad' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="pb-24 pt-8"
+          >
+            <Testimonials language={language} />
+            
+            <section className="pt-12">
+              <div className="text-center mb-16 md:mb-24 px-6">
+                <h2 className="stencil text-4xl md:text-6xl mb-4">
+                  {language === 'es' ? 'TRANSFORMACIONES' : 'TRANSFORMATIONS'}
+                </h2>
+                <div className="w-16 h-1 bg-olive mx-auto mb-6" />
+                <p className="text-smoke/60 text-xs md:text-sm font-medium tracking-widest uppercase">
+                  {language === 'es' ? 'El impacto de nuestro sistema de entrenamiento' : 'The impact of our training system'}
+                </p>
+              </div>
+              
+              <TransformationsCarousel language={language} />
+            </section>
+          </motion.div>
         )}
       </main>
 

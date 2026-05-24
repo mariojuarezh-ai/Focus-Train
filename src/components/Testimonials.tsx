@@ -79,7 +79,7 @@ export const Testimonials = ({ language }: TestimonialsProps) => {
   const t = texts[language];
 
   return (
-    <section className="py-24 border-t border-olive/20 mt-20">
+    <section className="py-24">
       <div className="text-center mb-16 md:mb-24">
         <h2 className="stencil text-4xl md:text-6xl mb-4">
           {t.title} <span className="text-olive">FOCUS</span>
