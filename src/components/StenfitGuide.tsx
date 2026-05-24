@@ -336,6 +336,22 @@ export const StenfitGuide = ({ language }: StenfitGuideProps) => {
               );
             })}
           </div>
+
+          <div className="mt-20 pt-16 border-t border-olive/20 text-center">
+             <h3 className="stencil tracking-wider text-2xl text-white mb-8">
+               {language === 'es' ? 'TUTORIAL EN VIDEO' : 'VIDEO TUTORIAL'}
+             </h3>
+             <div className="rounded-xl overflow-hidden border border-olive/30 shadow-[0_0_40px_rgba(118,132,85,0.15)] relative max-w-[320px] aspect-[9/16] mx-auto bg-black/60">
+                 <video 
+                     className="w-full h-full object-cover"
+                     controls
+                     preload="metadata"
+                     playsInline
+                     src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/TUTORIAL%20APLICACION.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9UVVRPUklBTCBBUExJQ0FDSU9OLm1wNCIsImlhdCI6MTc3OTY0NjU2NSwiZXhwIjoxOTM3MzI2NTY1fQ.m5yl5EtIjQ5yvHWZ4ZoruUvOYcBXCtQ75w5j-Ti5hQU"
+                 />
+             </div>
+          </div>
+
         </div>
       </section>
     </motion.div>

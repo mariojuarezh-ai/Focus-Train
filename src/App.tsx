@@ -482,7 +482,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
     setCurrentView(view);
     setIsMenuOpen(false);
     setIsDesktopMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const toggleLanguage = () => {
@@ -613,77 +613,94 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
             </button>
           </div>
         </div>
-
-        {/* Mobile Navigation Overlay */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed inset-0 bg-[#0B0B0B] z-40 flex flex-col items-center justify-center space-y-8 px-6"
-            >
-              <div className="flex flex-col items-center space-y-6 w-full max-w-sm">
-                <button 
-                  onClick={() => navigateTo('home')} 
-                  className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'home' ? 'text-olive' : 'text-smoke'}`}
-                >
-                  {t.nav.home}
-                </button>
-                <button 
-                  onClick={() => navigateTo('programas')} 
-                  className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'programas' ? 'text-olive' : 'text-smoke'}`}
-                >
-                  {t.nav.programs}
-                </button>
-                <button 
-                  onClick={() => navigateTo('hyrox')} 
-                  className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'hyrox' ? 'text-olive' : 'text-smoke'}`}
-                >
-                  {t.nav.hyrox}
-                </button>
-                <button 
-                  onClick={() => navigateTo('clases')} 
-                  className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'clases' ? 'text-olive' : 'text-smoke'}`}
-                >
-                  {t.nav.presencial}
-                </button>
-                <button 
-                  onClick={() => navigateTo('comunidad')} 
-                  className={`stencil text-3xl hover:text-olive transition-colors w-full text-center ${currentView === 'comunidad' ? 'text-olive' : 'text-smoke'}`}
-                >
-                  {t.nav.comunidad}
-                </button>
-                <button 
-                  onClick={() => navigateTo('stenfit')} 
-                  className={`stencil text-3xl hover:text-olive transition-colors w-full flex justify-center ${currentView === 'stenfit' ? 'text-olive' : 'text-smoke'}`}
-                >
-                  <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/STENFIT.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9TVEVORklULnBuZyIsImlhdCI6MTc3ODk5Mjk3MSwiZXhwIjoxOTM2NjcyOTcxfQ.Fb1lNFaN34GL7k0h08NY31eA2BMaGveAMofNrSxvL7Q" alt="Stenfit" className={`h-8 transition-opacity ${currentView === 'stenfit' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`} />
-                </button>
-                
-                <div className="w-12 h-px bg-olive/30" />
-                
-                <button 
-                  onClick={toggleLanguage}
-                  className="flex items-center gap-3 stencil text-sm text-olive hover:text-accent transition-colors"
-                >
-                  <Globe size={18} />
-                  {language === 'es' ? 'SWITCH TO ENGLISH' : 'CAMBIAR A ESPAÑOL'}
-                </button>
-
-                <button className="btn-tactical w-full py-4 stencil text-lg tracking-[0.2em]">
-                  {t.nav.contact}
-                </button>
-              </div>
-
-              {/* Decorative elements for mobile menu */}
-              <div className="absolute top-1/4 -left-12 w-64 h-64 bg-olive/5 rounded-full blur-[80px]" />
-              <div className="absolute bottom-1/4 -right-12 w-64 h-64 bg-olive/5 rounded-full blur-[80px]" />
-            </motion.div>
-          )}
-        </AnimatePresence>
       </nav>
+
+      {/* Mobile Navigation Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            key="mobile-menu-overlay"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-[#0B0B0B] z-[100] flex flex-col items-center justify-start px-6 overflow-y-auto"
+          >
+            <div className="flex justify-between items-center py-4 w-full md:hidden">
+              <div className="flex items-center gap-3">
+                 <div className="w-8 h-8 rounded-full border-2 border-olive flex items-center justify-center overflow-hidden">
+                    <Logo className="scale-[0.25]" />
+                 </div>
+                 <span className="font-stencil text-xl tracking-tighter text-olive">FOCUS BOX</span>
+              </div>
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                className="p-2 text-olive hover:bg-olive/10 transition-colors"
+                aria-label="Close menu"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            
+            <div className="flex flex-col items-center space-y-2 sm:space-y-4 w-full max-w-sm z-10 relative mt-0 sm:mt-4">
+              <button 
+                onClick={() => navigateTo('home')} 
+                className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'home' ? 'text-olive' : 'text-smoke'}`}
+              >
+                {t.nav.home}
+              </button>
+              <button 
+                onClick={() => navigateTo('programas')} 
+                className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'programas' ? 'text-olive' : 'text-smoke'}`}
+              >
+                {t.nav.programs}
+              </button>
+              <button 
+                onClick={() => navigateTo('hyrox')} 
+                className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'hyrox' ? 'text-olive' : 'text-smoke'}`}
+              >
+                {t.nav.hyrox}
+              </button>
+              <button 
+                onClick={() => navigateTo('clases')} 
+                className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'clases' ? 'text-olive' : 'text-smoke'}`}
+              >
+                {t.nav.presencial}
+              </button>
+              <button 
+                onClick={() => navigateTo('comunidad')} 
+                className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'comunidad' ? 'text-olive' : 'text-smoke'}`}
+              >
+                {t.nav.comunidad}
+              </button>
+              <button 
+                onClick={() => navigateTo('stenfit')} 
+                className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full flex justify-center ${currentView === 'stenfit' ? 'text-olive' : 'text-smoke'}`}
+              >
+                <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/STENFIT.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9TVEVORklULnBuZyIsImlhdCI6MTc3ODk5Mjk3MSwiZXhwIjoxOTM2NjcyOTcxfQ.Fb1lNFaN34GL7k0h08NY31eA2BMaGveAMofNrSxvL7Q" alt="Stenfit" className={`h-5 sm:h-6 md:h-8 transition-opacity ${currentView === 'stenfit' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`} />
+              </button>
+              
+              <div className="w-10 h-px bg-olive/30 my-2 sm:my-3" />
+              
+              <button 
+                onClick={toggleLanguage}
+                className="py-2 sm:py-3 flex items-center justify-center gap-2 stencil text-xs sm:text-sm text-olive hover:text-accent transition-colors w-full"
+              >
+                <Globe size={16} />
+                {language === 'es' ? 'SWITCH TO ENGLISH' : 'CAMBIAR A ESPAÑOL'}
+              </button>
+
+              <button className="btn-tactical w-full py-3 sm:py-4 stencil text-base sm:text-lg tracking-[0.2em] mt-2">
+                {t.nav.contact}
+              </button>
+            </div>
+
+            {/* Decorative elements for mobile menu */}
+            <div className="absolute top-1/4 -left-12 w-64 h-64 bg-olive/5 rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute bottom-1/4 -right-12 w-64 h-64 bg-olive/5 rounded-full blur-[80px] pointer-events-none" />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
         {/* Tactical Spotify Player */}
         <div className={`fixed bottom-6 right-6 z-[60] flex flex-col items-end transition-all duration-500 ${showMusicFab ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}>

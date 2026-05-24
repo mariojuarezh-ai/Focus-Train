@@ -75,7 +75,7 @@ const MarqueeRow = ({ images, direction = "left", speed = 40, label }: { images:
         {duplicatedImages.map((src, index) => (
           <div 
             key={index} 
-            className="w-[260px] md:w-[350px] aspect-[4/5] shrink-0 border border-olive/20 rounded-sm overflow-hidden relative group bg-black/50 flex items-center justify-center cursor-pointer transition-all duration-500 group-hover/row:opacity-40 hover:!opacity-100 hover:scale-105 hover:z-10 hover:border-olive hover:shadow-[0_0_30px_rgba(118,132,85,0.3)]"
+            className="w-[180px] sm:w-[220px] md:w-[350px] aspect-[4/5] shrink-0 border border-olive/20 rounded-sm overflow-hidden relative group bg-black/50 flex items-center justify-center cursor-pointer transition-all duration-500 group-hover/row:opacity-40 hover:!opacity-100 hover:scale-105 hover:z-10 hover:border-olive hover:shadow-[0_0_30px_rgba(118,132,85,0.3)]"
           >
             <div className="absolute inset-0 bg-olive/20 group-hover:bg-transparent transition-colors z-10 pointer-events-none duration-500" />
             <img 
