@@ -213,53 +213,6 @@ export const StenfitGuide = ({ language }: StenfitGuideProps) => {
       transition={{ duration: 0.5 }}
       className="pb-24 pt-10"
     >
-      {/* Intro Section */}
-      <section className="px-6 mb-24 mt-12 relative">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-olive/10 blur-3xl rounded-full" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-3 border border-olive/30 px-4 py-1.5 rounded-full mb-8">
-            <span className="w-2 h-2 rounded-full bg-olive animate-pulse" />
-            <span className="text-[10px] font-black tracking-[0.2em] uppercase text-olive/80">
-              {t.propuestaSubtitle}
-            </span>
-          </div>
-          <h1 className="text-5xl md:text-7xl stencil text-white tracking-widest mb-6">
-            {t.propuestaTitleBase}<span className="text-olive">{t.propuestaTitleAccent}</span>
-          </h1>
-          <div className="text-left font-mono text-smoke/80 leading-relaxed text-sm md:text-base border-l-2 border-olive pl-6 space-y-4 max-w-3xl mx-auto mt-12">
-            <p>{t.propuestaP1}</p>
-            <p className="opacity-80 italic pl-4 border-l border-olive/30 text-olive">{t.propuestaP2}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 px-6 bg-[#0B0B0B] border-y border-olive/20 relative">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="stencil text-4xl md:text-5xl text-center mb-16">{t.featuresTitleBase} <span className="text-olive">{t.featuresTitleAccent}</span></h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {t.features.map((feature, idx) => {
-              const Icon = icons[idx % icons.length];
-              return (
-                <div key={idx} className="glass-card p-6 md:p-8 border-olive/10 group hover:border-olive/40 transition-colors relative overflow-hidden">
-                  <div className="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                    <Icon size={120} />
-                  </div>
-                  <div className="mb-6 flex items-center justify-center w-12 h-12 bg-olive/10 rounded-lg group-hover:bg-olive/20 transition-colors text-olive">
-                    <Icon size={24} />
-                  </div>
-                  <h3 className="font-mono font-bold tracking-widest text-sm md:text-base text-smoke/90 uppercase mb-4 h-12">{feature.title}</h3>
-                  <p className="text-xs md:text-sm font-medium opacity-60 leading-relaxed group-hover:opacity-80 transition-opacity">
-                    {feature.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Tutorial Section */}
       <section className="py-24 px-6 relative">
         <div className="max-w-4xl mx-auto">
@@ -345,8 +298,11 @@ export const StenfitGuide = ({ language }: StenfitGuideProps) => {
                  <video 
                      className="w-full h-full object-cover"
                      controls
-                     preload="metadata"
+                     autoPlay
+                     muted
+                     loop
                      playsInline
+                     preload="metadata"
                      src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/TUTORIAL%20APLICACION.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9UVVRPUklBTCBBUExJQ0FDSU9OLm1wNCIsImlhdCI6MTc3OTY0NjU2NSwiZXhwIjoxOTM3MzI2NTY1fQ.m5yl5EtIjQ5yvHWZ4ZoruUvOYcBXCtQ75w5j-Ti5hQU"
                  />
              </div>

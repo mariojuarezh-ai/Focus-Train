@@ -48,16 +48,42 @@ const translations = {
       status: "[ ELIMINANDO TUS EXCUSAS ]",
       title: "YOU ALWAYS STAY",
       subtitle: "FOCUSED",
-      description: "Entrenamiento táctico y acondicionamiento físico de élite inspirado en la disciplina militar. Optimiza tu rendimiento con rutinas funcionales diseñadas para superar tus límites.",
-      cta_primary: "INICIAR TRANSFORMACIÓN",
-      cta_secondary: "VER HORARIOS"
+      description: "Entrenamientos con objetivos realistas y adaptados a tu estilo de vida. Buscamos resultados sostenibles a través de un enfoque personalizado, donde tu técnica, tu progreso y el acompañamiento constante son nuestra prioridad.",
+      cta_primary: "INICIAR TRANSFORMACIÓN"
     },
     about: {
-      vision: "Nuestra Visión",
-      title: "DISCIPLINA",
-      title_accent: "TÁCTICA",
-      description: "Focus Box & Fitness es el estándar en entrenamiento táctico y acondicionamiento físico especializado. Nuestra metodología combina la disciplina militar con ejercicios de alto rendimiento para forjar una mentalidad y un cuerpo inquebrantables.",
-      quote: "\"El foco es el arma más poderosos en el campo de batalla de tu vida diaria.\""
+      title: "¿POR QUÉ ENTRENAR",
+      title_accent: "CON FOCUS PRESENCIAL?",
+      items: [
+        {
+          title: "Atención real en cada entrenamiento",
+          description: "Aquí no eres uno más. Cada sesión tiene supervisión directa, corrección técnica y enfoque en que realmente progreses."
+        },
+        {
+          title: "Entrenamientos adaptados a ti",
+          description: "Aunque entrenes en grupo, cada persona trabaja con ajustes según su nivel, objetivos y capacidades."
+        },
+        {
+          title: "Ambiente que te impulsa",
+          description: "Entrenar rodeado de personas con el mismo objetivo eleva tu nivel, tu motivación y tu constancia."
+        },
+        {
+          title: "Técnica antes que todo",
+          description: "Nos aseguramos de que ejecutes bien cada movimiento para evitar lesiones y maximizar resultados."
+        },
+        {
+          title: "Entrenamientos efectivos, no eternos",
+          description: "Sesiones bien estructuradas para que aproveches tu tiempo y obtengas resultados reales."
+        },
+        {
+          title: "Más que entrenamiento, una comunidad",
+          description: "En FOCUS no solo vienes a entrenar. Formas parte de un entorno donde hay apoyo, confianza y un objetivo en común."
+        },
+        {
+          title: "Resultados que se sienten y se ven",
+          description: "Mejoras en fuerza, condición, físico y seguridad personal desde las primeras semanas."
+        }
+      ]
     },
     programs: {
       title: "MISIONES",
@@ -177,16 +203,42 @@ const translations = {
       status: "[ ELIMINATING YOUR EXCUSES ]",
       title: "YOU ALWAYS STAY",
       subtitle: "FOCUSED",
-      description: "Elite tactical training and physical conditioning inspired by military discipline. Optimize your performance with functional routines designed to exceed your limits.",
-      cta_primary: "START TRANSFORMATION",
-      cta_secondary: "VIEW SCHEDULE"
+      description: "Workouts with realistic goals adapted to your lifestyle. We seek sustainable results through a personalized approach, where your technique, your progress, and constant support are our priority.",
+      cta_primary: "START TRANSFORMATION"
     },
     about: {
-      vision: "Our Vision",
-      title: "TACTICAL",
-      title_accent: "DISCIPLINE",
-      description: "Focus Box & Fitness is the standard for specialized tactical training and physical conditioning. Our methodology combines military discipline with high-performance exercises to forge an unbreakable mindset and body.",
-      quote: "\"Focus is the most powerful weapon on the battlefield of your daily life.\""
+      title: "WHY TRAIN",
+      title_accent: "WITH FOCUS ON-SITE?",
+      items: [
+        {
+          title: "Real attention in every workout",
+          description: "You're not just another number here. Each session features direct supervision, technical correction, and a focus on your actual progress."
+        },
+        {
+          title: "Workouts adapted to you",
+          description: "Even when training in a group, each person works with adjustments according to their level, goals, and capabilities."
+        },
+        {
+          title: "An environment that drives you",
+          description: "Training surrounded by people with the same goal elevates your level, motivation, and consistency."
+        },
+        {
+          title: "Technique above all",
+          description: "We make sure you execute every movement well to avoid injuries and maximize results."
+        },
+        {
+          title: "Effective workouts, not endless ones",
+          description: "Well-structured sessions so you can make the most of your time and get real results."
+        },
+        {
+          title: "More than a workout, a community",
+          description: "At FOCUS, you don't just come to train. You become part of an environment characterized by support, trust, and a shared goal."
+        },
+        {
+          title: "Results you can feel and see",
+          description: "Improvements in strength, conditioning, physique, and personal confidence from the very first weeks."
+        }
+      ]
     },
     programs: {
       title: "DIGITAL",
@@ -596,9 +648,14 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 setIsMusicOpen(true);
                 setShowMusicFab(true);
               }}
-              className="hidden sm:flex items-center gap-2 text-olive hover:text-accent transition-colors px-3 font-black tracking-[0.2em] text-[15px]"
+              className="hidden sm:flex items-center justify-center transition-transform hover:scale-105"
             >
-              <Music size={14} /> COMMS
+              <img 
+                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/BOTON%20SPOTIFY.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9CT1RPTiBTUE9USUZZLnBuZyIsImlhdCI6MTc4MDc5Mzk4NiwiZXhwIjoxOTM4NDczOTg2fQ.2-t8LjYWHYUkLO2ZicLTOz7GvZ-iRZFrguMNbFSq3hI"
+                alt="COMMS / Spotify"
+                className="h-16 object-contain"
+                referrerPolicy="no-referrer"
+              />
             </button>
             <button className="hidden sm:block btn-tactical px-6 py-2 text-[15px] font-black tracking-widest uppercase">
               {t.nav.contact}
@@ -809,54 +866,93 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 <p className="text-base md:text-xl text-smoke/70 max-w-2xl mx-auto mb-12 font-medium tracking-wide">
                   {t.hero.description}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <button 
-                    onClick={() => navigateTo('programas')}
-                    className="btn-tactical px-10 py-5 text-lg font-black tracking-[0.2em]"
-                  >
+                <div className="flex flex-col items-center gap-6">
+                  <div className="text-xs md:text-sm text-olive font-black tracking-[0.2em] uppercase">
                     {t.hero.cta_primary}
-                  </button>
-                  <button 
-                    onClick={() => navigateTo('clases')}
-                    className="border-2 border-smoke/20 hover:border-olive px-10 py-5 text-lg font-black tracking-[0.2em] transition-all"
-                  >
-                    {t.hero.cta_secondary}
-                  </button>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-6 justify-center w-full max-w-3xl">
+                    <button 
+                      onClick={() => navigateTo('clases')}
+                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full"
+                    >
+                      {t.nav.presencial}
+                    </button>
+                    <button 
+                      onClick={() => navigateTo('programas')}
+                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full"
+                    >
+                      {t.nav.programs}
+                    </button>
+                    <button 
+                      onClick={() => navigateTo('hyrox')}
+                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full"
+                    >
+                      {t.nav.hyrox}
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             </section>
 
+            {/* Testimonials moved to Home just after Hero */}
+            <Testimonials language={language} />
+
+            <section className="pt-2 pb-24">
+              <div className="text-center mb-16 px-6">
+                <h2 className="stencil text-4xl md:text-5xl lg:text-6xl mb-4">
+                  {language === 'es' ? 'TRANSFORMACIONES' : 'TRANSFORMATIONS'}
+                </h2>
+                <div className="w-16 h-1 bg-olive mx-auto mb-6" />
+                <p className="text-smoke/60 text-xs md:text-sm font-medium tracking-widest uppercase">
+                  {language === 'es' ? 'El impacto de nuestro sistema' : 'The impact of our system'}
+                </p>
+              </div>
+              <TransformationsCarousel language={language} />
+            </section>
+
             {/* Vision / About Section */}
-            <section id="about" className="py-32 px-6 bg-[#151619]">
-              <div className="max-w-5xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-20 items-center">
-                  <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-6">{t.about.vision}</div>
-                    <h2 className="stencil text-5xl mb-8">{t.about.title} <span className="text-olive">{t.about.title_accent}</span></h2>
-                    <div className="border-l-4 border-olive pl-8 space-y-6">
-                      <p className="text-smoke/80 leading-relaxed font-medium">
-                        {t.about.description}
-                      </p>
-                      <p className="text-smoke/60 text-sm italic">
-                        {t.about.quote}
-                      </p>
+            <section id="about" className="py-24 md:py-32 px-6 bg-[#151619]">
+              <div className="max-w-7xl mx-auto">
+                <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+                    <h2 className="stencil text-4xl md:text-5xl lg:text-6xl mb-6">{t.about.title} <span className="text-olive">{t.about.title_accent}</span></h2>
+                    <div className="w-24 h-1 bg-olive opacity-80" />
+                </div>
+                
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                  <div className="order-2 lg:order-1 space-y-10">
+                    {t.about.items.map((item, index) => (
+                      <motion.div 
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="flex gap-4 md:gap-6 items-start"
+                      >
+                         <div className="shrink-0 w-10 h-10 rounded-full border border-olive/30 flex items-center justify-center text-olive font-black text-sm stencil bg-olive/10 shadow-[0_0_15px_rgba(118,132,85,0.2)]">
+                           {index + 1}
+                         </div>
+                         <div className="space-y-2 pt-1">
+                           <h3 className="stencil tracking-wider text-xl md:text-2xl text-white">{item.title}</h3>
+                           <p className="text-smoke/70 text-sm md:text-base leading-relaxed">{item.description}</p>
+                         </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <div className="order-1 lg:order-2 w-full max-w-2xl mx-auto lg:sticky lg:top-32">
+                    <div className="relative">
+                      <div className="w-full h-[50vh] min-h-[400px] md:h-[600px] overflow-hidden rounded-xl group flex items-center justify-center border border-olive/10 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+                        <img 
+                          src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOCUS%20GYM.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT0NVUyBHWU0ucG5nIiwiaWF0IjoxNzc4MzM2NjIyLCJleHAiOjE5MzYwMTY2MjJ9.ZdcNJvfHmDTvRbUylf_bQnDcNgSGUnwSjqxUqUP5tAw" 
+                          alt="Tactical Discipline" 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[20%]" 
+                          referrerPolicy="no-referrer" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+                      </div>
+                      <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r-4 border-b-4 border-olive opacity-20 hidden lg:block" />
                     </div>
-                  </motion.div>
-                  <div className="relative">
-                    <div className="aspect-auto min-h-[400px] md:min-h-[500px] bg-olive/5 border-2 border-olive/10 overflow-hidden rounded-sm group flex items-center justify-center">
-                      <img 
-                        src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOCUS%20GYM.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT0NVUyBHWU0ucG5nIiwiaWF0IjoxNzc4MzM2NjIyLCJleHAiOjE5MzYwMTY2MjJ9.ZdcNJvfHmDTvRbUylf_bQnDcNgSGUnwSjqxUqUP5tAw" 
-                        alt="Tactical Discipline" 
-                        className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105" 
-                        referrerPolicy="no-referrer" 
-                      />
-                    </div>
-                    <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r-4 border-b-4 border-olive opacity-20 hidden md:block" />
                   </div>
                 </div>
               </div>
@@ -1196,18 +1292,18 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
       </main>
 
       {currentView === 'home' && (
-        <section className="py-24 border-y border-olive/10 text-center px-6">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <div className="relative min-h-[400px] md:min-h-[600px] w-full max-w-4xl mx-auto overflow-hidden rounded-sm border border-olive/10 shadow-2xl bg-black/20">
+        <section className="py-24 border-y border-olive/10 text-center px-0 md:px-6">
+          <div className="w-full md:max-w-6xl mx-auto space-y-12">
+            <div className="relative h-[60vh] md:min-h-[600px] w-full mx-auto overflow-hidden rounded-none md:rounded-xl">
               <img 
                 src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20FOCUS%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEZPQ1VTIDIucG5nIiwiaWF0IjoxNzc4MzM4NzU1LCJleHAiOjE5MzYwMTg3NTV9.03XM2TbkP_bk-KJPpTF1-C-9rF6U8kNl07IYlPNjuoI" 
                 alt="Determinación Focus Box" 
-                className="w-full h-full object-contain transition-all duration-700"
+                className="w-full h-full object-cover transition-all duration-700"
                 referrerPolicy="no-referrer"
               />
             </div>
             
-            <div className="max-w-3xl mx-auto space-y-8">
+            <div className="max-w-3xl mx-auto space-y-8 px-6 md:px-0">
               <div className="flex justify-center gap-2">
                 {[1, 2, 3, 4, 5].map(i => <Zap key={i} className="text-olive fill-olive" size={16} />)}
               </div>

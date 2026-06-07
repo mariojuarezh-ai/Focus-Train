@@ -25,6 +25,10 @@ const hyroxTexts = {
     conclusionBullet2: "Explotar fortalezas, mejorar debilidades",
     conclusionBullet3: "Moverte siempre hacia delante",
     conclusionBullet4: "Protege tus piernas, HYROX es piernas y aire",
+    ctaTitle: "¿QUIERES QUE FOCUS TE ENTRENE PARA TU CARRERA?",
+    ctaButton: "ENTRENA CON NOSOTROS",
+    ctaTitleAlt: "DOMINA TU PRÓXIMA CARRERA HYROX CON NOSOTROS",
+    ctaButtonAlt: "ENTRENA CON NOSOTROS",
     paceHeader: "PACE/KM",
     timeHeader: "TIEMPO",
     categoryHeader: "Categoría",
@@ -71,6 +75,10 @@ const hyroxTexts = {
     conclusionBullet2: "Exploit strengths, improve weaknesses",
     conclusionBullet3: "Always keep moving forward",
     conclusionBullet4: "Protect your legs, HYROX is legs and lungs",
+    ctaTitle: "DO YOU WANT FOCUS TO TRAIN YOU FOR YOUR RACE?",
+    ctaButton: "TRAIN WITH US",
+    ctaTitleAlt: "DOMINATE YOUR NEXT HYROX RACE WITH US",
+    ctaButtonAlt: "TRAIN WITH US",
     paceHeader: "PACE/KM",
     timeHeader: "TIME",
     categoryHeader: "Category",
@@ -123,6 +131,29 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           <p className="text-xl md:text-2xl font-black uppercase tracking-widest bg-olive text-black inline-block px-4 py-2 mb-12">
             {t.introHeading1}
           </p>
+
+          {/* Alternative Top CTA */}
+          <div className="max-w-4xl mx-auto mb-16 p-6 md:p-10 border border-olive/30 border-dashed bg-[#0B0B0B] relative group hover:border-olive/60 transition-colors">
+            <div className="absolute top-0 left-0 w-2 h-2 bg-olive -translate-x-1 -translate-y-1" />
+            <div className="absolute top-0 right-0 w-2 h-2 bg-olive translate-x-1 -translate-y-1" />
+            <div className="absolute bottom-0 left-0 w-2 h-2 bg-olive -translate-x-1 translate-y-1" />
+            <div className="absolute bottom-0 right-0 w-2 h-2 bg-olive translate-x-1 translate-y-1" />
+            
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-left">
+              <div className="flex items-center gap-6">
+                 <div className="p-4 bg-olive/10 rounded-full shrink-0">
+                    <Target className="text-olive" size={32} />
+                 </div>
+                 <h2 className="text-xl md:text-2xl font-black uppercase tracking-widest text-smoke">{t.ctaTitleAlt}</h2>
+              </div>
+              <a 
+                href="mailto:misiones@focusbox.fit?subject=Entrenamiento%20Hyrox"
+                className="btn-tactical py-3 px-8 text-sm uppercase tracking-widest font-black shrink-0 text-center w-full md:w-auto"
+              >
+                {t.ctaButtonAlt}
+              </a>
+            </div>
+          </div>
           
           <div className="grid md:grid-cols-2 gap-12 items-center mt-8 text-left">
             <div className="font-mono text-smoke/90 leading-relaxed text-sm md:text-base space-y-6">
@@ -240,6 +271,20 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
                </ul>
              </div>
            </div>
+        </div>
+
+        {/* CTA SECTION */}
+        <div className="mt-20 text-center bg-[#0B0B0B] border border-olive/30 p-12 relative overflow-hidden group">
+           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_2px_2px,rgba(118,132,85,0.4)_1px,transparent_0)] bg-[length:20px_20px]" />
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-olive/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-olive/20 transition-colors" />
+           <Target size={48} className="text-olive mx-auto mb-6 opacity-80" />
+           <h2 className="stencil text-3xl md:text-5xl mb-8 relative z-10">{t.ctaTitle}</h2>
+           <a 
+             href="mailto:misiones@focusbox.fit?subject=Entrenamiento%20Hyrox"
+             className="btn-tactical py-4 px-10 text-sm md:text-lg uppercase tracking-widest font-black inline-block relative z-10"
+           >
+             {t.ctaButton}
+           </a>
         </div>
       </section>
     </motion.div>
