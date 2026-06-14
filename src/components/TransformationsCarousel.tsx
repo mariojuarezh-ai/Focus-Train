@@ -36,12 +36,12 @@ const pairedPhotos = [
     despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/OMAR%20DESPUES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL09NQVIgREVTUFVFUyAxIENPUlJFR0lETy5wbmciLCJpYXQiOjE3Nzk1ODUyNjgsImV4cCI6MTkzNzI2NTI2OH0.8brqUCetcHpkT_5BwfFqrkJdAaGN4__UlwAbSSsEb_Y"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20ANTES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBBTlRFUyAxIENPUlJFR0lETy5wbmciLCJpYXQiOjE3Nzk1ODQwODgsImV4cCI6MTkzNzI2NDA4OH0.CLImRnirgrVDfJN8ARbquZr42fGiQxH_-nBvh4FAq2s",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20DESPUES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBERVNQVUVTIDEgQ09SUkVHSURPLnBuZyIsImlhdCI6MTc3OTU4NTMxNywiZXhwIjoxOTM3MjY1MzE3fQ.fQJ0nn-VVUkR1FLxMPgKOoJX__HVviPu6p3sTvUwGQc"
+    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20ANTES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBBTlRFUyAxIENPUlJFR0lETy5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDA3NzUzLCJleHAiOjE5MzkwODc3NTN9.NDJvqGkkOrU2WcW7NNYBCxo80lSCwOIMMLkTdRk55rg",
+    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20DESPUES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBERVNQVUVTIDEgQ09SUkVHSURPLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0MDc5NjgsImV4cCI6MTkzOTA4Nzk2OH0.tNXzOOkP8R3RKxdhp7sm4q9Nfl-x-g96QSXMrjt__Oo"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20ANTES%202%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBBTlRFUyAyIENPUlJFR0lETy5wbmciLCJpYXQiOjE3Nzk1ODQxNjgsImV4cCI6MTkzNzI2NDE2OH0.tGYWpYsFCW8Si_GbupsZ3ZKKV5-JD7DhMDbgr9fc2KU",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20DESPUES%202%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBERVNQVUVTIDIgQ09SUkVHSURPLnBuZyIsImlhdCI6MTc3OTU4NTM1MSwiZXhwIjoxOTM3MjY1MzE3fQ.WVXQmeqaN9Pd7063sqIpDswyV0hG_EA4_YrIV0S75YI"
+    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20ANTES%202%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBBTlRFUyAyIENPUlJFR0lETy5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDA4NDAyLCJleHAiOjE5MzkwODg0MDJ9.F5jbiankUu1oHG2DtEDmzAFVWfnFl-rVwJW6XI6Ca0Q",
+    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20DESPUES%202%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBERVNQVUVTIDIgQ09SUkVHSURPLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0MDg0MzAsImV4cCI6MTkzOTA4ODQzMH0.Grfnfy97Kdy9BOLatcBQmkQNX4cXoa2Xvp-f_R0L0uU"
   },
   {
     antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/VANIA%20ANTES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1ZBTklBIEFOVEVTIDEgQ09SUkVHSURPLnBuZyIsImlhdCI6MTc3OTU4NDIyMCwiZXhwIjoxOTM3MjY0MjIwfQ.jGQTF1Q5Y1-44uP3lMzKkwWPhahls18urMtxVEeazKs",
@@ -94,7 +94,7 @@ const MarqueeRow = ({ pairs, direction = "left", speed = 40, language, onPairCli
           <div 
             key={index} 
             onClick={() => onPairClick(pair)}
-            className="w-[300px] sm:w-[400px] md:w-[600px] h-[350px] sm:h-[450px] md:h-[600px] shrink-0 border border-olive/20 rounded-sm overflow-hidden relative group bg-black flex transition-all duration-500 group-hover/row:opacity-40 hover:!opacity-100 hover:scale-[1.02] hover:z-10 hover:border-olive hover:shadow-[0_0_30px_rgba(118,132,85,0.3)] items-stretch cursor-pointer"
+            className="w-[85vw] sm:w-[400px] md:w-[600px] h-[85vw] sm:h-[450px] md:h-[600px] shrink-0 border border-olive/20 rounded-sm overflow-hidden relative group bg-black flex transition-all duration-500 group-hover/row:opacity-40 hover:!opacity-100 hover:scale-[1.02] hover:z-10 hover:border-olive hover:shadow-[0_0_30px_rgba(118,132,85,0.3)] items-stretch cursor-pointer"
           >
             {/* Antes Side */}
             <div className="w-1/2 relative border-r border-olive/20 group-hover:grayscale-0 grayscale transition-all duration-700">
@@ -106,7 +106,7 @@ const MarqueeRow = ({ pairs, direction = "left", speed = 40, language, onPairCli
                <img 
                  src={pair.antes} 
                  alt="Antes" 
-                 className="w-full h-full object-cover pointer-events-none"
+                 className="w-full h-full object-cover object-center sm:object-cover sm:object-center pointer-events-none"
                />
                <div className="absolute inset-0 bg-olive/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none duration-500" />
             </div>
@@ -121,7 +121,7 @@ const MarqueeRow = ({ pairs, direction = "left", speed = 40, language, onPairCli
                <img 
                  src={pair.despues} 
                  alt="Despues" 
-                 className="w-full h-full object-cover pointer-events-none"
+                 className="w-full h-full object-cover object-center sm:object-cover sm:object-center pointer-events-none"
                />
                <div className="absolute inset-0 bg-olive/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none duration-500" />
             </div>
@@ -138,27 +138,70 @@ const MarqueeRow = ({ pairs, direction = "left", speed = 40, language, onPairCli
 export const TransformationsCarousel = ({ language }: { language: 'es' | 'en' }) => {
   const [selectedPair, setSelectedPair] = useState<{antes: string, despues: string} | null>(null);
 
+  // Mobile pairs (show a subset or all)
+  const mobilePairs = pairedPhotos.slice(0, 6);
+
   return (
     <>
-      <div className={`w-full space-y-4 md:space-y-8 overflow-hidden relative pt-4 pb-12 ${selectedPair ? 'carousel-paused' : ''}`}>
+      <div className={`w-full overflow-hidden relative pt-4 pb-12 ${selectedPair ? 'carousel-paused' : ''}`}>
         {/* Accent Backgrounds */}
         <div className="absolute top-1/2 left-0 w-64 h-64 bg-olive/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute top-1/2 right-0 w-64 h-64 bg-olive/5 rounded-full blur-[100px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
 
-        <MarqueeRow 
-          pairs={pairedPhotos.slice(0, 6)} 
-          direction="left" 
-          speed={75} 
-          language={language}
-          onPairClick={setSelectedPair}
-        />
-        <MarqueeRow 
-          pairs={pairedPhotos.slice(6)} 
-          direction="right" 
-          speed={75} 
-          language={language}
-          onPairClick={setSelectedPair}
-        />
+        {/* Desktop View (Marquee) */}
+        <div className="hidden md:block space-y-8">
+          <MarqueeRow 
+            pairs={pairedPhotos.slice(0, 6)} 
+            direction="left" 
+            speed={75} 
+            language={language}
+            onPairClick={setSelectedPair}
+          />
+          <MarqueeRow 
+            pairs={pairedPhotos.slice(6)} 
+            direction="right" 
+            speed={75} 
+            language={language}
+            onPairClick={setSelectedPair}
+          />
+        </div>
+
+        {/* Mobile View (Horizontal Snap Scroll) */}
+        <div className="md:hidden w-full flex overflow-x-auto snap-x snap-mandatory gap-4 px-6 pb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+          {pairedPhotos.map((pair, index) => (
+            <div 
+              key={index} 
+              onClick={() => setSelectedPair(pair)}
+              className="w-[85vw] h-[85vw] shrink-0 snap-center border border-olive/20 rounded-sm overflow-hidden relative group bg-black flex transition-all duration-300 active:scale-[0.98]"
+            >
+              <div className="w-1/2 relative border-r border-olive/20">
+                 <div className="absolute top-2 left-2 z-20 bg-black/80 text-olive text-[8px] font-black tracking-widest px-2 py-1 stencil shadow-md">
+                   {language === 'es' ? 'ANTES' : 'BEFORE'}
+                 </div>
+                 <div className="absolute top-0 left-0 right-0 h-[15%] bg-transparent backdrop-blur-[12px] z-10 pointer-events-none fade-out-bottom" />
+                 <img 
+                   src={pair.antes} 
+                   alt="Antes" 
+                   className="w-full h-full object-cover object-center pointer-events-none"
+                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                 />
+              </div>
+              <div className="w-1/2 relative">
+                 <div className="absolute top-2 right-2 z-20 bg-olive text-black text-[8px] font-black tracking-widest px-2 py-1 stencil shadow-md">
+                   {language === 'es' ? 'DESPUÉS' : 'AFTER'}
+                 </div>
+                 <div className="absolute top-0 left-0 right-0 h-[15%] bg-transparent backdrop-blur-[12px] z-10 pointer-events-none fade-out-bottom" />
+                 <img 
+                   src={pair.despues} 
+                   alt="Despues" 
+                   className="w-full h-full object-cover object-center pointer-events-none"
+                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                 />
+              </div>
+              <div className="absolute inset-0 -z-10 opacity-20 bg-[radial-gradient(circle_at_2px_2px,rgba(118,132,85,0.4)_1px,transparent_0)] bg-[length:20px_20px]" />
+            </div>
+          ))}
+        </div>
       </div>
 
       <AnimatePresence>

@@ -30,6 +30,7 @@ import { TransformationsCarousel } from "./components/TransformationsCarousel";
 
 import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
+import { CoachesSection } from './components/CoachesSection';
 
 type Language = 'es' | 'en';
 
@@ -157,6 +158,8 @@ const translations = {
       group_subtitle: "5 clases a la semana",
       group_promo: "*precio especial por grupo*",
       group_promo_desc: "Pregunta por las promociones grupales",
+      coaches_subtitle: "NUESTRO EQUIPO",
+      coaches_title: "ENTRENADORES",
       items: [
         { name: "1 clase", subname: "", price: "$450", meta: "Precio Regular" },
         { name: "2 clases x semana", subname: "", price: "$600", meta: "$300 x clase" },
@@ -312,6 +315,8 @@ const translations = {
       group_subtitle: "5 classes per week",
       group_promo: "*special group price*",
       group_promo_desc: "Ask about group promotions",
+      coaches_subtitle: "OUR TEAM",
+      coaches_title: "COACHES",
       items: [
         { name: "1 class", subname: "", price: "$450", meta: "Regular Price" },
         { name: "2 classes x week", subname: "", price: "$600", meta: "$300 x class" },
@@ -384,29 +389,21 @@ const Logo = ({ className = "" }: { className?: string }) => (
   </div>
 );
 
-const PayPalButton = ({ label, featured = false }: { label: string, featured?: boolean }) => {
+const WhatsAppButton = ({ label, featured = false }: { label: string, featured?: boolean }) => {
+  const message = encodeURIComponent("¡Hola Team Focus! ⚡ Me interesa la prueba gratis de 2 semanas del plan y me gustaría más información.");
   return (
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <input type="hidden" name="cmd" value="_s-xclick" />
-      <input type="hidden" name="hosted_button_id" value="6QCRB4S7A2ZEJ" />
-      <input type="hidden" name="currency_code" value="MXN" />
-      <motion.button
-        type="submit"
-        name="submit"
-        whileHover={{ y: -2, boxShadow: "0 0 25px rgba(118, 132, 85, 0.6)" }}
-        whileTap={{ scale: 0.98 }}
-        className={`w-full py-4 text-sm font-black tracking-[0.3em] transition-all flex items-center justify-center gap-2 rounded-sm uppercase ${
-          featured 
-            ? "bg-[#768455] text-[#0B0B0B] hover:bg-[#A3B18A]" 
-            : "border-2 border-[#768455] text-[#768455] hover:bg-[#768455] hover:text-black"
-        }`}
-      >
-        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 3.321c.065-.405.415-.701.826-.701h9.19c.478 0 1.258.01 2.164.195 2.155.44 3.791 2.226 3.791 4.544 0 2.21-.861 3.864-2.477 4.757-.54.3-1.155.518-1.815.65-1.121.223-2.126.21-2.903.203h-2.115c-.47 0-.877.34-.963.803l-1.031 5.565c-.067.362-.38.625-.747.625h2.1l1.52-9.215h1.217c2.617 0 4.09 1.233 4.09 4.305 0 3.072-1.473 4.305-4.09 4.305H11.23a1 1 0 0 0-.985.834l-.86 5.234a.641.641 0 0 1-.631.538z"/>
-        </svg>
-        {label}
-      </motion.button>
-    </form>
+    <a 
+      href={`https://wa.me/5215555555555?text=${message}`} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className={`w-full py-4 text-center text-sm font-black tracking-[0.3em] transition-all flex items-center justify-center gap-2 rounded-sm uppercase ${
+        featured 
+          ? "bg-[#768455] text-[#0B0B0B] hover:bg-[#A3B18A]" 
+          : "border-2 border-[#768455] text-[#768455] hover:bg-[#768455] hover:text-black"
+      }`}
+    >
+      {label}
+    </a>
   );
 };export default function App() {
   const [currentView, setCurrentView] = useState<'home' | 'programas' | 'clases' | 'hyrox' | 'stenfit' | 'comunidad'>('home');
@@ -767,7 +764,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 {spotifyUser ? (
                   <div className="flex items-center gap-2">
                     {spotifyUser.images?.[0]?.url && (
-                      <img src={spotifyUser.images[0].url} alt="" className="w-4 h-4 rounded-full border border-olive/30" />
+                      <img src={spotifyUser.images[0].url} onError={(e) => { e.currentTarget.style.display = 'none'; }} alt="" className="w-4 h-4 rounded-full border border-olive/30" />
                     )}
                     <span className="text-[8px] font-black tracking-widest text-olive uppercase truncate max-w-[100px]">
                       {spotifyUser.display_name}
@@ -838,13 +835,13 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
           >
             {/* Hero Section - Immersive Vertical */}
             <section id="hero" className="relative h-[90vh] flex items-center justify-center text-center px-6 overflow-hidden">
-              <div className="absolute inset-0 z-0">
+              <div className="absolute inset-0 z-0 pointer-events-none">
                 <video 
                   autoPlay 
                   muted 
                   loop 
                   playsInline
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover pointer-events-none"
                 >
                   <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%203.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyAzLm1wNCIsImlhdCI6MTc3ODk4MDc5MCwiZXhwIjoxOTM2NjYwNzkwfQ.9hCvsNHxVNJaQI-qMngwzSVPrm7aKZnQs2kb5nrmlGk" type="video/mp4" />
                 </video>
@@ -942,12 +939,13 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
 
                   <div className="order-1 lg:order-2 w-full max-w-2xl mx-auto lg:sticky lg:top-32">
                     <div className="relative">
-                      <div className="w-full h-[50vh] min-h-[400px] md:h-[600px] overflow-hidden rounded-xl group flex items-center justify-center border border-olive/10 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+                      <div className="w-full h-[50vh] min-h-[400px] md:h-[600px] overflow-hidden rounded-xl group flex items-center justify-center border border-olive/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] bg-black/50">
                         <img 
-                          src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOCUS%20GYM.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT0NVUyBHWU0ucG5nIiwiaWF0IjoxNzc4MzM2NjIyLCJleHAiOjE5MzYwMTY2MjJ9.ZdcNJvfHmDTvRbUylf_bQnDcNgSGUnwSjqxUqUP5tAw" 
+                          src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                           alt="Tactical Discipline" 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[20%]" 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" 
                           referrerPolicy="no-referrer" 
+                          onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
                       </div>
@@ -967,20 +965,23 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                   <p className="text-smoke/60 text-sm font-medium tracking-widest uppercase">{t.intel.subtitle}</p>
                 </div>
                 
-                <div className="glass-card border-olive/20 p-4 bg-black/40">
-                  {/* @ts-ignore */}
-                  <rssapp-carousel id="IeEWIwn3AuyEJncT"></rssapp-carousel>
-                </div>
-
-                <div className="mt-12 text-center">
+                <div className="glass-card border-olive/20 p-8 md:p-16 bg-black/40 text-center flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 rounded-full border border-olive/30 bg-olive/10 flex items-center justify-center mb-6">
+                    <svg className="w-8 h-8 text-olive" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl md:text-2xl text-smoke mb-4 font-black">SÍGUENOS EN NUESTRAS REDES</h3>
+                  <p className="text-smoke/70 text-sm md:text-base font-mono max-w-lg mb-8">
+                    Mantente al día con nuestros próximos eventos de Hyrox, entrenamientos nuevos, y resultados de nuestra comunidad.
+                  </p>
                   <a 
                     href="https://www.instagram.com/focusboxfitness/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 text-olive hover:text-accent transition-colors font-black tracking-widest text-[10px] uppercase border-b border-olive/30 pb-1"
+                    className="inline-flex items-center gap-3 text-black bg-olive hover:bg-[#A3B18A] transition-colors font-black tracking-widest text-[12px] uppercase px-8 py-3 rounded-sm shadow-[0_0_20px_rgba(118,132,85,0.3)] hover:-translate-y-1 transform duration-300"
                   >
-                    {t.intel.instagram_link}
-                    <span className="w-1.5 h-1.5 rounded-full bg-olive animate-pulse" />
+                    @focusboxfitness
                   </a>
                 </div>
               </div>
@@ -1013,7 +1014,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-olive/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-olive/5 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 py-32 w-full relative z-10">
+            <div className="max-w-7xl mx-auto px-6 py-32 w-full relative z-10 pointer-events-auto">
               <div className="text-center mb-16 md:mb-24 max-w-2xl mx-auto">
                 <div className="inline-block px-4 py-1 border border-olive/30 text-olive text-[10px] font-black tracking-[0.5em] uppercase mb-6 rounded-full">
                   Elite Systems
@@ -1063,8 +1064,8 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                     </p>
                   </div>
                   
-                  <div className="mt-auto">
-                    <PayPalButton label={t.programs.essential.cta} />
+                  <div className="mt-auto pointer-events-auto">
+                    <WhatsAppButton label={t.programs.essential.cta} />
                   </div>
                 </motion.article>
 
@@ -1109,8 +1110,8 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                     </p>
                   </div>
 
-                  <div className="mt-auto">
-                    <PayPalButton label={t.programs.focused.cta} featured />
+                  <div className="mt-auto pointer-events-auto">
+                    <WhatsAppButton label={t.programs.focused.cta} featured />
                   </div>
                 </motion.article>
               </div>
@@ -1188,13 +1189,13 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
           >
             {/* Class Schedule Section */}
             <section id="classes" className="py-20 px-6">
-              <div className="max-w-4xl mx-auto">
+              <div className="max-w-6xl mx-auto">
                 <header className="text-center mb-20">
                   <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">{t.clases.subtitle}</div>
                   <h2 className="stencil text-5xl">{t.clases.title} <span className="text-olive">{t.clases.title_accent}</span></h2>
                 </header>
 
-                <div className="space-y-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
                   <div>
                     <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-8 border-b-2 border-olive/30 pb-4">
                       <h3 className="stencil text-3xl md:text-4xl text-olive tracking-widest">{t.clases.individual_title}</h3>
@@ -1224,7 +1225,7 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                     </div>
                   </div>
 
-                  <div className="pt-8">
+                  <div>
                     <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-8 border-b-2 border-olive/30 pb-4">
                       <h3 className="stencil text-3xl md:text-4xl text-olive tracking-widest">{t.clases.group_title}</h3>
                       <span className="text-xs font-black tracking-widest uppercase text-smoke/70"><span className="text-olive">◆</span> {t.clases.group_subtitle}</span>
@@ -1254,6 +1255,9 @@ const PayPalButton = ({ label, featured = false }: { label: string, featured?: b
                 </div>
               </div>
             </section>
+            
+            <CoachesSection language={language} />
+            
           </motion.div>
         )}
 

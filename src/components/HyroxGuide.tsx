@@ -193,7 +193,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
               <TimingCard t={t} title="Doubles Woman" times={[["3:00","47-49 MIN"],["3:30","51-53 MIN"],["4:00","55-57 MIN"],["4:30","59-61 MIN"],["5:00","63-65 MIN"],["5:30","67-69 MIN"],["6:00","71-73 MIN"],["6:30","75-77 MIN"],["7:00","79-81 MIN"],["7:30","83-85 MIN"],["8:00","87-89 MIN"]]} />
               <TimingCard t={t} title="Mixed Doubles" times={[["3:00","47-49 MIN"],["3:30","51-53 MIN"],["4:00","55-57 MIN"],["4:30","59-61 MIN"],["5:00","63-65 MIN"],["5:30","67-69 MIN"],["6:00","71-73 MIN"],["6:30","75-77 MIN"],["7:00","79-81 MIN"],["7:30","83-85 MIN"],["8:00","87-89 MIN"]]} />
             </div>
-            <div className="lg:col-span-4 sticky top-24 hidden lg:block relative group">
+            <div className="lg:col-span-4 relative group mt-12 lg:mt-0 lg:sticky lg:top-24">
               <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
               <img 
                 src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWCAyLnBuZyIsImlhdCI6MTc3ODk5NDE0NywiZXhwIjoxOTM2Njc0MTQ3fQ.SnUuz7NrtQYcSw55C2106Xs6SH1oCoayMoA97tfUWm0" 
@@ -238,7 +238,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
                <p>{t.roxzoneP3}</p>
              </div>
           </div>
-          <div className="md:col-span-2 relative h-full min-h-[300px] group hidden md:block">
+          <div className="md:col-span-2 relative h-full min-h-[300px] group mt-8 md:mt-0">
             <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
             <img 
               src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX%203.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWCAzLnBuZyIsImlhdCI6MTc3OTU1NTE3OCwiZXhwIjoxOTM3MjM1MTc4fQ.rO7ykK2-Lvw5QhGdg2XXfEe4CUNDde3U8bp3y9v7EwE" 
@@ -250,7 +250,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
 
         <div className="border-t-2 border-olive/30 pt-16 mt-20">
            <div className="grid md:grid-cols-2 gap-12 items-center">
-             <div className="relative group h-[400px] md:h-[500px] hidden md:block">
+             <div className="relative group h-[300px] md:h-[500px]">
                <div className="absolute inset-0 bg-olive/20 -translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:-translate-x-2 group-hover:translate-y-2"></div>
                <img 
                  src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX4.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWDQucG5nIiwiaWF0IjoxNzc5NTU1MjUwLCJleHAiOjE5MzcyMzUyNTB9.sAz2om2nCSeIemlIRvWwbgLSpdIpx0b5PlJF4X9yTgU" 
