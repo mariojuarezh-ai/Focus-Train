@@ -180,11 +180,15 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
             
             <div className="relative group">
               <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
-              <img 
-                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX1.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWDEucG5nIiwiaWF0IjoxNzc4OTkzOTM4LCJleHAiOjE5MzY2NzM5Mzh9.2QSQ6IHAOshEuIX9XCrb2ZH7waPO4hbAZvYEMo5DyZ4" 
-                alt="Hyrox Focus 1" 
-                className="relative z-10 w-full h-auto object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500 border border-olive/30 shadow-2xl"
-              />
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                className="relative z-10 w-full h-auto object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
+              >
+                <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20HIROX.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBISVJPWC5tcDQiLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg3MzgzLCJleHAiOjE5MzkxNjczODN9.n7IghoFE5RMosj4h-Uv5MBzMP_wQPGtEDA0Rw2nNIig" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
@@ -205,9 +209,9 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
             <div className="lg:col-span-4 relative group mt-12 lg:mt-0 lg:sticky lg:top-24">
               <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
               <img 
-                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWCAyLnBuZyIsImlhdCI6MTc3ODk5NDE0NywiZXhwIjoxOTM2Njc0MTQ3fQ.SnUuz7NrtQYcSw55C2106Xs6SH1oCoayMoA97tfUWm0" 
+                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX%20CARRERA1.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWCBDQVJSRVJBMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg4MDUwLCJleHAiOjE5MzkxNjgwNTB9.KRiGy0l_O_p4kXkmqgloNC57pMP_0sw6S-y5-6PQuY0" 
                 alt="Hyrox Focus 2" 
-                className="relative z-10 w-full h-auto object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500 border border-olive/30 shadow-2xl"
+                className="relative z-10 w-full h-auto object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
               />
             </div>
           </div>
@@ -218,7 +222,14 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
       <section className="py-20 px-6 max-w-5xl mx-auto space-y-16">
         <h2 className="stencil text-4xl md:text-5xl text-center mb-16">{t.analysisTitleBase} <span className="text-olive">{t.analysisTitleAccent}</span></h2>
         
-        <StationDetail t={t} title="1. SKI ERG (1000 MTS)" times={[["Singles men", "3:05-3:20", "4:15-4:45"], ["Doubles men", "2:10-2:30", "2:45-3:15"], ["Singles women", "3:25-3:45", "4:45-5:15"], ["Doubles women", "2:20-2:40", "3:00-3:30"], ["Mixed doubles", "2:15-2:35", "2:55-3:25"]]} tips={t.station1Tips} penalties={t.station1Penalties} />
+        <StationDetail 
+          t={t} 
+          title="1. SKI ERG (1000 MTS)" 
+          times={[["Singles men", "3:05-3:20", "4:15-4:45"], ["Doubles men", "2:10-2:30", "2:45-3:15"], ["Singles women", "3:25-3:45", "4:45-5:15"], ["Doubles women", "2:20-2:40", "3:00-3:30"], ["Mixed doubles", "2:15-2:35", "2:55-3:25"]]} 
+          tips={t.station1Tips} 
+          penalties={t.station1Penalties}
+          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SKI%20ERG%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNLSSBFUkcgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg4NTE1LCJleHAiOjE5MzkxNjg1MTV9.T2wrmvFd51w9TKPtvpsh8xCQqfxRUlOg95PxlJWHCww"
+        />
 
         <StationDetail t={t} title="2. SLED PUSH (50 MTS)" times={[["Singles men", "1:40-1:55", "2:30-3:00"], ["Doubles men", "1:10-1:25", "1:45-2:15"], ["Singles women", "2:00-2:20", "2:45-3:15"], ["Doubles women", "1:20-1:40", "1:55-2:25"], ["Mixed doubles", "1:15-1:35", "1:50-2:20"]]} tips={t.station2Tips} penalties={t.station2Penalties} />
 
@@ -252,7 +263,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
             <img 
               src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX%203.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWCAzLnBuZyIsImlhdCI6MTc3OTU1NTE3OCwiZXhwIjoxOTM3MjM1MTc4fQ.rO7ykK2-Lvw5QhGdg2XXfEe4CUNDde3U8bp3y9v7EwE" 
               alt="Hyrox Roxzone Focus" 
-              className="absolute inset-0 w-full h-full object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500 border border-olive/30 shadow-2xl"
+              className="absolute inset-0 w-full h-full object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
             />
           </div>
         </div>
@@ -264,7 +275,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
                <img 
                  src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX4.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWDQucG5nIiwiaWF0IjoxNzc5NTU1MjUwLCJleHAiOjE5MzcyMzUyNTB9.sAz2om2nCSeIemlIRvWwbgLSpdIpx0b5PlJF4X9yTgU" 
                  alt="Hyrox Conclusion Focus" 
-                 className="absolute inset-0 w-full h-full object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500 border border-olive/30 shadow-2xl"
+                 className="absolute inset-0 w-full h-full object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
                />
              </div>
              <div className="text-left bg-olive/5 p-8 md:p-12 border border-olive/20 rounded-sm">
@@ -318,48 +329,59 @@ const TimingCard = ({ t, title, times }: { t: any, title: string, times: string[
   </div>
 );
 
-const StationDetail = ({ t, title, times, tips, penalties }: { t: any, title: string, times: string[][], tips: string[], penalties: string[] }) => (
+const StationDetail = ({ t, title, times, tips, penalties, image }: { t: any, title: string, times: string[][], tips: string[], penalties: string[], image?: string }) => (
   <div className="border border-white/10 bg-[#0B0B0B]/50 p-6 md:p-10 relative group hover:border-olive/30 transition-all rounded-sm shadow-xl">
     <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-olive/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-    <h3 className="stencil text-3xl md:text-4xl mb-8 text-olive">{title}</h3>
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
+      <h3 className="stencil text-3xl md:text-4xl text-olive">{title}</h3>
+    </div>
     
-    <div className="grid md:grid-cols-2 gap-10">
-      <div>
-        <div className="grid grid-cols-3 gap-2 text-[10px] tracking-widest font-black uppercase text-olive/60 mb-4 border-b border-olive/20 pb-2">
-          <span>{t.categoryHeader}</span>
-          <span className="text-center">{t.bestHeader}</span>
-          <span className="text-right">{t.averageHeader}</span>
+    <div className={`grid ${image ? 'lg:grid-cols-12' : 'md:grid-cols-2'} gap-10`}>
+      <div className={`${image ? 'lg:col-span-7 grid md:grid-cols-2 gap-10' : 'contents'}`}>
+        <div>
+          <div className="grid grid-cols-3 gap-2 text-[10px] tracking-widest font-black uppercase text-olive/60 mb-4 border-b border-olive/20 pb-2">
+            <span>{t.categoryHeader}</span>
+            <span className="text-center">{t.bestHeader}</span>
+            <span className="text-right">{t.averageHeader}</span>
+          </div>
+          <div className="space-y-3 font-mono text-xs">
+            {times.map((row, i) => (
+              <div key={i} className="grid grid-cols-3 gap-2">
+                <span className="opacity-80 break-words">• {row[0]}</span>
+                <span className="text-center opacity-70">{row[1]}</span>
+                <span className="text-right opacity-70">{row[2]}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="space-y-3 font-mono text-xs">
-          {times.map((row, i) => (
-            <div key={i} className="grid grid-cols-3 gap-2">
-              <span className="opacity-80 break-words">• {row[0]}</span>
-              <span className="text-center opacity-70">{row[1]}</span>
-              <span className="text-right opacity-70">{row[2]}</span>
-            </div>
-          ))}
+        
+        <div className="space-y-8">
+          <div>
+             <h4 className="flex items-center gap-2 text-sm font-black tracking-widest uppercase text-olive mb-3"><Flame size={16} /> {t.tipsHeader}</h4>
+             <ul className="space-y-2 text-xs md:text-sm font-mono text-smoke/70">
+               {tips.map((tip, i) => (
+                 <li key={i} className="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-olive/40 rounded-full">{tip}</li>
+               ))}
+             </ul>
+          </div>
+          
+          <div>
+             <h4 className="flex items-center gap-2 text-sm font-black tracking-widest uppercase text-red-500 mb-3"><AlertTriangle size={16} /> {t.penaltiesHeader}</h4>
+             <ul className="space-y-2 text-xs md:text-sm font-mono text-smoke/70">
+               {penalties.map((penalty, i) => (
+                 <li key={i} className="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-red-500/40 rounded-full">{penalty}</li>
+               ))}
+             </ul>
+          </div>
         </div>
       </div>
       
-      <div className="space-y-8">
-        <div>
-           <h4 className="flex items-center gap-2 text-sm font-black tracking-widest uppercase text-olive mb-3"><Flame size={16} /> {t.tipsHeader}</h4>
-           <ul className="space-y-2 text-xs md:text-sm font-mono text-smoke/70">
-             {tips.map((tip, i) => (
-               <li key={i} className="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-olive/40 rounded-full">{tip}</li>
-             ))}
-           </ul>
+      {image && (
+        <div className="relative group w-full rounded-sm border border-olive/20 lg:col-span-5 shadow-2xl self-start order-last mt-4 lg:mt-0">
+          <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+          <img src={image} alt={title} className="relative z-10 w-full h-auto object-cover object-top transition-all duration-500 rounded-sm aspect-square lg:aspect-[3/4]" />
         </div>
-        
-        <div>
-           <h4 className="flex items-center gap-2 text-sm font-black tracking-widest uppercase text-red-500 mb-3"><AlertTriangle size={16} /> {t.penaltiesHeader}</h4>
-           <ul className="space-y-2 text-xs md:text-sm font-mono text-smoke/70">
-             {penalties.map((penalty, i) => (
-               <li key={i} className="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-red-500/40 rounded-full">{penalty}</li>
-             ))}
-           </ul>
-        </div>
-      </div>
+      )}
     </div>
   </div>
 );
