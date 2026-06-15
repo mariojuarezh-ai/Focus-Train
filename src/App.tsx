@@ -539,7 +539,8 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0B0B] text-[#F2F2F2] selection:bg-[#768455] selection:text-[#0B0B0B]">
+    <div className="min-h-screen text-[#F2F2F2] selection:bg-[#768455] selection:text-[#0B0B0B]">
+      <div className="fixed inset-0 bg-[#0B0B0B] z-[-2]" />
       <div className="topo-bg-pattern opacity-10" />
       
       {/* Navigation */}
@@ -833,22 +834,23 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
+            <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-black">
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                className="w-full h-full object-cover pointer-events-none brightness-75 opacity-90"
+              >
+                <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20FOCUS-2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBGT0NVUy0yLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0ODM4OTIsImV4cCI6MTc4MTkxNTg5Mn0.WbQhAdH74GImAEDsmO7sWD25mj6o-XHv7I0SUpunHfI" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-[#0B0B0B]/40" />
+            </div>
+
             {/* Hero Section - Immersive Vertical */}
-            <section id="hero" className="relative h-[90vh] flex items-center justify-center text-center px-6 overflow-hidden">
-              <div className="absolute inset-0 z-0 pointer-events-none">
-                <video 
-                  autoPlay 
-                  muted 
-                  loop 
-                  playsInline
-                  className="w-full h-full object-cover pointer-events-none"
-                >
-                  <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%203.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyAzLm1wNCIsImlhdCI6MTc3ODk4MDc5MCwiZXhwIjoxOTM2NjYwNzkwfQ.9hCvsNHxVNJaQI-qMngwzSVPrm7aKZnQs2kb5nrmlGk" type="video/mp4" />
-                </video>
-                <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/70 via-[#0B0B0B]/20 to-[#0B0B0B]" />
-              </div>
-              
+            <section id="hero" className="relative h-[90vh] flex items-center justify-center text-center px-6 bg-transparent">
               <motion.div 
+
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
@@ -894,7 +896,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             {/* Testimonials moved to Home just after Hero */}
             <Testimonials language={language} />
 
-            <section className="pt-2 pb-24">
+            <section className="pt-2 pb-24 bg-[#0B0B0B]/60 backdrop-blur-sm relative z-0">
               <div className="text-center mb-16 px-6">
                 <h2 className="stencil text-4xl md:text-5xl lg:text-6xl mb-4">
                   {language === 'es' ? 'TRANSFORMACIONES' : 'TRANSFORMATIONS'}
@@ -908,7 +910,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             </section>
 
             {/* Vision / About Section */}
-            <section id="about" className="py-24 md:py-32 px-6 bg-[#151619]">
+            <section id="about" className="py-24 md:py-32 px-6 bg-[#151619]/60 backdrop-blur-sm relative z-0">
               <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col items-center text-center mb-16 md:mb-24">
                     <h2 className="stencil text-4xl md:text-5xl lg:text-6xl mb-6">{t.about.title} <span className="text-olive">{t.about.title_accent}</span></h2>
@@ -957,7 +959,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             </section>
 
             {/* Instagram Intel Feed */}
-            <section id="intel" className="py-32 px-6">
+            <section id="intel" className="py-32 px-6 bg-[#0B0B0B]/60 backdrop-blur-sm relative z-0">
               <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                   <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">RECON DIVISION</div>
@@ -1296,7 +1298,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
       </main>
 
       {currentView === 'home' && (
-        <section className="py-24 border-y border-olive/10 text-center px-0 md:px-6">
+        <section className="py-24 border-y border-olive/10 text-center px-0 md:px-6 bg-[#0B0B0B]/60 backdrop-blur-sm relative z-0">
           <div className="w-full md:max-w-6xl mx-auto space-y-12">
             <div className="relative h-[60vh] md:min-h-[600px] w-full mx-auto overflow-hidden rounded-none md:rounded-xl">
               <img 
@@ -1321,7 +1323,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
       )}
 
       {/* Footer */}
-      <footer className="py-32 px-6">
+      <footer className="py-32 px-6 bg-[#0B0B0B]/80 backdrop-blur-md relative z-0">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-20 items-start">
           <div className="space-y-8">
             <button onClick={() => navigateTo('home')}>

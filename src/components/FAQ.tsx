@@ -127,7 +127,7 @@ export const FAQ = ({ language }: FAQProps) => {
   const t = texts[language];
 
   return (
-    <section className="py-24 border-t border-olive/20 relative">
+    <section className="py-24 border-t border-olive/20 relative z-0 bg-[#0B0B0B]/60 backdrop-blur-sm">
       <div className="absolute top-0 right-0 py-2 px-8 bg-olive text-black font-black uppercase text-[10px] tracking-widest hidden md:block">
         {t.database}
       </div>

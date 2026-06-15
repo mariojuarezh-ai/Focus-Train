@@ -132,6 +132,15 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
             {t.introHeading1}
           </p>
 
+          <div className="w-full max-w-4xl mx-auto mb-16 relative">
+            <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm"></div>
+            <img 
+              src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HYROX-HECTOR.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9IWVJPWC1IRUNUT1IucG5nIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MTQxMjcwNCwiZXhwIjoxOTM5MDkyNzA0fQ.ydmX47mKjgeBD8u_pM09211sMciYIwD76Zq4Ai1yZDc"
+              alt="Hyrox Ready"
+              className="relative z-10 w-full h-auto object-cover rounded-sm border border-olive/30 shadow-2xl"
+            />
+          </div>
+
           {/* Alternative Top CTA */}
           <div className="max-w-4xl mx-auto mb-16 p-6 md:p-10 border border-olive/30 border-dashed bg-[#0B0B0B] relative group hover:border-olive/60 transition-colors">
             <div className="absolute top-0 left-0 w-2 h-2 bg-olive -translate-x-1 -translate-y-1" />
