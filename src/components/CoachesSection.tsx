@@ -133,7 +133,7 @@ export function CoachesSection({ language }: CoachesProps) {
               <div className="text-olive text-xs font-black tracking-widest uppercase mb-2">{t.aux1.role}</div>
               <h3 className="stencil text-2xl text-smoke mb-4">{t.aux1.name}</h3>
               <div className="font-mono text-smoke/70 text-sm leading-relaxed space-y-3">
-                {t.aux1.story ? t.aux1.story.map((p: string, i: number) => <p key={i}>{p}</p>) : <p>{t.aux1.desc}</p>}
+                {t.aux1.story ? t.aux1.story.map((p: string, i: number) => <p key={i}>{p}</p>) : <p>{(t.aux1 as any).desc}</p>}
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@ export function CoachesSection({ language }: CoachesProps) {
               <div className="text-olive text-xs font-black tracking-widest uppercase mb-2">{t.aux2.role}</div>
               <h3 className="stencil text-2xl text-smoke mb-4">{t.aux2.name}</h3>
               <div className="font-mono text-smoke/70 text-sm leading-relaxed space-y-3">
-                {t.aux2.story ? t.aux2.story.map((p: string, i: number) => <p key={i} className={p.startsWith('"') ? "italic text-olive font-medium mt-4" : ""}>{p}</p>) : <p>{t.aux2.desc}</p>}
+                {t.aux2.story ? t.aux2.story.map((p: string, i: number) => <p key={i} className={p.startsWith('"') ? "italic text-olive font-medium mt-4" : ""}>{p}</p>) : <p>{(t.aux2 as any).desc}</p>}
               </div>
             </div>
           </div>

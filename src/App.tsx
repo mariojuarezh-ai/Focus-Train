@@ -1356,7 +1356,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                    <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all">
                       <Smartphone size={18} className="text-smoke group-hover:text-olive transition-colors" />
                    </div>
-                   <div className="text-sm font-bold">+52 1 55 0000 0000</div>
+                   <div className="text-sm font-bold">+52 1 33 1804 2910</div>
                 </div>
                 <div className="flex items-center gap-4 group">
                    <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all">
@@ -1366,11 +1366,12 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 </div>
              </div>
              <div className="pt-6 flex gap-4">
-                {['IG', 'FB', 'TW'].map(social => (
-                  <button key={social} className="text-xs font-black p-2 border border-white/10 hover:border-olive hover:text-olive transition-all">
-                    {social}
-                  </button>
-                ))}
+                <a href="https://www.instagram.com/focus_boxnfitness/" target="_blank" rel="noopener noreferrer" className="p-2 border border-white/10 hover:border-olive transition-all flex items-center justify-center">
+                  <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20INSTAGRAM.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIElOU1RBR1JBTS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDkyMzA4LCJleHAiOjE5MzkxNzIzMDh9.aFS_KTSS63KG4pauxQ90VMytk5HqWD9iUAdtHrc1it4" alt="Instagram" className="w-6 h-6 object-contain" />
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61557514494923&ref=PROFILE_EDIT_xav_ig_profile_page_web" target="_blank" rel="noopener noreferrer" className="p-2 border border-white/10 hover:border-olive transition-all flex items-center justify-center">
+                  <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20FACEBOOK.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIEZBQ0VCT09LLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0OTIxODYsImV4cCI6MTkzOTE3MjE4Nn0.hYciTd1G_15FkXNX7e2pETnBpVJJDhJQZxMKrUh6E9k" alt="Facebook" className="w-6 h-6 object-contain" />
+                </a>
              </div>
           </div>
         </div>
