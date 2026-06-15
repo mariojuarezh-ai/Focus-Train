@@ -1327,21 +1327,29 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
       )}
 
       {/* Footer */}
-      <footer className="py-32 px-6 bg-[#0B0B0B]/80 backdrop-blur-md relative z-0">
+      <footer className="py-32 px-6 bg-[#0B0B0B]/80 backdrop-blur-md relative z-50">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-20 items-start">
           <div className="space-y-8">
-            <button onClick={() => navigateTo('home')}>
+            <button onClick={() => navigateTo('home')} className="relative z-50">
               <Logo className="w-24 h-24 mb-4 hover:scale-105 transition-transform" />
             </button>
             <div className="stencil text-4xl leading-tight">FOCUS BOX<br />FITNESS</div>
             <p className="text-xs text-smoke/40 uppercase tracking-widest leading-relaxed">
               {t.footer.description}
             </p>
+            <div className="pt-6 flex gap-4">
+               <a href="https://www.instagram.com/focus_boxnfitness/" target="_blank" rel="noopener noreferrer" className="p-3 border border-white/10 hover:border-olive transition-all flex items-center justify-center group bg-black/50 hover:bg-olive/10">
+                 <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20INSTAGRAM.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIElOU1RBR1JBTS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDkyMzA4LCJleHAiOjE5MzkxNzIzMDh9.aFS_KTSS63KG4pauxQ90VMytk5HqWD9iUAdtHrc1it4" alt="Instagram" className="w-6 h-6 object-contain group-hover:scale-110 transition-transform" />
+               </a>
+               <a href="https://www.facebook.com/265338446659485?ref=PROFILE_EDIT_xav_ig_profile_page_web" target="_blank" rel="noopener noreferrer" className="p-3 border border-white/10 hover:border-olive transition-all flex items-center justify-center group bg-black/50 hover:bg-olive/10">
+                 <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20FACEBOOK.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIEZBQ0VCT09LLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0OTIxODYsImV4cCI6MTkzOTE3MjE4Nn0.hYciTd1G_15FkXNX7e2pETnBpVJJDhJQZxMKrUh6E9k" alt="Facebook" className="w-6 h-6 object-contain group-hover:scale-110 transition-transform" />
+               </a>
+            </div>
           </div>
           
           <div className="space-y-6">
              <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase">{t.footer.map}</div>
-             <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
+             <ul className="space-y-4 text-xs font-bold uppercase tracking-widest relative z-50">
                 <li><button onClick={() => navigateTo('home')} className="hover:text-olive transition-colors">{t.nav.home}</button></li>
                 <li><button onClick={() => navigateTo('programas')} className="hover:text-olive transition-colors">{t.nav.programs}</button></li>
                 <li><button onClick={() => navigateTo('hyrox')} className="hover:text-olive transition-colors">{t.nav.hyrox}</button></li>
@@ -1364,14 +1372,6 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                    </div>
                    <div className="text-sm font-bold">misiones@focusbox.fit</div>
                 </div>
-             </div>
-             <div className="pt-6 flex gap-4">
-                <a href="https://www.instagram.com/focus_boxnfitness/" target="_blank" rel="noopener noreferrer" className="p-2 border border-white/10 hover:border-olive transition-all flex items-center justify-center">
-                  <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20INSTAGRAM.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIElOU1RBR1JBTS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDkyMzA4LCJleHAiOjE5MzkxNzIzMDh9.aFS_KTSS63KG4pauxQ90VMytk5HqWD9iUAdtHrc1it4" alt="Instagram" className="w-6 h-6 object-contain" />
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61557514494923&ref=PROFILE_EDIT_xav_ig_profile_page_web" target="_blank" rel="noopener noreferrer" className="p-2 border border-white/10 hover:border-olive transition-all flex items-center justify-center">
-                  <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20FACEBOOK.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIEZBQ0VCT09LLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0OTIxODYsImV4cCI6MTkzOTE3MjE4Nn0.hYciTd1G_15FkXNX7e2pETnBpVJJDhJQZxMKrUh6E9k" alt="Facebook" className="w-6 h-6 object-contain" />
-                </a>
              </div>
           </div>
         </div>
