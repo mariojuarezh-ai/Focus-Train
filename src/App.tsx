@@ -999,16 +999,20 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="py-20 min-h-[85vh] flex items-center justify-center relative overflow-hidden"
+            className="py-20 min-h-[85vh] flex items-center justify-center relative"
           >
-            {/* Background Image for Programas */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-              <img 
-                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOCUS%20FONDO%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT0NVUyBGT05ETyAyLnBuZyIsImlhdCI6MTc3NzE3ODg4MSwiZXhwIjoxOTM0ODU4ODgxfQ.qmblZXD7GNMVfg8MK4RWmWrBzlPEwcBtr4jaaAMM1Rs" 
-                alt="Fondo de entrenamiento táctico Focus Box fitness pesas kettlebells"
-                className="w-full h-full object-cover opacity-40 grayscale-0"
-                referrerPolicy="no-referrer"
-              />
+            {/* Background Video for Programas */}
+            <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-[#0B0B0B] overflow-hidden">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full h-full object-cover opacity-40 grayscale-0 scale-150 md:scale-[2]"
+              >
+                <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20HIROX%201.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBISVJPWCAxLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0OTAwMDgsImV4cCI6MTkzOTE3MDAwOH0.hZhABuvq_2FQavUuUxmdjsYHKdidEflNHr84TQAP-EI" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-[#0B0B0B]/40" />
               <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B] via-transparent to-[#0B0B0B]" />
             </div>
 

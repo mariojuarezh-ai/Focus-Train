@@ -231,7 +231,14 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SKI%20ERG%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNLSSBFUkcgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg4NTE1LCJleHAiOjE5MzkxNjg1MTV9.T2wrmvFd51w9TKPtvpsh8xCQqfxRUlOg95PxlJWHCww"
         />
 
-        <StationDetail t={t} title="2. SLED PUSH (50 MTS)" times={[["Singles men", "1:40-1:55", "2:30-3:00"], ["Doubles men", "1:10-1:25", "1:45-2:15"], ["Singles women", "2:00-2:20", "2:45-3:15"], ["Doubles women", "1:20-1:40", "1:55-2:25"], ["Mixed doubles", "1:15-1:35", "1:50-2:20"]]} tips={t.station2Tips} penalties={t.station2Penalties} />
+        <StationDetail 
+          t={t} 
+          title="2. SLED PUSH (50 MTS)" 
+          times={[["Singles men", "1:40-1:55", "2:30-3:00"], ["Doubles men", "1:10-1:25", "1:45-2:15"], ["Singles women", "2:00-2:20", "2:45-3:15"], ["Doubles women", "1:20-1:40", "1:55-2:25"], ["Mixed doubles", "1:15-1:35", "1:50-2:20"]]} 
+          tips={t.station2Tips} 
+          penalties={t.station2Penalties}
+          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SLED%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNMRUQgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg5Nzg4LCJleHAiOjE5MzkxNjk3ODh9.l4c3y-_GXr0ObjQRfhc_RE22R-GIcDBBgCB-YvoRW30"
+        />
 
         <StationDetail t={t} title="3. SLED PULL (50 MTS)" times={[["Singles men", "1:45-2:00", "2:40-3:10"], ["Doubles men", "1:15-1:30", "1:55-2:25"], ["Singles women", "2:05-2:25", "2:55-3:30"], ["Doubles women", "1:25-1:45", "2:05-2:35"], ["Mixed doubles", "1:20-1:40", "2:00-2:30"]]} tips={t.station3Tips} penalties={t.station3Penalties} />
 
