@@ -79,12 +79,12 @@ const MarqueeRow = ({ pairs, direction = "left", speed = 40, language, onPairCli
   const duplicatedPairs = [...pairs, ...pairs];
 
   return (
-    <div className="relative w-full overflow-hidden bg-[#0B0B0B] py-2 md:py-4 group/row">
+    <div className="relative w-full overflow-hidden bg-transparent py-2 md:py-4 group/row">
       <style>{marqueeStyles}</style>
       
       {/* Fade edges */}
-      <div className="absolute top-0 bottom-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#0B0B0B] to-transparent z-20 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#0B0B0B] to-transparent z-20 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 left-0 w-16 md:w-32 bg-gradient-to-r from-black/80 to-transparent z-20 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 right-0 w-16 md:w-32 bg-gradient-to-l from-black/80 to-transparent z-20 pointer-events-none" />
       
       <div
         className={`flex gap-4 md:gap-6 w-max animate-scroll-${direction}`}
@@ -94,7 +94,7 @@ const MarqueeRow = ({ pairs, direction = "left", speed = 40, language, onPairCli
           <div 
             key={index} 
             onClick={() => onPairClick(pair)}
-            className="w-[85vw] sm:w-[400px] md:w-[600px] h-[85vw] sm:h-[450px] md:h-[600px] shrink-0 border border-olive/20 rounded-sm overflow-hidden relative group bg-black flex transition-all duration-500 group-hover/row:opacity-40 hover:!opacity-100 hover:scale-[1.02] hover:z-10 hover:border-olive hover:shadow-[0_0_30px_rgba(118,132,85,0.3)] items-stretch cursor-pointer"
+            className="w-[85vw] sm:w-[400px] md:w-[600px] h-[85vw] sm:h-[450px] md:h-[600px] shrink-0 border border-olive/20 rounded-sm overflow-hidden relative group bg-black/40 backdrop-blur-sm flex transition-all duration-500 group-hover/row:opacity-40 hover:!opacity-100 hover:scale-[1.02] hover:z-10 hover:border-olive hover:shadow-[0_0_30px_rgba(118,132,85,0.3)] items-stretch cursor-pointer"
           >
             {/* Antes Side */}
             <div className="w-1/2 relative border-r border-olive/20 group-hover:grayscale-0 grayscale transition-all duration-700">
@@ -172,7 +172,7 @@ export const TransformationsCarousel = ({ language }: { language: 'es' | 'en' })
             <div 
               key={index} 
               onClick={() => setSelectedPair(pair)}
-              className="w-[85vw] h-[85vw] shrink-0 snap-center border border-olive/20 rounded-sm overflow-hidden relative group bg-black flex transition-all duration-300 active:scale-[0.98]"
+              className="w-[85vw] h-[85vw] shrink-0 snap-center border border-olive/20 rounded-sm overflow-hidden relative group bg-black/40 flex transition-all duration-300 active:scale-[0.98]"
             >
               <div className="w-1/2 relative border-r border-olive/20">
                  <div className="absolute top-2 left-2 z-20 bg-black/80 text-olive text-[8px] font-black tracking-widest px-2 py-1 stencil shadow-md">
@@ -218,7 +218,7 @@ export const TransformationsCarousel = ({ language }: { language: 'es' | 'en' })
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl bg-[#0B0B0B] border border-olive/30 rounded-lg overflow-hidden shadow-[0_0_50px_rgba(118,132,85,0.2)]"
+              className="relative w-full max-w-5xl bg-black/80 backdrop-blur-md border border-olive/30 rounded-lg overflow-hidden shadow-[0_0_50px_rgba(118,132,85,0.2)]"
             >
               <button
                 onClick={() => setSelectedPair(null)}
@@ -227,7 +227,7 @@ export const TransformationsCarousel = ({ language }: { language: 'es' | 'en' })
                 <X size={20} />
               </button>
 
-              <div className="flex flex-col md:flex-row w-full h-[85vh] md:h-[85vh] bg-[#000000]">
+              <div className="flex flex-col md:flex-row w-full h-[85vh] md:h-[85vh] bg-transparent">
                 {/* Antes */}
                 <div className="w-full h-1/2 md:w-1/2 md:h-full relative border-b md:border-b-0 md:border-r border-olive/20 group pb-2 md:pb-0">
                   <div className="absolute top-2 left-2 z-20 bg-black/80 text-olive text-[10px] md:text-sm font-black tracking-widest px-2 md:px-3 py-1 font-mono shadow-md">

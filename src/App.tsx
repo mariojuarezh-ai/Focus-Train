@@ -1144,14 +1144,29 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
 
         {currentView === 'clases' && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="py-12"
+            className="py-12 relative min-h-screen"
           >
+            {/* Background Video for Clases */}
+            <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-black">
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                className="w-full h-full object-cover pointer-events-none brightness-100 opacity-100"
+              >
+                <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20RUTINAS%201.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBSVVRJTkFTIDEubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MTU4NDAzNywiZXhwIjoxOTM5MjY0MDM3fQ._Vj9zrVRfvDFx81usJEqMd67sxYTgdKc5z60_fS8_Qo" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-black/60 backdrop-blur-[3px]" />
+            </div>
+
             {/* Class Schedule Section */}
-            <section id="classes" className="py-20 px-6">
-              <div className="max-w-6xl mx-auto">
+            <section id="classes" className="py-20 px-6 relative z-10">
+              <div className="max-w-6xl mx-auto bg-black/40 backdrop-blur-sm p-8 md:p-12 border border-olive/20 rounded-lg shadow-2xl">
                 <header className="text-center mb-20">
                   <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">{t.clases.subtitle}</div>
                   <h2 className="stencil text-5xl">{t.clases.title} <span className="text-olive">{t.clases.title_accent}</span></h2>

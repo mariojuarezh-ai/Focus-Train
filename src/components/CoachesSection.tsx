@@ -88,9 +88,7 @@ export function CoachesSection({ language }: CoachesProps) {
   const aux2Image = "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO-FRANCISCO1%20SIN%20MARCA%20DE%20AGUA.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPLUZSQU5DSVNDTzEgU0lOIE1BUkNBIERFIEFHVUEuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MTQwODczMywiZXhwIjoxNzgxODQwNzMzfQ.gxr_mRaMgnkQamhaNbAjFVWvriVVPL7BT-FqRr4TKrU";
 
   return (
-    <section className="py-24 px-6 bg-[#000000] border-t border-olive/20 relative">
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_2px_2px,rgba(118,132,85,0.4)_1px,transparent_0)] bg-[length:30px_30px] pointer-events-none" />
-      
+    <section className="py-24 px-6 bg-transparent border-t border-olive/20 relative">
       <div className="max-w-6xl mx-auto relative z-10">
         <header className="text-center mb-16 md:mb-24">
           <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">{t.subtitle}</div>
@@ -100,8 +98,8 @@ export function CoachesSection({ language }: CoachesProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-5xl mx-auto">
           {/* Main Coach */}
-          <div className="md:col-span-12 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-[#0A0A0A] flex flex-col hover:shadow-[0_0_30px_rgba(118,132,85,0.15)]">
-            <div className="w-full p-8 flex justify-center items-end bg-[#050505]">
+          <div className="md:col-span-12 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-black/40 backdrop-blur-sm flex flex-col hover:shadow-[0_0_30px_rgba(118,132,85,0.15)]">
+            <div className="w-full p-8 flex justify-center items-end bg-black/30">
               <img 
                 src={mainImage}
                 alt={t.main.name}
@@ -121,8 +119,8 @@ export function CoachesSection({ language }: CoachesProps) {
           </div>
 
           {/* Aux Coaches */}
-          <div className="md:col-span-6 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-[#0A0A0A] hover:shadow-[0_0_30px_rgba(118,132,85,0.15)] flex flex-col">
-            <div className="relative h-[350px] md:h-[450px] overflow-hidden flex justify-center items-center p-8 bg-[#050505]">
+          <div className="md:col-span-6 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-black/40 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(118,132,85,0.15)] flex flex-col">
+            <div className="relative h-[350px] md:h-[450px] overflow-hidden flex justify-center items-center p-8 bg-black/30">
               <img 
                 src={aux1Image}
                 alt={t.aux1.name}
@@ -138,8 +136,8 @@ export function CoachesSection({ language }: CoachesProps) {
             </div>
           </div>
 
-          <div className="md:col-span-6 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-[#0A0A0A] hover:shadow-[0_0_30px_rgba(118,132,85,0.15)] flex flex-col">
-            <div className="relative h-[350px] md:h-[450px] overflow-hidden flex justify-center items-center p-8 bg-[#050505]">
+          <div className="md:col-span-6 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-black/40 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(118,132,85,0.15)] flex flex-col">
+            <div className="relative h-[350px] md:h-[450px] overflow-hidden flex justify-center items-center p-8 bg-black/30">
               <img 
                 src={aux2Image}
                 alt={t.aux2.name}
