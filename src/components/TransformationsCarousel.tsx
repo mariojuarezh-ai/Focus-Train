@@ -106,7 +106,7 @@ const MarqueeRow = ({ pairs, direction = "left", speed = 40, language, onPairCli
                <img 
                  src={pair.antes} 
                  alt="Antes" 
-                 className="w-full h-full object-cover object-center sm:object-cover sm:object-center pointer-events-none"
+                 className="w-full h-full object-cover object-left md:object-[25%_center] pointer-events-none"
                />
                <div className="absolute inset-0 bg-olive/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none duration-500" />
             </div>
@@ -121,7 +121,7 @@ const MarqueeRow = ({ pairs, direction = "left", speed = 40, language, onPairCli
                <img 
                  src={pair.despues} 
                  alt="Despues" 
-                 className="w-full h-full object-cover object-center sm:object-cover sm:object-center pointer-events-none"
+                 className="w-full h-full object-cover object-right pointer-events-none"
                />
                <div className="absolute inset-0 bg-olive/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none duration-500" />
             </div>
@@ -182,7 +182,7 @@ export const TransformationsCarousel = ({ language }: { language: 'es' | 'en' })
                  <img 
                    src={pair.antes} 
                    alt="Antes" 
-                   className="w-full h-full object-cover object-center pointer-events-none"
+                   className="w-full h-full object-cover object-left pointer-events-none"
                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                  />
               </div>
@@ -194,7 +194,7 @@ export const TransformationsCarousel = ({ language }: { language: 'es' | 'en' })
                  <img 
                    src={pair.despues} 
                    alt="Despues" 
-                   className="w-full h-full object-cover object-center pointer-events-none"
+                   className="w-full h-full object-cover object-right pointer-events-none"
                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                  />
               </div>

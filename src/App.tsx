@@ -38,8 +38,8 @@ const translations = {
   es: {
     nav: {
       home: "Inicio",
-      programs: "Programas",
-      presencial: "Presencial",
+      programs: "Planes online",
+      presencial: "Clases presenciales",
       hyrox: "Hyrox Training",
       stenfit: "Stenfit",
       comunidad: "Comunidad",
@@ -54,7 +54,7 @@ const translations = {
     },
     about: {
       title: "¿POR QUÉ ENTRENAR",
-      title_accent: "CON FOCUS PRESENCIAL?",
+      title_accent: "CON FOCUS ONLINE?",
       items: [
         {
           title: "Atención real en cada entrenamiento",
@@ -63,10 +63,6 @@ const translations = {
         {
           title: "Entrenamientos adaptados a ti",
           description: "Aunque entrenes en grupo, cada persona trabaja con ajustes según su nivel, objetivos y capacidades."
-        },
-        {
-          title: "Ambiente que te impulsa",
-          description: "Entrenar rodeado de personas con el mismo objetivo eleva tu nivel, tu motivación y tu constancia."
         },
         {
           title: "Técnica antes que todo",
@@ -87,9 +83,9 @@ const translations = {
       ]
     },
     programs: {
-      title: "MISIONES",
-      title_accent: "DIGITALES",
-      subtitle: "Sistemas de entrenamiento de alto rendimiento adaptados a tu entorno.",
+      title: "PLANES",
+      title_accent: "ONLINE",
+      subtitle: "Estar presente no significa necesariamente estar físicamente al lado de alguien. Por eso, en FOCUS Online encontrarás mucho más que una rutina de entrenamiento: tendrás un plan personalizado, seguimiento constante y acompañamiento real durante todo tu proceso. Entrena desde cualquier parte del mundo, a tu ritmo y con la tranquilidad de saber que nunca estarás solo en el camino hacia tus objetivos.",
       essential: {
         title: "ESSENTIAL",
         phase: "Phase 01: Core Systems",
@@ -131,20 +127,11 @@ const translations = {
         cta: "MAXIMIZAR RENDIMIENTO"
       },
       offers: {
-        title: "OFERTAS ESPECIALES",
-        items: [
-          {
-            title: "PRUÉBALO GRATIS",
-            description: "Toma la decisión hoy y recibe 2 semanas de prueba del plan FOCUSED."
-          },
-          {
-            title: "REFIERE A UN AMIGO",
-            description: "Por cada referido recibe un 10% de descuento."
-          }
-        ]
+        banner_title: "DEJA LAS EXCUSAS Y APROVECHA TUS 2 SEMANAS GRATIS",
+        banner_subtitle: "EN EL PLAN FOCUSED"
       },
       platform: {
-        disclaimer: "Todas las misiones digitales son enlazadas a través de nuestra plataforma oficial. Una vez realizada tu suscripción, se te entregará tu acceso. Para conocer más sobre el uso de la app, visita la sección STENFIT.",
+        disclaimer: "Todos los planes online son enlazados a través de nuestra plataforma oficial. Una vez realizada tu suscripción, se te entregará tu acceso. Para conocer más sobre el uso de la app, visita la sección STENFIT.",
         cta: "VER TUTORIAL STENFIT"
       }
     },
@@ -152,6 +139,7 @@ const translations = {
       subtitle: "Ubicación Física",
       title: "CLASES",
       title_accent: "PRESENCIALES",
+      description: "Entrena con nosotros de manera presencial con sesiones completamente adaptadas a tus objetivos, nivel y experiencia. Ya sea que busques ganar músculo, perder grasa, mejorar tu condición física o simplemente sentirte mejor, trabajaremos juntos para lograrlo de forma segura y efectiva. Actualmente, el servicio presencial está disponible únicamente dentro de Zapopan, Jalisco.",
       individual_title: "POR CLASE",
       individual_subtitle: "1-4 personas",
       group_title: "MENSUALIDAD",
@@ -195,8 +183,8 @@ const translations = {
   en: {
     nav: {
       home: "Home",
-      programs: "Programs",
-      presencial: "On-site",
+      programs: "Online Plans",
+      presencial: "On-site Classes",
       hyrox: "Hyrox Training",
       stenfit: "Stenfit",
       comunidad: "Community",
@@ -211,7 +199,7 @@ const translations = {
     },
     about: {
       title: "WHY TRAIN",
-      title_accent: "WITH FOCUS ON-SITE?",
+      title_accent: "WITH FOCUS ONLINE?",
       items: [
         {
           title: "Real attention in every workout",
@@ -220,10 +208,6 @@ const translations = {
         {
           title: "Workouts adapted to you",
           description: "Even when training in a group, each person works with adjustments according to their level, goals, and capabilities."
-        },
-        {
-          title: "An environment that drives you",
-          description: "Training surrounded by people with the same goal elevates your level, motivation, and consistency."
         },
         {
           title: "Technique above all",
@@ -244,9 +228,9 @@ const translations = {
       ]
     },
     programs: {
-      title: "DIGITAL",
-      title_accent: "MISSIONS",
-      subtitle: "High-performance training systems adapted to your environment.",
+      title: "ONLINE",
+      title_accent: "PLANS",
+      subtitle: "Being present does not necessarily mean being physically next to someone. Because of this, at FOCUS Online you will find much more than a training routine: you will have a personalized plan, constant tracking, and real accompaniment throughout your whole process. Train from anywhere in the world, at your own pace, and with the peace of mind knowing you will never be alone on the path to your goals.",
       essential: {
         title: "ESSENTIAL",
         phase: "Phase 01: Core Systems",
@@ -288,17 +272,8 @@ const translations = {
         cta: "MAXIMIZE PERFORMANCE"
       },
       offers: {
-        title: "SPECIAL OFFERS",
-        items: [
-          {
-            title: "TRY IT FOR FREE",
-            description: "Make the decision today and receive 2 weeks trial of the FOCUSED plan."
-          },
-          {
-            title: "REFER A FRIEND",
-            description: "For each referral, receive a 10% discount."
-          }
-        ]
+        banner_title: "LEAVE EXCUSES BEHIND AND ENJOY YOUR 2 FREE WEEKS",
+        banner_subtitle: "ON THE FOCUSED PLAN"
       },
       platform: {
         disclaimer: "All digital missions are linked through our official platform. Once your subscription is made, you will receive your access. To learn more about using the app, visit the STENFIT section.",
@@ -393,7 +368,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
   const message = encodeURIComponent("¡Hola Team Focus! ⚡ Me interesa la prueba gratis de 2 semanas del plan y me gustaría más información.");
   return (
     <a 
-      href={`https://wa.me/5215555555555?text=${message}`} 
+      href={`https://wa.me/523318042910?text=${message}`} 
       target="_blank" 
       rel="noopener noreferrer"
       className={`w-full py-4 text-center text-sm font-black tracking-[0.3em] transition-all flex items-center justify-center gap-2 rounded-sm uppercase ${
@@ -596,18 +571,18 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                     <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'programas' ? 'opacity-100 translate-x-0' : ''}`} />
                   </button>
                   <button 
-                    onClick={() => navigateTo('hyrox')} 
-                    className={`text-left text-sm font-black tracking-widest uppercase hover:text-olive transition-colors flex items-center justify-between group/item ${currentView === 'hyrox' ? 'text-olive' : 'text-smoke/80'}`}
-                  >
-                    <span>{t.nav.hyrox}</span>
-                    <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'hyrox' ? 'opacity-100 translate-x-0' : ''}`} />
-                  </button>
-                  <button 
                     onClick={() => navigateTo('clases')} 
                     className={`text-left text-sm font-black tracking-widest uppercase hover:text-olive transition-colors flex items-center justify-between group/item ${currentView === 'clases' ? 'text-olive' : 'text-smoke/80'}`}
                   >
                     <span>{t.nav.presencial}</span>
                     <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'clases' ? 'opacity-100 translate-x-0' : ''}`} />
+                  </button>
+                  <button 
+                    onClick={() => navigateTo('hyrox')} 
+                    className={`text-left text-sm font-black tracking-widest uppercase hover:text-olive transition-colors flex items-center justify-between group/item ${currentView === 'hyrox' ? 'text-olive' : 'text-smoke/80'}`}
+                  >
+                    <span>{t.nav.hyrox}</span>
+                    <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'hyrox' ? 'opacity-100 translate-x-0' : ''}`} />
                   </button>
                   <button 
                     onClick={() => navigateTo('comunidad')} 
@@ -711,16 +686,16 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 {t.nav.programs}
               </button>
               <button 
-                onClick={() => navigateTo('hyrox')} 
-                className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'hyrox' ? 'text-olive' : 'text-smoke'}`}
-              >
-                {t.nav.hyrox}
-              </button>
-              <button 
                 onClick={() => navigateTo('clases')} 
                 className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'clases' ? 'text-olive' : 'text-smoke'}`}
               >
                 {t.nav.presencial}
+              </button>
+              <button 
+                onClick={() => navigateTo('hyrox')} 
+                className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'hyrox' ? 'text-olive' : 'text-smoke'}`}
+              >
+                {t.nav.hyrox}
               </button>
               <button 
                 onClick={() => navigateTo('comunidad')} 
@@ -871,16 +846,16 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3 md:gap-6 justify-center w-full max-w-3xl">
                     <button 
-                      onClick={() => navigateTo('clases')}
-                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full"
-                    >
-                      {t.nav.presencial}
-                    </button>
-                    <button 
                       onClick={() => navigateTo('programas')}
                       className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full"
                     >
                       {t.nav.programs}
+                    </button>
+                    <button 
+                      onClick={() => navigateTo('clases')}
+                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full"
+                    >
+                      {t.nav.presencial}
                     </button>
                     <button 
                       onClick={() => navigateTo('hyrox')}
@@ -1149,29 +1124,10 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
               </div>
 
               {/* Special Offers Section */}
-              <div className="mt-16 md:mt-24 max-w-5xl mx-auto border-t border-b border-olive/30 py-8 relative">
-                <div className="absolute -top-1.5 left-0 w-3 h-3 border border-olive bg-[#0B0B0B] transform rotate-45" />
-                <div className="absolute -top-1.5 right-0 w-3 h-3 border border-olive bg-[#0B0B0B] transform rotate-45" />
-                <div className="absolute -bottom-1.5 left-0 w-3 h-3 border border-olive bg-[#0B0B0B] transform rotate-45" />
-                <div className="absolute -bottom-1.5 right-0 w-3 h-3 border border-olive bg-[#0B0B0B] transform rotate-45" />
-                
-                <div className="grid md:grid-cols-3 gap-8 items-center px-4 md:px-8">
-                  <div className="text-center md:text-left border-b md:border-b-0 md:border-r border-olive/20 pb-8 md:pb-0 md:pr-8">
-                    <h3 className="stencil text-3xl md:text-4xl text-olive flex flex-col uppercase">
-                      {t.programs.offers.title.split(' ').map((word, i) => (
-                        <span key={i} className={i === 1 ? 'opacity-70' : ''}>{word}</span>
-                      ))}
-                    </h3>
-                  </div>
-                  
-                  <div className="md:col-span-2 grid sm:grid-cols-2 gap-8 md:gap-12">
-                     {t.programs.offers.items.map((offer, idx) => (
-                       <div key={idx} className="space-y-3">
-                         <h4 className="font-mono font-bold tracking-widest text-sm md:text-base text-smoke uppercase border-b border-olive/30 pb-2">{offer.title}</h4>
-                         <p className="text-xs md:text-sm font-medium opacity-70 leading-relaxed text-olive">{offer.description}</p>
-                       </div>
-                     ))}
-                  </div>
+              <div className="relative mt-24 mb-12 p-1 bg-gradient-to-r from-olive/20 via-olive/40 to-olive/20 group cursor-pointer" onClick={() => window.open('https://wa.me/523318042910', '_blank')}>
+                <div className="bg-olive hover:bg-olive/90 transition-all p-10 md:p-16 shadow-[0_0_40px_rgba(118,132,85,0.2)] flex flex-col items-center justify-center text-center">
+                  <div className="font-stencil text-black text-3xl md:text-5xl mb-4 group-hover:scale-105 transition-transform" dangerouslySetInnerHTML={{ __html: t.programs.offers.banner_title }} />
+                  <div className="text-black/80 text-sm md:text-base tracking-[0.3em] uppercase font-black" dangerouslySetInnerHTML={{ __html: t.programs.offers.banner_subtitle }} />
                 </div>
               </div>
               
@@ -1352,8 +1308,8 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
              <ul className="space-y-4 text-xs font-bold uppercase tracking-widest relative z-50">
                 <li><button onClick={() => navigateTo('home')} className="hover:text-olive transition-colors">{t.nav.home}</button></li>
                 <li><button onClick={() => navigateTo('programas')} className="hover:text-olive transition-colors">{t.nav.programs}</button></li>
-                <li><button onClick={() => navigateTo('hyrox')} className="hover:text-olive transition-colors">{t.nav.hyrox}</button></li>
                 <li><button onClick={() => navigateTo('clases')} className="hover:text-olive transition-colors">{t.nav.presencial}</button></li>
+                <li><button onClick={() => navigateTo('hyrox')} className="hover:text-olive transition-colors">{t.nav.hyrox}</button></li>
              </ul>
           </div>
 
@@ -1364,7 +1320,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                    <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all">
                       <Smartphone size={18} className="text-smoke group-hover:text-olive transition-colors" />
                    </div>
-                   <div className="text-sm font-bold">+52 1 33 1804 2910</div>
+                   <div className="text-sm font-bold">+52 33 1804 2910</div>
                 </div>
                 <div className="flex items-center gap-4 group">
                    <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all">
