@@ -817,7 +817,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 playsInline
                 className="w-full h-full object-cover pointer-events-none brightness-75 opacity-90"
               >
-                <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20FOCUS-2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBGT0NVUy0yLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0ODM4OTIsImV4cCI6MTc4MTkxNTg5Mn0.WbQhAdH74GImAEDsmO7sWD25mj6o-XHv7I0SUpunHfI" type="video/mp4" />
+                <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20FOCUS-2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBGT0NVUy0yLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE5ODQ0NDcsImV4cCI6MTkzOTY2NDQ0N30.jLdNTIrU79s9pk2Gfj6qVJgoVAE6VY1F29ry5zOSl-k" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-[#0B0B0B]/40" />
             </div>
