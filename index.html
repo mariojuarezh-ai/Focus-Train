@@ -3,35 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Focus Box & Fitness | Entrenamiento Táctico y Acondicionamiento Físico</title>
-    <meta name="description" content="Entrenamiento táctico y acondicionamiento físico de élite. Focus Box & Fitness: disciplina militar y rutinas de alto rendimiento para Hyrox y fitness funcional." />
-    <meta name="keywords" content="entrenamiento táctico, acondicionamiento físico, disciplina militar, fitness funcional, Hyrox México, Focus Box, alto rendimiento, rutinas de ejercicio" />
+    <title>Focus Box & Fitness | Clases Presenciales y Cursos Online</title>
+    <meta name="description" content="Entrenamiento táctico, acondicionamiento físico, box y fitness en la Zona Metropolitana de Guadalajara. Clases presenciales y cursos online para mejorar fuerza, resistencia y rendimiento." />
+    <meta name="keywords" content="clases de box en Guadalajara, entrenamiento funcional Guadalajara, acondicionamiento físico Guadalajara, entrenamiento táctico Guadalajara, fitness Guadalajara, clases presenciales fitness Guadalajara, cursos online de entrenamiento, entrenamiento físico online, Focus Box Fitness" />
+    <link rel="canonical" href="https://focus-train-weld.vercel.app" />
+    
+    <meta property="og:title" content="Focus Box & Fitness | Entrenamiento en Guadalajara y Online" />
+    <meta property="og:description" content="Clases presenciales en la Zona Metropolitana de Guadalajara y cursos online de entrenamiento físico, box y acondicionamiento." />
+    <meta property="og:url" content="https://focus-train-weld.vercel.app" />
+    <meta property="og:site_name" content="Focus Box & Fitness" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:type" content="website" />
+    
+    <meta name="robots" content="index, follow" />
     
     <!-- JSON-LD Schema Markup -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Focus Box & Fitness",
-        "image": "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20FOCUS%20-%20SIN%20FONDO.png",
-        "description": "Entrenamiento táctico y acondicionamiento físico de alto rendimiento.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "MX"
-        },
-        "priceRange": "$$$",
-        "offers": [
+        "@graph": [
           {
-            "@type": "Offer",
-            "name": "Plan Essential",
-            "price": "250",
-            "priceCurrency": "MXN"
+            "@type": "LocalBusiness",
+            "@id": "https://focus-train-weld.vercel.app/#localbusiness",
+            "name": "Focus Box & Fitness",
+            "url": "https://focus-train-weld.vercel.app",
+            "description": "Clases presenciales de entrenamiento táctico, box, fitness y acondicionamiento físico en la Zona Metropolitana de Guadalajara.",
+            "areaServed": [
+              "Guadalajara",
+              "Zapopan",
+              "Tlaquepaque",
+              "Tonalá",
+              "Tlajomulco de Zúñiga",
+              "Zona Metropolitana de Guadalajara"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Guadalajara",
+              "addressRegion": "Jalisco",
+              "addressCountry": "MX"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "20.6597",
+              "longitude": "-103.3496"
+            },
+            "priceRange": "$$",
+            "sameAs": [
+              "https://instagram.com/focusboxfitness",
+              "https://facebook.com/focusboxfitness",
+              "https://tiktok.com/@focusboxfitness"
+            ]
           },
           {
-            "@type": "Offer",
-            "name": "Plan Focused",
-            "price": "500",
-            "priceCurrency": "MXN"
+            "@type": "Organization",
+            "@id": "https://focus-train-weld.vercel.app/#organization",
+            "name": "Focus Box & Fitness",
+            "url": "https://focus-train-weld.vercel.app",
+            "logo": "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20FOCUS%20-%20SIN%20FONDO.png"
+          },
+          {
+            "@type": "Course",
+            "@id": "https://focus-train-weld.vercel.app/#online-courses",
+            "name": "Cursos online de entrenamiento físico",
+            "description": "Cursos online de entrenamiento táctico, acondicionamiento físico, fuerza, resistencia y fitness.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Focus Box & Fitness",
+              "sameAs": "https://focus-train-weld.vercel.app"
+            },
+            "courseMode": "online"
+          },
+          {
+            "@type": "Service",
+            "@id": "https://focus-train-weld.vercel.app/#presential-training",
+            "name": "Clases presenciales de entrenamiento en Guadalajara",
+            "description": "Clases presenciales de box, fitness, entrenamiento táctico y acondicionamiento físico en la Zona Metropolitana de Guadalajara.",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "Zona Metropolitana de Guadalajara"
+            },
+            "provider": {
+              "@id": "https://focus-train-weld.vercel.app/#localbusiness"
+            }
           }
         ]
       }

@@ -22,7 +22,8 @@ import {
   Menu,
   X,
   Music,
-  Minus
+  Minus,
+  MapPin
 } from "lucide-react";
 import { HyroxGuide } from "./components/HyroxGuide";
 import { StenfitGuide } from "./components/StenfitGuide";
@@ -164,6 +165,11 @@ const translations = {
     },
     footer: {
       description: "El primer centro de entrenamiento táctico dedicado a la transformación mental y física total.",
+      seo_text: "Clases presenciales de entrenamiento físico en Guadalajara. Entrenamiento táctico, box y acondicionamiento físico en la Zona Metropolitana de Guadalajara. Cursos online de entrenamiento físico. Programas de fuerza, resistencia y rendimiento físico. Entrenamiento presencial en Guadalajara, Zapopan, Tlaquepaque, Tonalá y Tlajomulco.",
+      address: "Guadalajara, Jalisco, MX",
+      hours_title: "Horarios",
+      hours_weekdays: "Lunes a Viernes: 6:00 AM - 10:00 PM",
+      hours_weekends: "Sábado: 8:00 AM - 2:00 PM",
       map: "Mapa Base",
       contact_title: "Contacto Inmediato",
       rights: "© 2026 FOCUS BOX & FITNESS // TODOS LOS DERECHOS RESERVADOS // ALPHA DIVISION"
@@ -308,6 +314,11 @@ const translations = {
     },
     footer: {
       description: "The first tactical training center dedicated to total mental and physical transformation.",
+      seo_text: "In-person physical training classes in Guadalajara. Tactical training, boxing, and physical conditioning in the Guadalajara Metropolitan Area. Online physical training courses. Strength, endurance, and physical performance programs. In-person training in Guadalajara, Zapopan, Tlaquepaque, Tonalá, and Tlajomulco.",
+      address: "Guadalajara, Jalisco, MX",
+      hours_title: "Hours",
+      hours_weekdays: "Monday to Friday: 6:00 AM - 10:00 PM",
+      hours_weekends: "Saturday: 8:00 AM - 2:00 PM",
       map: "Base Map",
       contact_title: "Immediate Contact",
       rights: "© 2026 FOCUS BOX & FITNESS // ALL RIGHTS RESERVED // ALPHA DIVISION"
@@ -623,7 +634,10 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 referrerPolicy="no-referrer"
               />
             </button>
-            <button className="hidden sm:block btn-tactical px-6 py-2 text-[15px] font-black tracking-widest uppercase">
+            <button 
+              className="hidden sm:block btn-tactical px-6 py-2 text-[15px] font-black tracking-widest uppercase"
+              onClick={() => window.open('https://wa.me/523318042910', '_blank')}
+            >
               {t.nav.contact}
             </button>
             
@@ -707,7 +721,10 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 {language === 'es' ? 'SWITCH TO ENGLISH' : 'CAMBIAR A ESPAÑOL'}
               </button>
 
-              <button className="btn-tactical w-full py-3 sm:py-4 stencil text-base sm:text-lg tracking-[0.2em] mt-2">
+              <button 
+                className="btn-tactical w-full py-3 sm:py-4 stencil text-base sm:text-lg tracking-[0.2em] mt-2"
+                onClick={() => window.open('https://wa.me/523318042910', '_blank')}
+              >
                 {t.nav.contact}
               </button>
             </div>
@@ -1306,22 +1323,46 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
           <div className="space-y-8">
              <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase">{t.footer.contact_title}</div>
              <div className="space-y-4">
-                <div className="flex items-center gap-4 group">
-                   <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all">
+                <a href="https://wa.me/523318042910" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer inline-flex w-fit">
+                   <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all shrink-0">
                       <Smartphone size={18} className="text-smoke group-hover:text-olive transition-colors" />
                    </div>
-                   <div className="text-sm font-bold">+52 33 1804 2910</div>
-                </div>
+                   <div className="text-sm font-bold group-hover:text-olive transition-colors">+52 33 1804 2910</div>
+                </a>
                 <div className="flex items-center gap-4 group">
-                   <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all">
+                   <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all shrink-0">
                       <MessageSquare size={18} className="text-smoke group-hover:text-olive transition-colors" />
                    </div>
-                   <div className="text-sm font-bold">misiones@focusbox.fit</div>
+                   <div className="text-sm font-bold truncate">misiones@focusbox.fit</div>
+                </div>
+                <div className="flex items-center gap-4 group">
+                   <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all shrink-0">
+                      <MapPin size={18} className="text-smoke group-hover:text-olive transition-colors" />
+                   </div>
+                   <div className="text-sm font-bold max-w-[200px] leading-tight text-smoke/80">{t.footer.address}</div>
+                </div>
+                <div className="flex items-start gap-4 group">
+                   <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all shrink-0">
+                      <Clock size={18} className="text-smoke group-hover:text-olive transition-colors" />
+                   </div>
+                   <div className="text-xs text-smoke/70 space-y-1 mt-1">
+                      <div className="font-bold text-smoke">{t.footer.hours_title}</div>
+                      <div>{t.footer.hours_weekdays}</div>
+                      <div>{t.footer.hours_weekends}</div>
+                   </div>
                 </div>
              </div>
           </div>
         </div>
-        <div className="mt-32 text-center text-[8px] opacity-20 tracking-[1em] uppercase">
+        
+        <div className="max-w-7xl mx-auto mt-20 pt-10 border-t border-white/5">
+           <h3 className="sr-only">SEO Keywords & Local Info</h3>
+           <p className="text-[10px] text-smoke/30 leading-relaxed max-w-4xl opacity-50">
+             {t.footer.seo_text}
+           </p>
+        </div>
+
+        <div className="mt-16 text-center text-[8px] opacity-20 tracking-[1em] uppercase">
           {t.footer.rights}
         </div>
       </footer>
