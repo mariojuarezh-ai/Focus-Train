@@ -381,7 +381,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
     </a>
   );
 };export default function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'programas' | 'clases' | 'hyrox' | 'stenfit' | 'comunidad'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'programas' | 'clases' | 'hyrox' | 'stenfit'>('home');
   const [language, setLanguage] = useState<Language>('es');
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -502,7 +502,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
 
   const t = translations[language];
 
-  const navigateTo = (view: 'home' | 'programas' | 'clases' | 'hyrox' | 'stenfit' | 'comunidad') => {
+  const navigateTo = (view: 'home' | 'programas' | 'clases' | 'hyrox' | 'stenfit') => {
     setCurrentView(view);
     setIsMenuOpen(false);
     setIsDesktopMenuOpen(false);
@@ -583,13 +583,6 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                   >
                     <span>{t.nav.hyrox}</span>
                     <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'hyrox' ? 'opacity-100 translate-x-0' : ''}`} />
-                  </button>
-                  <button 
-                    onClick={() => navigateTo('comunidad')} 
-                    className={`text-left text-sm font-black tracking-widest uppercase hover:text-olive transition-colors flex items-center justify-between group/item ${currentView === 'comunidad' ? 'text-olive' : 'text-smoke/80'}`}
-                  >
-                    <span>{t.nav.comunidad}</span>
-                    <ChevronRight size={14} className={`opacity-0 -translate-x-2 transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0 ${currentView === 'comunidad' ? 'opacity-100 translate-x-0' : ''}`} />
                   </button>
                 </div>
               </div>
@@ -696,12 +689,6 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'hyrox' ? 'text-olive' : 'text-smoke'}`}
               >
                 {t.nav.hyrox}
-              </button>
-              <button 
-                onClick={() => navigateTo('comunidad')} 
-                className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full text-center ${currentView === 'comunidad' ? 'text-olive' : 'text-smoke'}`}
-              >
-                {t.nav.comunidad}
               </button>
               <button 
                 onClick={() => navigateTo('stenfit')} 
@@ -1244,31 +1231,6 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
 
         {currentView === 'stenfit' && (
           <StenfitGuide language={language} />
-        )}
-
-        {currentView === 'comunidad' && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="pb-24 pt-8"
-          >
-            <Testimonials language={language} />
-            
-            <section className="pt-12">
-              <div className="text-center mb-16 md:mb-24 px-6">
-                <h2 className="stencil text-4xl md:text-6xl mb-4">
-                  {language === 'es' ? 'TRANSFORMACIONES' : 'TRANSFORMATIONS'}
-                </h2>
-                <div className="w-16 h-1 bg-olive mx-auto mb-6" />
-                <p className="text-smoke/60 text-xs md:text-sm font-medium tracking-widest uppercase">
-                  {language === 'es' ? 'El impacto de nuestro sistema de entrenamiento' : 'The impact of our training system'}
-                </p>
-              </div>
-              
-              <TransformationsCarousel language={language} />
-            </section>
-          </motion.div>
         )}
       </main>
 
