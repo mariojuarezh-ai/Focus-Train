@@ -918,8 +918,8 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                     <div className="relative">
                       <div className="w-full h-[50vh] min-h-[400px] md:h-[600px] overflow-hidden rounded-xl group flex items-center justify-center border border-olive/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] bg-black/50">
                         <img 
-                          src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                          alt="Tactical Discipline" 
+                          src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20IMAGEN%20SECCION%20PRINCIPAL%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIElNQUdFTiBTRUNDSU9OIFBSSU5DSVBBTCAxLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODIwMTk1ODMsImV4cCI6MTkzOTY5OTU4M30.l1ECnZffAOgjXwmHLJ4aMUl6483zsIWU2A_XzMqA8TM" 
+                          alt="Focus Training Section" 
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" 
                           referrerPolicy="no-referrer" 
                           onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -953,12 +953,12 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                     Mantente al día con nuestros próximos eventos de Hyrox, entrenamientos nuevos, y resultados de nuestra comunidad.
                   </p>
                   <a 
-                    href="https://www.instagram.com/focusboxfitness/" 
+                    href="https://www.instagram.com/focus_boxnfitness/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 text-black bg-olive hover:bg-[#A3B18A] transition-colors font-black tracking-widest text-[12px] uppercase px-8 py-3 rounded-sm shadow-[0_0_20px_rgba(118,132,85,0.3)] hover:-translate-y-1 transform duration-300"
                   >
-                    @focusboxfitness
+                    @focus_boxnfitness
                   </a>
                 </div>
               </div>
@@ -1277,7 +1277,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
           <div className="w-full md:max-w-6xl mx-auto space-y-12">
             <div className="relative h-[60vh] md:min-h-[600px] w-full mx-auto overflow-hidden rounded-none md:rounded-xl">
               <img 
-                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20FOCUS%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEZPQ1VTIDIucG5nIiwiaWF0IjoxNzc4MzM4NzU1LCJleHAiOjE5MzYwMTg3NTV9.03XM2TbkP_bk-KJPpTF1-C-9rF6U8kNl07IYlPNjuoI" 
+                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20SECCION%20PRINCIPAL%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIFNFQ0NJT04gUFJJTkNJUEFMIDIucG5nIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MjAyMTA2MiwiZXhwIjoxOTM5NzAxMDYyfQ.-ILbqsskiZRJR_g2deUY_ze1NOVYwNIjvfsrLBfj5ak" 
                 alt="Determinación Focus Box" 
                 className="w-full h-full object-cover transition-all duration-700"
                 referrerPolicy="no-referrer"

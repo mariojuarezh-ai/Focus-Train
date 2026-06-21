@@ -211,8 +211,21 @@ export const StenfitGuide = ({ language }: StenfitGuideProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="pb-24 pt-10"
+      className="pb-24 pt-10 relative min-h-screen"
     >
+      {/* Background Video for Stenfit */}
+      <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-black">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="w-full h-full object-cover pointer-events-none brightness-100 opacity-100"
+          src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20STENFIT.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBTVEVORklULm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODIwMTg0MzIsImV4cCI6MTkzOTY5ODQzMn0.LRfCCTkmn173fWC2g11QzZbuXshHTOuxGrJO9569Nf4"
+        />
+        <div className="absolute inset-0 bg-black/60 pointer-events-none"></div>
+      </div>
+
       {/* Tutorial Section */}
       <section className="py-24 px-6 relative">
         <div className="max-w-4xl mx-auto">
