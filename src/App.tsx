@@ -128,8 +128,8 @@ const translations = {
         cta: "MAXIMIZAR RENDIMIENTO"
       },
       offers: {
-        banner_title: "DEJA LAS EXCUSAS Y APROVECHA TUS 2 SEMANAS GRATIS",
-        banner_subtitle: "EN EL PLAN FOCUSED"
+        banner_title: "INICIA HOY CON 2 SEMANAS DE PRUEBA GRATIS",
+        banner_subtitle: "AL CONTRATAR TU PLAN ESSENTIAL O FOCUSED"
       },
       platform: {
         disclaimer: "Todos los planes online son enlazados a través de nuestra plataforma oficial. Una vez realizada tu suscripción, se te entregará tu acceso. Para conocer más sobre el uso de la app, visita la sección STENFIT.",
@@ -278,8 +278,8 @@ const translations = {
         cta: "MAXIMIZE PERFORMANCE"
       },
       offers: {
-        banner_title: "LEAVE EXCUSES BEHIND AND ENJOY YOUR 2 FREE WEEKS",
-        banner_subtitle: "ON THE FOCUSED PLAN"
+        banner_title: "START TODAY WITH A 2-WEEK FREE TRIAL",
+        banner_subtitle: "WHEN YOU GET THE ESSENTIAL OR FOCUSED PLAN"
       },
       platform: {
         disclaimer: "All digital missions are linked through our official platform. Once your subscription is made, you will receive your access. To learn more about using the app, visit the STENFIT section.",
@@ -1000,7 +1000,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-olive/5 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 py-32 w-full relative z-10 pointer-events-auto">
-              <div className="text-center mb-16 md:mb-24 max-w-2xl mx-auto">
+              <div className="text-center mb-16 max-w-2xl mx-auto">
                 <div className="inline-block px-4 py-1 border border-olive/30 text-olive text-[10px] font-black tracking-[0.5em] uppercase mb-6 rounded-full">
                   Elite Systems
                 </div>
@@ -1011,16 +1011,34 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 </p>
               </div>
 
+              {/* Special Offers Section Moved to Top */}
+              <div className="relative mb-16 max-w-5xl mx-auto p-1 bg-gradient-to-r from-olive/20 via-olive/40 to-olive/20 group cursor-pointer" onClick={() => window.open('https://wa.me/523318042910', '_blank')}>
+                <div className="bg-olive hover:bg-olive/90 transition-all p-8 md:p-12 shadow-[0_0_40px_rgba(118,132,85,0.2)] flex flex-col items-center justify-center text-center">
+                  <div className="font-stencil text-black text-2xl md:text-4xl mb-3 group-hover:scale-105 transition-transform" dangerouslySetInnerHTML={{ __html: t.programs.offers.banner_title }} />
+                  <div className="text-black/80 text-xs md:text-sm tracking-[0.3em] uppercase font-black" dangerouslySetInnerHTML={{ __html: t.programs.offers.banner_subtitle }} />
+                </div>
+              </div>
+
               <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
                 {/* Essential Card */}
                 <motion.article 
                   whileHover={{ y: -10 }}
-                  className="glass-card p-8 md:p-12 border-white/5 bg-white/[0.02] flex flex-col justify-between group hover:border-olive/40 hover:bg-white/[0.04] transition-all relative"
+                  className="glass-card border-white/5 bg-white/[0.02] flex flex-col justify-between group hover:border-olive/40 hover:bg-white/[0.04] transition-all relative overflow-hidden"
                 >
-                  <div className="hidden md:block absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-olive opacity-20 pointer-events-none" />
-                  
-                  <div>
-                    <div className="flex justify-between items-start mb-10">
+                  <div className="w-full h-56 md:h-64 relative overflow-hidden">
+                    <img 
+                      src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20CLASES%20ONLINE%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIENMQVNFUyBPTkxJTkUgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDgwMzQ4LCJleHAiOjE5Mzk3NjAzNDh9.KNjawNsQAFu17gwWktOlM4yYOCv1WoChslYTi7bERAQ" 
+                      alt="Plan Essential" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                      referrerPolicy="no-referrer" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/20 to-transparent" />
+                  </div>
+                  <div className="p-8 md:p-12 flex flex-col flex-1 relative">
+                    <div className="hidden md:block absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-olive opacity-20 pointer-events-none" />
+                    
+                    <div>
+                      <div className="flex justify-between items-start mb-10">
                       <div>
                         <h3 className="stencil text-4xl md:text-5xl mb-2 text-smoke group-hover:text-olive transition-colors">{t.programs.essential.title}</h3>
                         <div className="text-[10px] text-smoke/30 tracking-[0.2em] font-black uppercase">{t.programs.essential.phase}</div>
@@ -1049,23 +1067,37 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                     </p>
                   </div>
                   
-                  <div className="mt-auto pointer-events-auto">
+                  <div className="mt-auto pointer-events-auto mt-8">
                     <WhatsAppButton label={t.programs.essential.cta} />
                   </div>
+                </div>
                 </motion.article>
 
                 {/* Focused Card - Elite */}
                 <motion.article 
                   whileHover={{ y: -10 }}
-                  className="glass-card p-8 md:p-12 border-olive bg-olive/[0.03] flex flex-col justify-between relative shadow-[0_30px_60px_-15px_rgba(118,132,85,0.15)] group hover:bg-olive/[0.06] transition-all"
+                  className="glass-card border-olive bg-olive/[0.03] flex flex-col justify-between relative shadow-[0_30px_60px_-15px_rgba(118,132,85,0.15)] group hover:bg-olive/[0.06] transition-all overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 bg-olive text-black text-[9px] font-black px-4 md:px-6 py-2 tracking-widest uppercase">
+                  <div className="absolute top-4 right-4 z-20 bg-olive text-black text-[9px] font-black px-4 md:px-6 py-2 tracking-widest uppercase">
                     {t.programs.focused.badge}
                   </div>
-                  <div className="hidden md:block absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-olive opacity-50 pointer-events-none" />
+                  <div className="w-full h-56 md:h-64 relative overflow-hidden">
+                    <img 
+                      src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20CLASES%20ONLINE%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIENMQVNFUyBPTkxJTkUgMi5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDgwMzk1LCJleHAiOjE5Mzk3NjAzOTV9.HcPLlJTJElLq6vk8VCrndk6nHSVJj2L6ephFZsyPvkI" 
+                      alt="Plan Focused" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                      referrerPolicy="no-referrer" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/20 to-transparent flex items-end">
+                      <div className="h-1 w-full bg-gradient-to-r from-olive to-transparent mb-0.5 opacity-50" />
+                    </div>
+                  </div>
+                  
+                  <div className="p-8 md:p-12 flex flex-col flex-1 relative">
+                    <div className="hidden md:block absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-olive opacity-50 pointer-events-none" />
 
-                  <div>
-                    <div className="flex justify-between items-start mb-10">
+                    <div>
+                      <div className="flex justify-between items-start mb-10">
                       <div>
                         <h3 className="stencil text-4xl md:text-5xl mb-2 text-olive">{t.programs.focused.title}</h3>
                         <div className="text-[10px] text-olive/50 tracking-[0.2em] font-black uppercase">{t.programs.focused.phase}</div>
@@ -1095,9 +1127,10 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                     </p>
                   </div>
 
-                  <div className="mt-auto pointer-events-auto">
+                  <div className="mt-auto pointer-events-auto mt-8">
                     <WhatsAppButton label={t.programs.focused.cta} featured />
                   </div>
+                </div>
                 </motion.article>
               </div>
 
@@ -1127,14 +1160,6 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 </div>
               </div>
 
-              {/* Special Offers Section */}
-              <div className="relative mt-24 mb-12 p-1 bg-gradient-to-r from-olive/20 via-olive/40 to-olive/20 group cursor-pointer" onClick={() => window.open('https://wa.me/523318042910', '_blank')}>
-                <div className="bg-olive hover:bg-olive/90 transition-all p-10 md:p-16 shadow-[0_0_40px_rgba(118,132,85,0.2)] flex flex-col items-center justify-center text-center">
-                  <div className="font-stencil text-black text-3xl md:text-5xl mb-4 group-hover:scale-105 transition-transform" dangerouslySetInnerHTML={{ __html: t.programs.offers.banner_title }} />
-                  <div className="text-black/80 text-sm md:text-base tracking-[0.3em] uppercase font-black" dangerouslySetInnerHTML={{ __html: t.programs.offers.banner_subtitle }} />
-                </div>
-              </div>
-              
               <div className="mt-24 text-center">
                 <p className="text-[10px] font-black tracking-[0.4em] opacity-30 flex items-center justify-center gap-3">
                   <span className="w-12 h-px bg-smoke/20" />
