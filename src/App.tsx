@@ -831,7 +831,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 transition={{ duration: 0.8 }}
                 className="relative z-10 max-w-4xl"
               >
-                <div className="inline-block px-3 py-1 border border-olive text-olive text-[10px] font-black tracking-[0.4em] mb-8 animate-pulse">
+                <div className="inline-block px-2 md:px-3 py-1 border border-olive text-olive text-[9px] md:text-[10px] whitespace-normal font-black tracking-[0.2em] md:tracking-[0.4em] mb-8 animate-pulse text-center">
                   {t.hero.status}
                 </div>
                 <h1 className="stencil text-5xl md:text-9xl leading-[0.8] mb-10">
