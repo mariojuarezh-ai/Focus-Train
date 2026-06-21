@@ -1154,10 +1154,23 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             {/* Class Schedule Section */}
             <section id="classes" className="py-20 px-6 relative z-10">
               <div className="max-w-6xl mx-auto bg-black/40 backdrop-blur-sm p-8 md:p-12 border border-olive/20 rounded-lg shadow-2xl">
-                <header className="text-center mb-20">
+                <header className="text-center mb-16">
                   <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">{t.clases.subtitle}</div>
                   <h2 className="stencil text-5xl">{t.clases.title} <span className="text-olive">{t.clases.title_accent}</span></h2>
                 </header>
+
+                <div className="relative group mb-20 max-w-4xl mx-auto">
+                  <div className="absolute inset-0 bg-olive/20 translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                  <video 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                    className="relative z-10 w-full aspect-video object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
+                  >
+                    <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20ENTRENAMIENTO%20BN%201.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBFTlRSRU5BTUlFTlRPIEJOIDEubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MjA3MjM4MiwiZXhwIjoxOTM5NzUyMzgyfQ._0uVN9x8Tf9yo4kS534pWQkV9fbjaNS6UL0j8KAzx7E" type="video/mp4" />
+                  </video>
+                </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
                   <div>
