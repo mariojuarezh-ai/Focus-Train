@@ -79,7 +79,7 @@ const MarqueeRow = ({ pairs, direction = "left", speed = 40, language, onPairCli
   const duplicatedPairs = [...pairs, ...pairs];
 
   return (
-    <div className="relative w-full overflow-hidden bg-transparent py-2 md:py-4 group/row">
+    <div className="relative w-full max-w-[100vw] overflow-hidden bg-transparent py-2 md:py-4 group/row">
       <style>{marqueeStyles}</style>
       
       {/* Fade edges */}
@@ -166,41 +166,22 @@ export const TransformationsCarousel = ({ language }: { language: 'es' | 'en' })
           />
         </div>
 
-        {/* Mobile View (Horizontal Snap Scroll) */}
-        <div className="md:hidden w-full flex overflow-x-auto snap-x snap-mandatory gap-4 px-6 pb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-          {pairedPhotos.map((pair, index) => (
-            <div 
-              key={index} 
-              onClick={() => setSelectedPair(pair)}
-              className="w-[85vw] h-[85vw] shrink-0 snap-center border border-olive/20 rounded-sm overflow-hidden relative group bg-black/40 flex transition-all duration-300 active:scale-[0.98]"
-            >
-              <div className="w-1/2 relative border-r border-olive/20">
-                 <div className="absolute top-2 left-2 z-20 bg-black/80 text-olive text-[8px] font-black tracking-widest px-2 py-1 stencil shadow-md">
-                   {language === 'es' ? 'ANTES' : 'BEFORE'}
-                 </div>
-                 <div className="absolute top-0 left-0 right-0 h-[15%] bg-transparent backdrop-blur-[12px] z-10 pointer-events-none fade-out-bottom" />
-                 <img 
-                   src={pair.antes} 
-                   alt="Antes" 
-                   className="w-full h-full object-cover object-[20%_center] pointer-events-none"
-                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                 />
-              </div>
-              <div className="w-1/2 relative">
-                 <div className="absolute top-2 right-2 z-20 bg-olive text-black text-[8px] font-black tracking-widest px-2 py-1 stencil shadow-md">
-                   {language === 'es' ? 'DESPUÉS' : 'AFTER'}
-                 </div>
-                 <div className="absolute top-0 left-0 right-0 h-[15%] bg-transparent backdrop-blur-[12px] z-10 pointer-events-none fade-out-bottom" />
-                 <img 
-                   src={pair.despues} 
-                   alt="Despues" 
-                   className="w-full h-full object-cover object-[20%_center] pointer-events-none"
-                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                 />
-              </div>
-              <div className="absolute inset-0 -z-10 opacity-20 bg-[radial-gradient(circle_at_2px_2px,rgba(118,132,85,0.4)_1px,transparent_0)] bg-[length:20px_20px]" />
-            </div>
-          ))}
+        {/* Mobile View (Marquee) */}
+        <div className="md:hidden space-y-4">
+          <MarqueeRow 
+            pairs={pairedPhotos.slice(0, 6)} 
+            direction="left" 
+            speed={40} 
+            language={language}
+            onPairClick={setSelectedPair}
+          />
+          <MarqueeRow 
+            pairs={pairedPhotos.slice(6)} 
+            direction="right" 
+            speed={40} 
+            language={language}
+            onPairClick={setSelectedPair}
+          />
         </div>
       </div>
 

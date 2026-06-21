@@ -113,15 +113,9 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
   const t = hyroxTexts[language];
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="py-12 relative min-h-screen"
-    >
+    <>
       {/* Background Video for Hyrox */}
-      <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-black">
+      <div className="fixed inset-0 w-[100vw] h-[100dvh] z-[-1] pointer-events-none bg-black">
         <video 
           autoPlay 
           muted 
@@ -133,6 +127,13 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
         </video>
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[3px]" />
       </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="py-12 relative min-h-screen"
+      >
 
       {/* Intro Section */}
       <section className="py-20 px-6 max-w-6xl mx-auto relative z-10">
@@ -380,6 +381,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
         </div>
       </section>
     </motion.div>
+    </>
   );
 };
 

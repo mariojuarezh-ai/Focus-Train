@@ -816,12 +816,12 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
-                className="relative z-10 max-w-4xl"
+                className="relative z-10 w-full max-w-4xl mx-auto"
               >
                 <div className="inline-block px-2 md:px-3 py-1 border border-olive text-olive text-[9px] md:text-[10px] whitespace-normal font-black tracking-[0.2em] md:tracking-[0.4em] mb-8 animate-pulse text-center">
                   {t.hero.status}
                 </div>
-                <h1 className="stencil text-5xl md:text-9xl leading-[0.8] mb-10">
+                <h1 className="stencil text-5xl md:text-9xl leading-[0.8] mb-10 mx-auto max-w-[90vw]">
                   {t.hero.title}<br /> <span className="text-olive">{t.hero.subtitle}</span>
                 </h1>
                 <p className="text-base md:text-xl text-smoke/70 max-w-2xl mx-auto mb-12 font-medium tracking-wide">
@@ -831,7 +831,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                   <div className="text-xs md:text-sm text-olive font-black tracking-[0.2em] uppercase">
                     {t.hero.cta_primary}
                   </div>
-                  <div className="flex flex-col sm:flex-row gap-3 md:gap-6 justify-center w-full max-w-3xl">
+                  <div className="flex flex-col mx-auto w-full max-w-3xl sm:flex-row gap-3 md:gap-6 justify-center">
                     <button 
                       onClick={() => navigateTo('programas')}
                       className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full"
@@ -860,7 +860,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
 
             <section className="pt-2 pb-24 bg-[#0B0B0B]/60 backdrop-blur-sm relative z-0">
               <div className="text-center mb-16 px-6">
-                <h2 className="stencil text-4xl md:text-5xl lg:text-6xl mb-4">
+                <h2 className="stencil text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4">
                   {language === 'es' ? 'TRANSFORMACIONES' : 'TRANSFORMATIONS'}
                 </h2>
                 <div className="w-16 h-1 bg-olive mx-auto mb-6" />

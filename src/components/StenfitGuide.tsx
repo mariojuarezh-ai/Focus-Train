@@ -207,14 +207,8 @@ export const StenfitGuide = ({ language }: StenfitGuideProps) => {
   const t = stenfitTexts[language];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="pb-24 pt-10 relative min-h-screen"
-    >
-      {/* Background Video for Stenfit */}
-      <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-black">
+    <>
+      <div className="fixed inset-0 w-[100vw] h-[100dvh] z-[-1] pointer-events-none bg-black">
         <video 
           autoPlay 
           muted 
@@ -225,6 +219,12 @@ export const StenfitGuide = ({ language }: StenfitGuideProps) => {
         />
         <div className="absolute inset-0 bg-black/60 pointer-events-none"></div>
       </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="pb-24 pt-10 relative min-h-screen"
+      >
 
       {/* Tutorial Section */}
       <section className="py-24 px-6 relative">
@@ -324,5 +324,6 @@ export const StenfitGuide = ({ language }: StenfitGuideProps) => {
         </div>
       </section>
     </motion.div>
+    </>
   );
 };
