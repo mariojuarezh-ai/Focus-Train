@@ -114,15 +114,30 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="py-12"
+      className="py-12 relative min-h-screen"
     >
+      {/* Background Video for Hyrox */}
+      <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-black">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="w-full h-full object-cover pointer-events-none brightness-100 opacity-100"
+        >
+          <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20HIROX%202.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBISVJPWCAyLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODIwMDg1NDgsImV4cCI6MTkzOTY4ODU0OH0.FEX-sJ_j6dVy0HIO1RXxd1Ln-UAW7Ah_DZcjhBbE0Lc" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[3px]" />
+      </div>
+
       {/* Intro Section */}
-      <section className="py-20 px-6 max-w-6xl mx-auto">
+      <section className="py-20 px-6 max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <div className="w-24 h-24 mx-auto rounded-full border-4 border-olive flex items-center justify-center p-2 mb-8 bg-[#0B0B0B]">
+          <div className="w-24 h-24 mx-auto rounded-full border-4 border-olive flex items-center justify-center p-2 mb-8 bg-black/40 backdrop-blur-sm">
              <div className="w-full h-full border-2 border-olive rounded-full flex flex-col items-center justify-center">
                  <span className="text-[10px] font-black uppercase text-olive tracking-widest">Focus</span>
              </div>
@@ -142,7 +157,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           </div>
 
           {/* Alternative Top CTA */}
-          <div className="max-w-4xl mx-auto mb-16 p-6 md:p-10 border border-olive/30 border-dashed bg-[#0B0B0B] relative group hover:border-olive/60 transition-colors">
+          <div className="max-w-4xl mx-auto mb-16 p-6 md:p-10 border border-olive/30 border-dashed bg-black/40 backdrop-blur-sm relative group hover:border-olive/60 transition-colors">
             <div className="absolute top-0 left-0 w-2 h-2 bg-olive -translate-x-1 -translate-y-1" />
             <div className="absolute top-0 right-0 w-2 h-2 bg-olive translate-x-1 -translate-y-1" />
             <div className="absolute bottom-0 left-0 w-2 h-2 bg-olive -translate-x-1 translate-y-1" />
@@ -195,7 +210,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
       </section>
 
       {/* Tiempos de carrera */}
-      <section className="py-20 px-6 bg-olive/5 border-y border-olive/20">
+      <section className="py-20 px-6 bg-olive/5 backdrop-blur-sm border-y border-olive/20 relative z-10">
         <div className="max-w-7xl mx-auto">
           <h2 className="stencil text-4xl md:text-5xl text-center mb-16">{t.timingTitleBase} <span className="text-olive">{t.timingTitleAccent}</span></h2>
           <div className="grid lg:grid-cols-12 gap-12 items-start">
@@ -219,7 +234,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
       </section>
 
       {/* Estaciones */}
-      <section className="py-20 px-6 max-w-5xl mx-auto space-y-16">
+      <section className="py-20 px-6 max-w-5xl mx-auto space-y-16 relative z-10">
         <h2 className="stencil text-4xl md:text-5xl text-center mb-16">{t.analysisTitleBase} <span className="text-olive">{t.analysisTitleAccent}</span></h2>
         
         <StationDetail 
@@ -229,6 +244,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           tips={t.station1Tips} 
           penalties={t.station1Penalties}
           image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SKI%20ERG%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNLSSBFUkcgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg4NTE1LCJleHAiOjE5MzkxNjg1MTV9.T2wrmvFd51w9TKPtvpsh8xCQqfxRUlOg95PxlJWHCww"
+          imagePosition="right"
         />
 
         <StationDetail 
@@ -238,23 +254,72 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           tips={t.station2Tips} 
           penalties={t.station2Penalties}
           image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SLED%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNMRUQgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg5Nzg4LCJleHAiOjE5MzkxNjk3ODh9.l4c3y-_GXr0ObjQRfhc_RE22R-GIcDBBgCB-YvoRW30"
+          imagePosition="left"
         />
 
-        <StationDetail t={t} title="3. SLED PULL (50 MTS)" times={[["Singles men", "1:45-2:00", "2:40-3:10"], ["Doubles men", "1:15-1:30", "1:55-2:25"], ["Singles women", "2:05-2:25", "2:55-3:30"], ["Doubles women", "1:25-1:45", "2:05-2:35"], ["Mixed doubles", "1:20-1:40", "2:00-2:30"]]} tips={t.station3Tips} penalties={t.station3Penalties} />
+        <StationDetail 
+          t={t} 
+          title="3. SLED PULL (50 MTS)" 
+          times={[["Singles men", "1:45-2:00", "2:40-3:10"], ["Doubles men", "1:15-1:30", "1:55-2:25"], ["Singles women", "2:05-2:25", "2:55-3:30"], ["Doubles women", "1:25-1:45", "2:05-2:35"], ["Mixed doubles", "1:20-1:40", "2:00-2:30"]]} 
+          tips={t.station3Tips} 
+          penalties={t.station3Penalties} 
+          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SLED%20PULL.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNMRUQgUFVMTC5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDEwMzI4LCJleHAiOjE5Mzk2OTAzMjh9.4RQE7TEeEtgx72OZAzV521EAR7nM0ECQAiBUolLpTII"
+          imagePosition="right"
+        />
 
-        <StationDetail t={t} title="4. BURPEE BROAD JUMP (80 MTS)" times={[["Singles men", "2:30-2:50", "3:30-4:10"], ["Doubles men", "1:40-2:00", "2:30-3:00"], ["Singles women", "2:50-3:10", "4:00-4:40"], ["Doubles women", "1:50-2:10", "2:45-3:15"], ["Mixed doubles", "1:45-2:05", "2:40-3:10"]]} tips={t.station4Tips} penalties={t.station4Penalties} />
+        <StationDetail 
+          t={t} 
+          title="4. BURPEE BROAD JUMP (80 MTS)" 
+          times={[["Singles men", "2:30-2:50", "3:30-4:10"], ["Doubles men", "1:40-2:00", "2:30-3:00"], ["Singles women", "2:50-3:10", "4:00-4:40"], ["Doubles women", "1:50-2:10", "2:45-3:15"], ["Mixed doubles", "1:45-2:05", "2:40-3:10"]]} 
+          tips={t.station4Tips} 
+          penalties={t.station4Penalties} 
+          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20BURPEE.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIEJVUlBFRS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDEwNjIyLCJleHAiOjE5Mzk2OTA2MjJ9.0V-jh9PUfH-qfAqQUtSSkvpQi7BGExi9qdgIH05QkF0"
+          imagePosition="left"
+        />
 
-        <StationDetail t={t} title="5. ROW ERG (1000 MTS)" times={[["Singles men", "3:10-3:30", "4:20-4:50"], ["Doubles men", "2:15-2:35", "2:50-3:20"], ["Singles women", "3:35-3:55", "4:50-5:20"], ["Doubles women", "2:30-2:50", "3:10-3:40"], ["Mixed doubles", "2:25-2:45", "3:00-3:30"]]} tips={t.station5Tips} penalties={t.station5Penalties} />
+        <StationDetail 
+          t={t} 
+          title="5. ROW ERG (1000 MTS)" 
+          times={[["Singles men", "3:10-3:30", "4:20-4:50"], ["Doubles men", "2:15-2:35", "2:50-3:20"], ["Singles women", "3:35-3:55", "4:50-5:20"], ["Doubles women", "2:30-2:50", "3:10-3:40"], ["Mixed doubles", "2:25-2:45", "3:00-3:30"]]} 
+          tips={t.station5Tips} 
+          penalties={t.station5Penalties} 
+          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20ROW%20HERG%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFJPVyBIRVJHIDIucG5nIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MjAxMTYwNSwiZXhwIjoxOTM5NjkxNjA1fQ.8hZ19dssGnsJPL6AV_brLu4ZO0P7wjdlQ90T5_rUbPQ"
+          imagePosition="right"
+        />
 
-        <StationDetail t={t} title="6. FARMERS CARRY (200 MTS)" times={[["Singles men", "1:20-1:35", "2:00-2:30"], ["Doubles men", "1:00-1:15", "1:30-1:55"], ["Singles women", "1:35-1:55", "2:15-2:45"], ["Doubles women", "1:05-1:20", "1:40-2:05"], ["Mixed doubles", "1:05-1:20", "1:35-2:00"]]} tips={t.station6Tips} penalties={t.station6Penalties} />
+        <StationDetail 
+          t={t} 
+          title="6. FARMERS CARRY (200 MTS)" 
+          times={[["Singles men", "1:20-1:35", "2:00-2:30"], ["Doubles men", "1:00-1:15", "1:30-1:55"], ["Singles women", "1:35-1:55", "2:15-2:45"], ["Doubles women", "1:05-1:20", "1:40-2:05"], ["Mixed doubles", "1:05-1:20", "1:35-2:00"]]} 
+          tips={t.station6Tips} 
+          penalties={t.station6Penalties} 
+          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20FARMER%20CARRY%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIEZBUk1FUiBDQVJSWSAxLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODIwMTQxMzIsImV4cCI6MTkzOTY5NDEzMn0.8YPKxn4PHO5ivyGuCt21RuKw7qhlX7lSWAimNDn6lhs"
+          imagePosition="left"
+        />
 
-        <StationDetail t={t} title="7. SANDBAG LUNGES (100 MTS)" times={[["Singles men", "3:10-3:30", "4:20-5:00"], ["Doubles men", "2:10-2:30", "3:00-3:40"], ["Singles women", "3:30-3:50", "4:50-5:30"], ["Doubles women", "2:20-2:40", "3:15-3:55"], ["Mixed doubles", "2:15-2:35", "3:10-3:50"]]} tips={t.station7Tips} penalties={t.station7Penalties} />
+        <StationDetail 
+          t={t} 
+          title="7. SANDBAG LUNGES (100 MTS)" 
+          times={[["Singles men", "3:10-3:30", "4:20-5:00"], ["Doubles men", "2:10-2:30", "3:00-3:40"], ["Singles women", "3:30-3:50", "4:50-5:30"], ["Doubles women", "2:20-2:40", "3:15-3:55"], ["Mixed doubles", "2:15-2:35", "3:10-3:50"]]} 
+          tips={t.station7Tips} 
+          penalties={t.station7Penalties} 
+          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SANDBAG%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNBTkRCQUcgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDE0NjE3LCJleHAiOjE5Mzk2OTQ2MTd9.hr4v-PMHf_1_mz166VxrFI-P_r7jEL3v-XyV2Ut9uPU"
+          imagePosition="right"
+        />
 
-        <StationDetail t={t} title="8. WALL BALLS (100 REPS)" times={[["Singles men", "3:30-4:00", "5:30-6:30"], ["Doubles men", "2:20-2:50", "3:30-4:15"], ["Singles women", "3:50-4:20", "6:00-7:00"], ["Doubles women", "2:30-3:00", "3:45-4:30"], ["Mixed doubles", "2:25-2:55", "3:40-4:25"]]} tips={t.station8Tips} penalties={t.station8Penalties} />
+        <StationDetail 
+          t={t} 
+          title="8. WALL BALLS (100 REPS)" 
+          times={[["Singles men", "3:30-4:00", "5:30-6:30"], ["Doubles men", "2:20-2:50", "3:30-4:15"], ["Singles women", "3:50-4:20", "6:00-7:00"], ["Doubles women", "2:30-3:00", "3:45-4:30"], ["Mixed doubles", "2:25-2:55", "3:40-4:25"]]} 
+          tips={t.station8Tips} 
+          penalties={t.station8Penalties} 
+          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20WALL%20BALLS%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFdBTEwgQkFMTFMgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDE1MjY0LCJleHAiOjE5Mzk2OTUyNjR9.fuVy6l4pwZvSCsocekgtgZ-CLtMHsO2F4jK4npVPRng"
+          imagePosition="left"
+        />
       </section>
 
       {/* ROXZONE & Conclusion */}
-      <section className="py-20 px-6 max-w-6xl mx-auto space-y-16">
+      <section className="py-20 px-6 max-w-6xl mx-auto space-y-16 relative z-10">
         <div className="grid md:grid-cols-5 gap-8 items-center">
           <div className="md:col-span-3 glass-card p-8 md:p-12 border-olive/20 relative overflow-hidden h-full flex flex-col justify-center">
              <div className="absolute top-0 right-0 py-2 px-8 bg-olive text-black font-black uppercase text-xs">{t.roxzoneBadge}</div>
@@ -268,7 +333,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           <div className="md:col-span-2 relative h-full min-h-[300px] group mt-8 md:mt-0">
             <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
             <img 
-              src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX%203.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWCAzLnBuZyIsImlhdCI6MTc3OTU1NTE3OCwiZXhwIjoxOTM3MjM1MTc4fQ.rO7ykK2-Lvw5QhGdg2XXfEe4CUNDde3U8bp3y9v7EwE" 
+              src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20ROXZONE%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFJPWFpPTkUgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDE2NjYzLCJleHAiOjE5Mzk2OTY2NjN9.yY8Bv21Tp-HJdKvDiHjOyN0xta8djl2LLNWFl4cCwoc" 
               alt="Hyrox Roxzone Focus" 
               className="absolute inset-0 w-full h-full object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
             />
@@ -280,7 +345,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
              <div className="relative group h-[300px] md:h-[500px]">
                <div className="absolute inset-0 bg-olive/20 -translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:-translate-x-2 group-hover:translate-y-2"></div>
                <img 
-                 src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX4.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWDQucG5nIiwiaWF0IjoxNzc5NTU1MjUwLCJleHAiOjE5MzcyMzUyNTB9.sAz2om2nCSeIemlIRvWwbgLSpdIpx0b5PlJF4X9yTgU" 
+                 src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20CONCLUSION%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIENPTkNMVVNJT04gMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDE3MTg4LCJleHAiOjE5Mzk2OTcxODh9.is4WaQyoB2VHV_3FIFy4sukeVoRalkwyh2NdcsAg2FY" 
                  alt="Hyrox Conclusion Focus" 
                  className="absolute inset-0 w-full h-full object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
                />
@@ -301,7 +366,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
         </div>
 
         {/* CTA SECTION */}
-        <div className="mt-20 text-center bg-[#0B0B0B] border border-olive/30 p-12 relative overflow-hidden group">
+        <div className="mt-20 text-center bg-black/40 backdrop-blur-sm border border-olive/30 p-12 relative overflow-hidden group">
            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_2px_2px,rgba(118,132,85,0.4)_1px,transparent_0)] bg-[length:20px_20px]" />
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-olive/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-olive/20 transition-colors" />
            <Target size={48} className="text-olive mx-auto mb-6 opacity-80" />
@@ -336,8 +401,8 @@ const TimingCard = ({ t, title, times }: { t: any, title: string, times: string[
   </div>
 );
 
-const StationDetail = ({ t, title, times, tips, penalties, image }: { t: any, title: string, times: string[][], tips: string[], penalties: string[], image?: string }) => (
-  <div className="border border-white/10 bg-[#0B0B0B]/50 p-6 md:p-10 relative group hover:border-olive/30 transition-all rounded-sm shadow-xl">
+const StationDetail = ({ t, title, times, tips, penalties, image, imagePosition = 'right' }: { t: any, title: string, times: string[][], tips: string[], penalties: string[], image?: string, imagePosition?: 'left' | 'right' }) => (
+  <div className="border border-white/10 bg-black/40 backdrop-blur-sm p-6 md:p-10 relative group hover:border-olive/30 transition-all rounded-sm shadow-xl">
     <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-olive/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
     <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
       <h3 className="stencil text-3xl md:text-4xl text-olive">{title}</h3>
@@ -384,8 +449,8 @@ const StationDetail = ({ t, title, times, tips, penalties, image }: { t: any, ti
       </div>
       
       {image && (
-        <div className="relative group w-full rounded-sm border border-olive/20 lg:col-span-5 shadow-2xl self-start order-last mt-4 lg:mt-0">
-          <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+        <div className={`relative group w-full rounded-sm border border-olive/20 lg:col-span-5 shadow-2xl self-start mt-4 lg:mt-0 order-last ${imagePosition === 'left' ? 'lg:order-first' : ''}`}>
+          <div className={`absolute inset-0 bg-olive/20 rounded-sm transition-transform ${imagePosition === 'left' ? '-translate-x-4 translate-y-4 group-hover:-translate-x-2 group-hover:translate-y-2' : 'translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2'}`}></div>
           <img src={image} alt={title} className="relative z-10 w-full h-auto object-cover object-top transition-all duration-500 rounded-sm aspect-square lg:aspect-[3/4]" />
         </div>
       )}
