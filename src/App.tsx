@@ -838,7 +838,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 <div className="inline-block px-2 md:px-3 py-1 border border-olive text-olive text-[9px] md:text-[10px] whitespace-normal font-black tracking-[0.2em] md:tracking-[0.4em] mb-8 animate-pulse text-center">
                   {t.hero.status}
                 </div>
-                <h1 className="stencil text-5xl md:text-9xl leading-[0.8] mb-10 mx-auto max-w-[90vw]">
+                <h1 className="stencil text-4xl sm:text-5xl md:text-9xl leading-[0.8] mb-10 mx-auto max-w-[90vw]">
                   {t.hero.title}<br /> <span className="text-olive">{t.hero.subtitle}</span>
                 </h1>
                 <p className="text-base md:text-xl text-smoke/70 max-w-2xl mx-auto mb-12 font-medium tracking-wide">
@@ -892,7 +892,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             <section id="about" className="py-24 md:py-32 px-6 bg-[#151619]/60 backdrop-blur-sm relative z-0">
               <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-                    <h2 className="stencil text-4xl md:text-5xl lg:text-6xl mb-6">{t.about.title} <span className="text-olive">{t.about.title_accent}</span></h2>
+                    <h2 className="stencil text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6">{t.about.title} <span className="text-olive">{t.about.title_accent}</span></h2>
                     <div className="w-24 h-1 bg-olive opacity-80" />
                 </div>
                 
@@ -942,7 +942,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
               <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                   <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">RECON DIVISION</div>
-                  <h2 className="stencil text-5xl md:text-7xl mb-6">{t.intel.title} <span className="text-olive">{t.intel.title_accent}</span></h2>
+                  <h2 className="stencil text-3xl sm:text-4xl md:text-7xl mb-6">{t.intel.title} <span className="text-olive">{t.intel.title_accent}</span></h2>
                   <p className="text-smoke/60 text-sm font-medium tracking-widest uppercase">{t.intel.subtitle}</p>
                 </div>
                 
@@ -1004,7 +1004,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 <div className="inline-block px-4 py-1 border border-olive/30 text-olive text-[10px] font-black tracking-[0.5em] uppercase mb-6 rounded-full">
                   Elite Systems
                 </div>
-                <h2 className="stencil text-5xl md:text-8xl mb-6">{t.programs.title} <span className="text-olive">{t.programs.title_accent}</span></h2>
+                <h2 className="stencil text-3xl sm:text-4xl md:text-8xl mb-6">{t.programs.title} <span className="text-olive">{t.programs.title_accent}</span></h2>
                 <div className="w-16 md:w-24 h-1 bg-olive mx-auto mb-8" />
                 <p className="text-smoke/60 text-xs md:text-sm font-medium tracking-widest uppercase px-4">
                   {t.programs.subtitle}
@@ -1198,7 +1198,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
               <div className="max-w-6xl mx-auto bg-black/40 backdrop-blur-sm p-8 md:p-12 border border-olive/20 rounded-lg shadow-2xl">
                 <header className="text-center mb-16">
                   <div className="text-[10px] text-olive font-black tracking-[0.3em] uppercase mb-4">{t.clases.subtitle}</div>
-                  <h2 className="stencil text-5xl">{t.clases.title} <span className="text-olive">{t.clases.title_accent}</span></h2>
+                  <h2 className="stencil text-3xl sm:text-4xl md:text-5xl lg:text-6xl">{t.clases.title} <span className="text-olive">{t.clases.title_accent}</span></h2>
                 </header>
 
                 <div className="relative group mb-20 max-w-4xl mx-auto">
