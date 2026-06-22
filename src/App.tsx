@@ -525,7 +525,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
   };
 
   return (
-    <div className="min-h-screen text-[#F2F2F2] selection:bg-[#768455] selection:text-[#0B0B0B]">
+    <div className="min-h-screen text-[#F2F2F2] selection:bg-[#768455] selection:text-[#0B0B0B] overflow-x-hidden">
       <div className="fixed inset-0 bg-[#0B0B0B] z-[-2]" />
       <div className="topo-bg-pattern opacity-10" />
       
@@ -812,6 +812,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
+            className="overflow-hidden"
           >
             <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-black">
               <video 
@@ -978,7 +979,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="py-20 min-h-[85vh] flex items-center justify-center relative"
+            className="py-20 min-h-[85vh] flex items-center justify-center relative overflow-hidden"
           >
             {/* Background Video for Programas */}
             <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-[#0B0B0B] overflow-hidden">
@@ -1177,7 +1178,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="py-12 relative min-h-screen"
+            className="py-12 relative min-h-screen overflow-hidden"
           >
             {/* Background Video for Clases */}
             <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-black">
