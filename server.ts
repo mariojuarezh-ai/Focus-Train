@@ -13,6 +13,11 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  // Health check route
+  app.get("/api/health", (req, res) => {
+    res.json({ status: "ok" });
+  });
+
   // Spotify Auth configuration
   const SPOTIFY_CLIENT_ID = process.env.VITE_SPOTIFY_CLIENT_ID || process.env.SPOTIFY_CLIENT_ID;
   const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
@@ -109,6 +114,40 @@ async function startServer() {
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch Spotify profile" });
     }
+  });
+
+  // Export build zip
+  app.get("/api/download-build", async (req, res) => {
+    const archiver = await import("archiver");
+    
+    // Set headers to trigger a file download
+    res.attachment('website_files.zip');
+    
+    // Create an archiver instance
+    const archive = archiver.default('zip', {
+      zlib: { level: 9 } // Sets the compression level
+    });
+    
+    // Catch warnings and errors
+    archive.on('warning', function(err: any) {
+      if (err.code === 'ENOENT') {
+        console.warn(err);
+      } else {
+        throw err;
+      }
+    });
+    archive.on('error', function(err: any) {
+      res.status(500).send({ error: err.message });
+    });
+    
+    // Pipe archive data to the response
+    archive.pipe(res);
+    
+    // Append files from dist folder
+    archive.directory(path.join(process.cwd(), 'dist'), false);
+    
+    // Finalize the archive
+    archive.finalize();
   });
 
   // Vite middleware
