@@ -123,7 +123,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           playsInline
           className="w-full h-full object-cover pointer-events-none brightness-100 opacity-100"
         >
-          <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20HIROX%202.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBISVJPWCAyLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODIwMDg1NDgsImV4cCI6MTkzOTY4ODU0OH0.FEX-sJ_j6dVy0HIO1RXxd1Ln-UAW7Ah_DZcjhBbE0Lc" type="video/mp4" />
+          <source src="https://thefocusplan.com/VIDEOS/VIDEO%20FONDO%20HIROX%202.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[3px]" />
       </div>
@@ -151,7 +151,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           <div className="w-full max-w-4xl mx-auto mb-16 relative">
             <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm"></div>
             <img 
-              src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HYROX-HECTOR.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9IWVJPWC1IRUNUT1IucG5nIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MTQxMjcwNCwiZXhwIjoxOTM5MDkyNzA0fQ.ydmX47mKjgeBD8u_pM09211sMciYIwD76Zq4Ai1yZDc"
+              src="https://thefocusplan.com/IMAGENES/HYROX-HECTOR.png"
               alt="Hyrox Ready"
               className="relative z-10 w-full h-auto object-cover rounded-sm border border-olive/30 shadow-2xl"
             />
@@ -203,7 +203,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
                 playsInline
                 className="relative z-10 w-full h-auto object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
               >
-                <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20HIROX.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBISVJPWC5tcDQiLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg3MzgzLCJleHAiOjE5MzkxNjczODN9.n7IghoFE5RMosj4h-Uv5MBzMP_wQPGtEDA0Rw2nNIig" type="video/mp4" />
+                <source src="https://thefocusplan.com/VIDEOS/VIDEO%20HIROX.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
@@ -225,7 +225,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
             <div className="lg:col-span-4 relative group mt-12 lg:mt-0 lg:sticky lg:top-24">
               <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
               <img 
-                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/HIROX%20CARRERA1.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ISVJPWCBDQVJSRVJBMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg4MDUwLCJleHAiOjE5MzkxNjgwNTB9.KRiGy0l_O_p4kXkmqgloNC57pMP_0sw6S-y5-6PQuY0" 
+                src="https://thefocusplan.com/IMAGENES/HIROX%20CARRERA1.png" 
                 alt="Hyrox Focus 2" 
                 className="relative z-10 w-full h-auto object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
               />
@@ -244,7 +244,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           times={[["Singles men", "3:05-3:20", "4:15-4:45"], ["Doubles men", "2:10-2:30", "2:45-3:15"], ["Singles women", "3:25-3:45", "4:45-5:15"], ["Doubles women", "2:20-2:40", "3:00-3:30"], ["Mixed doubles", "2:15-2:35", "2:55-3:25"]]} 
           tips={t.station1Tips} 
           penalties={t.station1Penalties}
-          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SKI%20ERG%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNLSSBFUkcgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg4NTE1LCJleHAiOjE5MzkxNjg1MTV9.T2wrmvFd51w9TKPtvpsh8xCQqfxRUlOg95PxlJWHCww"
+          image="https://thefocusplan.com/IMAGENES/FOTO%20HIROX%20SKI%20ERG%201.png"
           imagePosition="right"
         />
 
@@ -254,7 +254,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           times={[["Singles men", "1:40-1:55", "2:30-3:00"], ["Doubles men", "1:10-1:25", "1:45-2:15"], ["Singles women", "2:00-2:20", "2:45-3:15"], ["Doubles women", "1:20-1:40", "1:55-2:25"], ["Mixed doubles", "1:15-1:35", "1:50-2:20"]]} 
           tips={t.station2Tips} 
           penalties={t.station2Penalties}
-          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SLED%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNMRUQgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDg5Nzg4LCJleHAiOjE5MzkxNjk3ODh9.l4c3y-_GXr0ObjQRfhc_RE22R-GIcDBBgCB-YvoRW30"
+          image="https://thefocusplan.com/IMAGENES/FOTO%20HIROX%20SLED%201.png"
           imagePosition="left"
         />
 
@@ -264,7 +264,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           times={[["Singles men", "1:45-2:00", "2:40-3:10"], ["Doubles men", "1:15-1:30", "1:55-2:25"], ["Singles women", "2:05-2:25", "2:55-3:30"], ["Doubles women", "1:25-1:45", "2:05-2:35"], ["Mixed doubles", "1:20-1:40", "2:00-2:30"]]} 
           tips={t.station3Tips} 
           penalties={t.station3Penalties} 
-          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SLED%20PULL.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNMRUQgUFVMTC5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDEwMzI4LCJleHAiOjE5Mzk2OTAzMjh9.4RQE7TEeEtgx72OZAzV521EAR7nM0ECQAiBUolLpTII"
+          image="https://thefocusplan.com/IMAGENES/FOTO%20HIROX%20SLED%20PULL.png"
           imagePosition="right"
         />
 
@@ -274,7 +274,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           times={[["Singles men", "2:30-2:50", "3:30-4:10"], ["Doubles men", "1:40-2:00", "2:30-3:00"], ["Singles women", "2:50-3:10", "4:00-4:40"], ["Doubles women", "1:50-2:10", "2:45-3:15"], ["Mixed doubles", "1:45-2:05", "2:40-3:10"]]} 
           tips={t.station4Tips} 
           penalties={t.station4Penalties} 
-          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20BURPEE.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIEJVUlBFRS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDEwNjIyLCJleHAiOjE5Mzk2OTA2MjJ9.0V-jh9PUfH-qfAqQUtSSkvpQi7BGExi9qdgIH05QkF0"
+          image="https://thefocusplan.com/IMAGENES/FOTO%20HIROX%20BURPEE.png"
           imagePosition="left"
         />
 
@@ -284,7 +284,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           times={[["Singles men", "3:10-3:30", "4:20-4:50"], ["Doubles men", "2:15-2:35", "2:50-3:20"], ["Singles women", "3:35-3:55", "4:50-5:20"], ["Doubles women", "2:30-2:50", "3:10-3:40"], ["Mixed doubles", "2:25-2:45", "3:00-3:30"]]} 
           tips={t.station5Tips} 
           penalties={t.station5Penalties} 
-          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20ROW%20HERG%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFJPVyBIRVJHIDIucG5nIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MjAxMTYwNSwiZXhwIjoxOTM5NjkxNjA1fQ.8hZ19dssGnsJPL6AV_brLu4ZO0P7wjdlQ90T5_rUbPQ"
+          image="https://thefocusplan.com/IMAGENES/FOTO%20HIROX%20ROW%20HERG%202.png"
           imagePosition="right"
         />
 
@@ -294,7 +294,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           times={[["Singles men", "1:20-1:35", "2:00-2:30"], ["Doubles men", "1:00-1:15", "1:30-1:55"], ["Singles women", "1:35-1:55", "2:15-2:45"], ["Doubles women", "1:05-1:20", "1:40-2:05"], ["Mixed doubles", "1:05-1:20", "1:35-2:00"]]} 
           tips={t.station6Tips} 
           penalties={t.station6Penalties} 
-          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20FARMER%20CARRY%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIEZBUk1FUiBDQVJSWSAxLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODIwMTQxMzIsImV4cCI6MTkzOTY5NDEzMn0.8YPKxn4PHO5ivyGuCt21RuKw7qhlX7lSWAimNDn6lhs"
+          image="https://thefocusplan.com/IMAGENES/FOTO%20HIROX%20FARMER%20CARRY%201.png"
           imagePosition="left"
         />
 
@@ -304,7 +304,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           times={[["Singles men", "3:10-3:30", "4:20-5:00"], ["Doubles men", "2:10-2:30", "3:00-3:40"], ["Singles women", "3:30-3:50", "4:50-5:30"], ["Doubles women", "2:20-2:40", "3:15-3:55"], ["Mixed doubles", "2:15-2:35", "3:10-3:50"]]} 
           tips={t.station7Tips} 
           penalties={t.station7Penalties} 
-          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20SANDBAG%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFNBTkRCQUcgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDE0NjE3LCJleHAiOjE5Mzk2OTQ2MTd9.hr4v-PMHf_1_mz166VxrFI-P_r7jEL3v-XyV2Ut9uPU"
+          image="https://thefocusplan.com/IMAGENES/FOTO%20HIROX%20SANDBAG%201.png"
           imagePosition="right"
         />
 
@@ -314,7 +314,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           times={[["Singles men", "3:30-4:00", "5:30-6:30"], ["Doubles men", "2:20-2:50", "3:30-4:15"], ["Singles women", "3:50-4:20", "6:00-7:00"], ["Doubles women", "2:30-3:00", "3:45-4:30"], ["Mixed doubles", "2:25-2:55", "3:40-4:25"]]} 
           tips={t.station8Tips} 
           penalties={t.station8Penalties} 
-          image="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20WALL%20BALLS%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFdBTEwgQkFMTFMgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDE1MjY0LCJleHAiOjE5Mzk2OTUyNjR9.fuVy6l4pwZvSCsocekgtgZ-CLtMHsO2F4jK4npVPRng"
+          image="https://thefocusplan.com/IMAGENES/FOTO%20HIROX%20WALL%20BALLS%201.png"
           imagePosition="left"
         />
       </section>
@@ -334,7 +334,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
           <div className="md:col-span-2 relative h-full min-h-[300px] group mt-8 md:mt-0">
             <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
             <img 
-              src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20ROXZONE%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIFJPWFpPTkUgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDE2NjYzLCJleHAiOjE5Mzk2OTY2NjN9.yY8Bv21Tp-HJdKvDiHjOyN0xta8djl2LLNWFl4cCwoc" 
+              src="https://thefocusplan.com/IMAGENES/FOTO%20HIROX%20ROXZONE%201.png" 
               alt="Hyrox Roxzone Focus" 
               className="absolute inset-0 w-full h-full object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
             />
@@ -346,7 +346,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
              <div className="relative group h-[300px] md:h-[500px]">
                <div className="absolute inset-0 bg-olive/20 -translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:-translate-x-2 group-hover:translate-y-2"></div>
                <img 
-                 src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20HIROX%20CONCLUSION%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIEhJUk9YIENPTkNMVVNJT04gMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDE3MTg4LCJleHAiOjE5Mzk2OTcxODh9.is4WaQyoB2VHV_3FIFy4sukeVoRalkwyh2NdcsAg2FY" 
+                 src="https://thefocusplan.com/IMAGENES/FOTO%20HIROX%20CONCLUSION%201.png" 
                  alt="Hyrox Conclusion Focus" 
                  className="absolute inset-0 w-full h-full object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
                />

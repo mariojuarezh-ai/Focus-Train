@@ -366,7 +366,7 @@ const Logo = ({ className = "" }: { className?: string }) => (
   <div className={`relative flex items-center justify-center ${className}`}>
     <div className="w-32 h-32 rounded-full border-4 border-[#768455] flex items-center justify-center p-2 bg-[#0B0B0B] overflow-hidden">
       <img 
-        src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20FOCUS%20-%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIEZPQ1VTIC0gU0lOIEZPTkRPLnBuZyIsImlhdCI6MTc3NzE3NTIwMywiZXhwIjoxOTM0ODU1MjAzfQ.qqm2PyEbe2Z-IqtMvuOJu1SBJHVHfccrIG-LSW1-HSE" 
+        src="https://thefocusplan.com/IMAGENES/LOGO%20FOCUS%20-%20SIN%20FONDO.png" 
         alt="Logo de Focus Box & Fitness - Entrenamiento Táctico y Acondicionamiento Físico" 
         className="w-full h-full object-contain"
         referrerPolicy="no-referrer"
@@ -605,7 +605,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
               onClick={() => navigateTo('stenfit')} 
               className={`hover:text-olive transition-colors flex items-center justify-center ${currentView === 'stenfit' ? 'text-olive' : ''}`}
             >
-              <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/STENFIT.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9TVEVORklULnBuZyIsImlhdCI6MTc3ODk5Mjk3MSwiZXhwIjoxOTM2NjcyOTcxfQ.Fb1lNFaN34GL7k0h08NY31eA2BMaGveAMofNrSxvL7Q" alt="Stenfit" className={`h-4 lg:h-5 transition-opacity ${currentView === 'stenfit' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`} />
+              <img src="https://thefocusplan.com/IMAGENES/STENFIT.png" alt="Stenfit" className={`h-4 lg:h-5 transition-opacity ${currentView === 'stenfit' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`} />
             </button>
             
             <div className="h-4 w-px bg-olive/20 mx-2" />
@@ -628,7 +628,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
               className="hidden sm:flex items-center justify-center transition-transform hover:scale-105"
             >
               <img 
-                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/BOTON%20SPOTIFY.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9CT1RPTiBTUE9USUZZLnBuZyIsImlhdCI6MTc4MDc5Mzk4NiwiZXhwIjoxOTM4NDczOTg2fQ.2-t8LjYWHYUkLO2ZicLTOz7GvZ-iRZFrguMNbFSq3hI"
+                src="https://thefocusplan.com/IMAGENES/BOTON%20SPOTIFY.png"
                 alt="COMMS / Spotify"
                 className="h-16 object-contain"
                 referrerPolicy="no-referrer"
@@ -708,7 +708,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 onClick={() => navigateTo('stenfit')} 
                 className={`py-2 sm:py-3 stencil text-lg sm:text-xl md:text-2xl hover:text-olive transition-colors w-full flex justify-center ${currentView === 'stenfit' ? 'text-olive' : 'text-smoke'}`}
               >
-                <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/STENFIT.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9TVEVORklULnBuZyIsImlhdCI6MTc3ODk5Mjk3MSwiZXhwIjoxOTM2NjcyOTcxfQ.Fb1lNFaN34GL7k0h08NY31eA2BMaGveAMofNrSxvL7Q" alt="Stenfit" className={`h-5 sm:h-6 md:h-8 transition-opacity ${currentView === 'stenfit' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`} />
+                <img src="https://thefocusplan.com/IMAGENES/STENFIT.png" alt="Stenfit" className={`h-5 sm:h-6 md:h-8 transition-opacity ${currentView === 'stenfit' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`} />
               </button>
               
               <div className="w-10 h-px bg-olive/30 my-2 sm:my-3" />
@@ -822,7 +822,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 playsInline
                 className="w-full h-full object-cover pointer-events-none brightness-75 opacity-90"
               >
-                <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20FOCUS-2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBGT0NVUy0yLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE5ODQ0NDcsImV4cCI6MTkzOTY2NDQ0N30.jLdNTIrU79s9pk2Gfj6qVJgoVAE6VY1F29ry5zOSl-k" type="video/mp4" />
+                <source src="https://thefocusplan.com/VIDEOS/VIDEO%20FONDO%20FOCUS-2.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-[#0B0B0B]/40" />
             </div>
@@ -923,7 +923,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                     <div className="relative">
                       <div className="w-full h-[50vh] min-h-[400px] md:h-[600px] overflow-hidden rounded-xl group flex items-center justify-center border border-olive/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] bg-black/50">
                         <img 
-                          src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20IMAGEN%20SECCION%20PRINCIPAL%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIElNQUdFTiBTRUNDSU9OIFBSSU5DSVBBTCAxLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODIwMTk1ODMsImV4cCI6MTkzOTY5OTU4M30.l1ECnZffAOgjXwmHLJ4aMUl6483zsIWU2A_XzMqA8TM" 
+                          src="https://thefocusplan.com/IMAGENES/FOTO%20IMAGEN%20SECCION%20PRINCIPAL%201.png" 
                           alt="Focus Training Section" 
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" 
                           referrerPolicy="no-referrer" 
@@ -990,7 +990,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 playsInline
                 className="w-full h-full object-cover opacity-40 grayscale-0 scale-150 md:scale-[2]"
               >
-                <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20HIROX%201.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBISVJPWCAxLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0OTAwMDgsImV4cCI6MTkzOTE3MDAwOH0.hZhABuvq_2FQavUuUxmdjsYHKdidEflNHr84TQAP-EI" type="video/mp4" />
+                <source src="https://thefocusplan.com/VIDEOS/VIDEO%20FONDO%20HIROX%201.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-[#0B0B0B]/40" />
               <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B] via-transparent to-[#0B0B0B]" />
@@ -1028,7 +1028,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 >
                   <div className="w-full h-56 md:h-64 relative overflow-hidden">
                     <img 
-                      src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20CLASES%20ONLINE%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIENMQVNFUyBPTkxJTkUgMS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDgwMzQ4LCJleHAiOjE5Mzk3NjAzNDh9.KNjawNsQAFu17gwWktOlM4yYOCv1WoChslYTi7bERAQ" 
+                      src="https://thefocusplan.com/IMAGENES/FOTO%20CLASES%20ONLINE%201.png" 
                       alt="Plan Essential" 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                       referrerPolicy="no-referrer" 
@@ -1084,7 +1084,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                   </div>
                   <div className="w-full h-56 md:h-64 relative overflow-hidden">
                     <img 
-                      src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20CLASES%20ONLINE%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIENMQVNFUyBPTkxJTkUgMi5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgyMDgwMzk1LCJleHAiOjE5Mzk3NjAzOTV9.HcPLlJTJElLq6vk8VCrndk6nHSVJj2L6ephFZsyPvkI" 
+                      src="https://thefocusplan.com/IMAGENES/FOTO%20CLASES%20ONLINE%202.png" 
                       alt="Plan Focused" 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                       referrerPolicy="no-referrer" 
@@ -1143,7 +1143,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
                   <div className="shrink-0">
                     <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-olive/20 flex items-center justify-center bg-black/50 p-6 md:p-8">
-                       <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/STENFIT.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9TVEVORklULnBuZyIsImlhdCI6MTc3ODk5Mjk3MSwiZXhwIjoxOTM2NjcyOTcxfQ.Fb1lNFaN34GL7k0h08NY31eA2BMaGveAMofNrSxvL7Q" alt="Stenfit" className="w-full h-auto opacity-70 group-hover:opacity-100 transition-opacity" />
+                       <img src="https://thefocusplan.com/IMAGENES/STENFIT.png" alt="Stenfit" className="w-full h-auto opacity-70 group-hover:opacity-100 transition-opacity" />
                     </div>
                   </div>
                   
@@ -1189,7 +1189,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                 playsInline
                 className="w-full h-full object-cover pointer-events-none brightness-100 opacity-100"
               >
-                <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20RUTINAS%201.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBSVVRJTkFTIDEubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MTU4NDAzNywiZXhwIjoxOTM5MjY0MDM3fQ._Vj9zrVRfvDFx81usJEqMd67sxYTgdKc5z60_fS8_Qo" type="video/mp4" />
+                <source src="https://thefocusplan.com/VIDEOS/VIDEO%20FONDO%20RUTINAS%201.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-black/60 backdrop-blur-[3px]" />
             </div>
@@ -1211,7 +1211,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                     playsInline
                     className="relative z-10 w-full aspect-video object-cover rounded-sm transition-all duration-500 border border-olive/30 shadow-2xl"
                   >
-                    <source src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20ENTRENAMIENTO%20BN%201.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBFTlRSRU5BTUlFTlRPIEJOIDEubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MjA3MjM4MiwiZXhwIjoxOTM5NzUyMzgyfQ._0uVN9x8Tf9yo4kS534pWQkV9fbjaNS6UL0j8KAzx7E" type="video/mp4" />
+                    <source src="https://thefocusplan.com/VIDEOS/VIDEO%20ENTRENAMIENTO%20BN%201.mp4" type="video/mp4" />
                   </video>
                 </div>
 
@@ -1295,7 +1295,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
           <div className="w-full md:max-w-6xl mx-auto space-y-12">
             <div className="relative h-[60vh] md:min-h-[600px] w-full mx-auto overflow-hidden rounded-none md:rounded-xl">
               <img 
-                src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/FOTO%20SECCION%20PRINCIPAL%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9GT1RPIFNFQ0NJT04gUFJJTkNJUEFMIDIucG5nIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MjAyMTA2MiwiZXhwIjoxOTM5NzAxMDYyfQ.-ILbqsskiZRJR_g2deUY_ze1NOVYwNIjvfsrLBfj5ak" 
+                src="https://thefocusplan.com/IMAGENES/FOTO%20SECCION%20PRINCIPAL%202.png" 
                 alt="Determinación Focus Box" 
                 className="w-full h-full object-cover transition-all duration-700"
                 referrerPolicy="no-referrer"
@@ -1328,10 +1328,10 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             </p>
             <div className="pt-6 flex gap-4">
                <a href="https://www.instagram.com/focus_boxnfitness/" target="_blank" rel="noopener noreferrer" className="p-3 border border-white/10 hover:border-olive transition-all flex items-center justify-center group bg-black/50 hover:bg-olive/10">
-                 <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20INSTAGRAM.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIElOU1RBR1JBTS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDkyMzA4LCJleHAiOjE5MzkxNzIzMDh9.aFS_KTSS63KG4pauxQ90VMytk5HqWD9iUAdtHrc1it4" alt="Instagram" className="w-6 h-6 object-contain group-hover:scale-110 transition-transform" />
+                 <img src="https://thefocusplan.com/IMAGENES/LOGO%20INSTAGRAM.png" alt="Instagram" className="w-6 h-6 object-contain group-hover:scale-110 transition-transform" />
                </a>
                <a href="https://www.facebook.com/265338446659485?ref=PROFILE_EDIT_xav_ig_profile_page_web" target="_blank" rel="noopener noreferrer" className="p-3 border border-white/10 hover:border-olive transition-all flex items-center justify-center group bg-black/50 hover:bg-olive/10">
-                 <img src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/LOGO%20FACEBOOK.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9MT0dPIEZBQ0VCT09LLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0OTIxODYsImV4cCI6MTkzOTE3MjE4Nn0.hYciTd1G_15FkXNX7e2pETnBpVJJDhJQZxMKrUh6E9k" alt="Facebook" className="w-6 h-6 object-contain group-hover:scale-110 transition-transform" />
+                 <img src="https://thefocusplan.com/IMAGENES/LOGO%20FACEBOOK.png" alt="Facebook" className="w-6 h-6 object-contain group-hover:scale-110 transition-transform" />
                </a>
             </div>
           </div>
