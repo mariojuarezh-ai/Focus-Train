@@ -4,48 +4,48 @@ import { motion, AnimatePresence } from "motion/react";
 
 const pairedPhotos = [
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/DIANA%20ANTES%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0RJQU5BIEFOVEVTIDEucG5nIiwiaWF0IjoxNzc5NTgzNTUwLCJleHAiOjE5MzcyNjM1NTB9.X3KXQzHnpNY4aO6y4N5AutuiqmHKU7DNlH5E_IYy5YA",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/DIANA%20DESPUES%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0RJQU5BIERFU1BVRVMgMS5wbmciLCJpYXQiOjE3Nzk1ODQzODQsImV4cCI6MTkzNzI2NDM4NH0.l94yPZKRLE05QDPzf-__X7K3L6PfFCcIOpZmn2WZZk4"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/DIANA%20ANTES%201.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/DIANA%20DESPUES%201.png"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/DIANA%20ANTES%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0RJQU5BIEFOVEVTIDIucG5nIiwiaWF0IjoxNzc5NTgzNzA4LCJleHAiOjE5MzcyNjM3MDh9.DoO0moQxP05OkDwo81DBLHXXPHWYCTY4hzMFYXfos3g",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/DIANA%20DESPUES%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0RJQU5BIERFU1BVRVMgMi5wbmciLCJpYXQiOjE3Nzk1ODQ3OTksImV4cCI6MTkzNzI2NDc5OX0.c3MwShVoBZiIar6bWBj7ep9aJMDqIGXle-BreFK3uvU"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/DIANA%20ANTES%202.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/DIANA%20DESPUES%202.png"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/ELIOT%20ANTES%201.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0VMSU9UIEFOVEVTIDEucG5nIiwiaWF0IjoxNzc5NTgzNzU0LCJleHAiOjE5MzcyNjM3NTR9.1UgswXsUm0VIy8ZibusUXpEKZrI4M4Hazi-nJ_JjCF0",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/ELIOT%20DESPUES%201%20CORREGIDA.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0VMSU9UIERFU1BVRVMgMSBDT1JSRUdJREEucG5nIiwiaWF0IjoxNzc5NTg0ODM2LCJleHAiOjE5MzcyNjQ4MzZ9.OUjnBfNRoTFbkbgRO6x8D84LqBoRayFUq9AKF_YF5yc"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/ELIOT%20ANTES%201.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/ELIOT%20DESPUES%201%20CORREGIDA.png"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/GENARO%20ANTES%201%20CORREGIDA.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0dFTkFSTyBBTlRFUyAxIENPUlJFR0lEQS5wbmciLCJpYXQiOjE3Nzk1ODM3OTgsImV4cCI6MTkzNzI2Mzc5OH0.lGeRpK3bHfh3srdpbhDChUf3ifgVb7IdtnZmzsxZKAQ",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/GENARO%20DESPUES%201%20CORREGIDA.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0dFTkFSTyBERVNQVUVTIDEgQ09SUkVHSURBLnBuZyIsImlhdCI6MTc3OTU4NDkxMywiZXhwIjoxOTM3MjY0OTEzfQ.iqTGWxG-XI4YraceYhc3JxECi2Qo61mYXb3XztA-NLI"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/GENARO%20ANTES%201%20CORREGIDA.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/GENARO%20DESPUES%201%20CORREGIDA.png"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/JORGE%20ANTES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0pPUkdFIEFOVEVTIDEgQ09SUkVHSURPLnBuZyIsImlhdCI6MTc3OTU4Mzg2MCwiZXhwIjoxOTM3MjYzODYwfQ.bGMFy8NskRsiyE8EuPlgJ9L9KJ_-79PND0oyTw67Q1w",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/JORGE%20DESPUES%202%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0pPUkdFIERFU1BVRVMgMiBDT1JSRUdJRE8ucG5nIiwiaWF0IjoxNzc5NTg1MDA0LCJleHAiOjE5MzcyNjUwMDR9.N_J_SUeHe1oO4Woa2WsW_e3oszeMftF6mSbTu7ZX23c"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/JORGE%20ANTES%201%20CORREGIDO.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/JORGE%20DESPUES%202%20CORREGIDO.png"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/KATIE%20ANTES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0tBVElFIEFOVEVTIDEgQ09SUkVHSURPLnBuZyIsImlhdCI6MTc3OTU4MzkwNiwiZXhwIjoxOTM3MjYzOTA2fQ.YS1rCcifL_mRdvCknbBkYDnFkjXHeBhGZdQ0WsR1dBE",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/KATIE%20DESPUES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL0tBVElFIERFU1BVRVMgMSBDT1JSRUdJRE8ucG5nIiwiaWF0IjoxNzc5NTg1MTg4LCJleHAiOjE5MzcyNjUxODh9.oVhTEufxhJMj1rTuH9MBxGfMohQaMTsQfZQ_76FmR2o"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/KATIE%20ANTES%201%20CORREGIDO.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/KATIE%20DESPUES%201%20CORREGIDO.png"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/MONICA%20ANTES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL01PTklDQSBBTlRFUyAxIENPUlJFR0lETy5wbmciLCJpYXQiOjE3Nzk1ODM5NzksImV4cCI6MTkzNzI2Mzk3OX0.y0Gwaq2An3grOw31G0yGU21GWlBjxO6j05H8phEC2NU",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/MONICA%20DESPUES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL01PTklDQSBERVNQVUVTIDEgQ09SUkVHSURPLnBuZyIsImlhdCI6MTc3OTU4NTIzMCwiZXhwIjoxOTM3MjY1MjMwfQ.DPVDbfnj2kce08l82PuX6ludN-NKIv1QFqwc6UXcb1Y"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/MONICA%20ANTES%201%20CORREGIDO.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/MONICA%20DESPUES%201%20CORREGIDO.png"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/OMAR%20ANTES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL09NQVIgQU5URVMgMSBDT1JSRUdJRE8ucG5nIiwiaWF0IjoxNzc5NTg0MDU0LCJleHAiOjE5MzcyNjQwNTR9.uFc_ezePwfM8l6v0omXCSry6Vt13Y88yVh-yghpN_B0",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/OMAR%20DESPUES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL09NQVIgREVTUFVFUyAxIENPUlJFR0lETy5wbmciLCJpYXQiOjE3Nzk1ODUyNjgsImV4cCI6MTkzNzI2NTI2OH0.8brqUCetcHpkT_5BwfFqrkJdAaGN4__UlwAbSSsEb_Y"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/OMAR%20ANTES%201%20CORREGIDO.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/OMAR%20DESPUES%201%20CORREGIDO.png"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20ANTES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBBTlRFUyAxIENPUlJFR0lETy5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDA3NzUzLCJleHAiOjE5MzkwODc3NTN9.NDJvqGkkOrU2WcW7NNYBCxo80lSCwOIMMLkTdRk55rg",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20DESPUES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBERVNQVUVTIDEgQ09SUkVHSURPLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0MDc5NjgsImV4cCI6MTkzOTA4Nzk2OH0.tNXzOOkP8R3RKxdhp7sm4q9Nfl-x-g96QSXMrjt__Oo"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/PAU%20ANTES%201%20CORREGIDO.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/PAU%20DESPUES%201%20CORREGIDO.png"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20ANTES%202%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBBTlRFUyAyIENPUlJFR0lETy5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgxNDA4NDAyLCJleHAiOjE5MzkwODg0MDJ9.F5jbiankUu1oHG2DtEDmzAFVWfnFl-rVwJW6XI6Ca0Q",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/PAU%20DESPUES%202%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1BBVSBERVNQVUVTIDIgQ09SUkVHSURPLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODE0MDg0MzAsImV4cCI6MTkzOTA4ODQzMH0.Grfnfy97Kdy9BOLatcBQmkQNX4cXoa2Xvp-f_R0L0uU"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/PAU%20ANTES%202%20CORREGIDO.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/PAU%20DESPUES%202%20CORREGIDO.png"
   },
   {
-    antes: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/VANIA%20ANTES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1ZBTklBIEFOVEVTIDEgQ09SUkVHSURPLnBuZyIsImlhdCI6MTc3OTU4NDIyMCwiZXhwIjoxOTM3MjY0MjIwfQ.jGQTF1Q5Y1-44uP3lMzKkwWPhahls18urMtxVEeazKs",
-    despues: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/ANTES-DESPUES/VANIA%20DESPUES%201%20CORREGIDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9BTlRFUy1ERVNQVUVTL1ZBTklBIERFU1BVRVMgMSBDT1JSRUdJRE8ucG5nIiwiaWF0IjoxNzc5NTg1NDU0LCJleHAiOjE5MzcyNjU0NTR9.5u2QknQzjV5Qh2ZAse9IC3uxI8QARkTpzANaUDSyEvY"
+    antes: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/VANIA%20ANTES%201%20CORREGIDO.png",
+    despues: "https://thefocusplan.com/IMAGENES/ANTES-DESPUES/VANIA%20DESPUES%201%20CORREGIDO.png"
   }
 ];
 

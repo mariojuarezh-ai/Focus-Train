@@ -51,7 +51,7 @@ const stenfitTexts = {
         subSteps: [
           {
             title: "Si usas Android:",
-            image: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/PLAYSTORE%20ESP%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9QTEFZU1RPUkUgRVNQIFNJTiBGT05ETy5wbmciLCJpYXQiOjE3Nzk1NTQ2NjIsImV4cCI6MTkzNzIzNDY2Mn0.rIp5DtAsE0g7YED2lSbTcCOx_LMo4dNKEYho6aS-BAU",
+            image: "https://thefocusplan.com/IMAGENES/PLAYSTORE%20ESP%20SIN%20FONDO.png",
             link: "https://play.google.com/store/apps/details?id=com.stenfit.stenfit&hl=en_US&gl=US&pli=1",
             items: [
               "Abre la aplicación Google Play Store en tu teléfono.",
@@ -61,7 +61,7 @@ const stenfitTexts = {
           },
           {
             title: "Si usas iPhone (iOS):",
-            image: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/DESCARGA%20APPSTORE%20ESP%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ERVNDQVJHQSBBUFBTVE9SRSBFU1AgU0lOIEZPTkRPLnBuZyIsImlhdCI6MTc3OTAzNTg2MCwiZXhwIjoxOTM2NzE1ODYwfQ.Zp13LmWHRII_NGwHFL5Shqk66Gycin3Ng59vw47Xc8c",
+            image: "https://thefocusplan.com/IMAGENES/DESCARGA%20APPSTORE%20ESP%20SIN%20FONDO.png",
             link: "https://apps.apple.com/es/app/stenfit/id1511592863",
             items: [
               "Abre la App Store en tu dispositivo.",
@@ -147,7 +147,7 @@ const stenfitTexts = {
         subSteps: [
           {
             title: "If you use Android:",
-            image: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/PLAYSTORE%20ENG%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9QTEFZU1RPUkUgRU5HIFNJTiBGT05ETy5wbmciLCJpYXQiOjE3NzkwMzYxNDksImV4cCI6MTkzNjcxNjE0OX0.JetdEuJqzPm4r-rx14-3_xaReNVqeYFuCkvPouplZII",
+            image: "https://thefocusplan.com/IMAGENES/PLAYSTORE%20ENG%20SIN%20FONDO.png",
             link: "https://play.google.com/store/apps/details?id=com.stenfit.stenfit&hl=en_US&gl=US&pli=1",
             items: [
               "Open the Google Play Store app on your phone.",
@@ -157,7 +157,7 @@ const stenfitTexts = {
           },
           {
             title: "If you use iPhone (iOS):",
-            image: "https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/DESCARGA%20APPSTORE%20ENG%20SIN%20FONDO.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9ERVNDQVJHQSBBUFBTVE9SRSBFTkcgU0lOIEZPTkRPLnBuZyIsImlhdCI6MTc3OTAzNTc4MSwiZXhwIjoxOTM2NzE1NzgxfQ.vCUel0dcBz92SW2BLiY1ZT0PFoV6471nel9O_4jXFcM",
+            image: "https://thefocusplan.com/IMAGENES/DESCARGA%20APPSTORE%20ENG%20SIN%20FONDO.png",
             link: "https://apps.apple.com/es/app/stenfit/id1511592863",
             items: [
               "Open the App Store on your device.",
@@ -215,7 +215,7 @@ export const StenfitGuide = ({ language }: StenfitGuideProps) => {
           loop 
           playsInline
           className="w-full h-full object-cover pointer-events-none brightness-100 opacity-100"
-          src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/VIDEO%20FONDO%20STENFIT.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9WSURFTyBGT05ETyBTVEVORklULm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODIwMTg0MzIsImV4cCI6MTkzOTY5ODQzMn0.LRfCCTkmn173fWC2g11QzZbuXshHTOuxGrJO9569Nf4"
+          src="https://thefocusplan.com/VIDEOS/VIDEO%20FONDO%20STENFIT.mp4"
         />
         <div className="absolute inset-0 bg-black/60 pointer-events-none"></div>
       </div>
@@ -316,7 +316,7 @@ export const StenfitGuide = ({ language }: StenfitGuideProps) => {
                      loop
                      playsInline
                      preload="metadata"
-                     src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/Focus/TUTORIAL%20APLICACION.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb2N1cy9UVVRPUklBTCBBUExJQ0FDSU9OLm1wNCIsImlhdCI6MTc3OTY0NjU2NSwiZXhwIjoxOTM3MzI2NTY1fQ.m5yl5EtIjQ5yvHWZ4ZoruUvOYcBXCtQ75w5j-Ti5hQU"
+                     src="https://thefocusplan.com/VIDEOS/TUTORIAL%20APLICACION.mp4"
                  />
              </div>
           </div>
