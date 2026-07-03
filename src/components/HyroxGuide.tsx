@@ -172,7 +172,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
                  <h2 className="text-xl md:text-2xl font-black uppercase tracking-widest text-smoke">{t.ctaTitleAlt}</h2>
               </div>
               <a 
-                href="mailto:misiones@focusbox.fit?subject=Entrenamiento%20Hyrox"
+                href="mailto:coach@thefocusplan.com?subject=Entrenamiento%20Hyrox"
                 className="btn-tactical py-3 px-8 text-sm uppercase tracking-widest font-black shrink-0 text-center w-full md:w-auto"
               >
                 {t.ctaButtonAlt}
@@ -373,7 +373,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
            <Target size={48} className="text-olive mx-auto mb-6 opacity-80" />
            <h2 className="stencil text-3xl md:text-5xl mb-8 relative z-10">{t.ctaTitle}</h2>
            <a 
-             href="mailto:misiones@focusbox.fit?subject=Entrenamiento%20Hyrox"
+             href="mailto:coach@thefocusplan.com?subject=Entrenamiento%20Hyrox"
              className="btn-tactical py-4 px-10 text-sm md:text-lg uppercase tracking-widest font-black inline-block relative z-10"
            >
              {t.ctaButton}

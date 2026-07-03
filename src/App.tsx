@@ -345,7 +345,7 @@ const COLORS = {
 };
 
 const TopoBackground = () => (
-  <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none opacity-20">
+  <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none opacity-20">
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="topo" width="200" height="200" patternUnits="userSpaceOnUse">
@@ -814,7 +814,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             transition={{ duration: 0.5 }}
             className="overflow-hidden"
           >
-            <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-black">
+            <div className="fixed inset-0 w-full h-full z-0 pointer-events-none bg-black">
               <video 
                 autoPlay 
                 muted 
@@ -824,11 +824,11 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
               >
                 <source src="https://thefocusplan.com/VIDEOS/VIDEO%20FONDO%20FOCUS-2.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-[#0B0B0B]/40" />
+              <div className="absolute inset-0 bg-[#0B0B0B]/40 pointer-events-none" />
             </div>
 
             {/* Hero Section - Immersive Vertical */}
-            <section id="hero" className="relative h-[90vh] flex items-center justify-center text-center px-6 bg-transparent">
+            <section id="hero" className="relative z-10 h-[90vh] flex items-center justify-center text-center px-6 bg-transparent">
               <motion.div 
 
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -849,22 +849,22 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                   <div className="text-xs md:text-sm text-olive font-black tracking-[0.2em] uppercase">
                     {t.hero.cta_primary}
                   </div>
-                  <div className="flex flex-col mx-auto w-full max-w-3xl sm:flex-row gap-3 md:gap-6 justify-center">
+                  <div className="flex flex-col mx-auto w-full max-w-3xl sm:flex-row gap-3 md:gap-6 justify-center relative z-[60]">
                     <button 
                       onClick={() => navigateTo('programas')}
-                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full"
+                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full cursor-pointer active:scale-95 touch-manipulation"
                     >
                       {t.nav.programs}
                     </button>
                     <button 
                       onClick={() => navigateTo('clases')}
-                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full"
+                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full cursor-pointer active:scale-95 touch-manipulation"
                     >
                       {t.nav.presencial}
                     </button>
                     <button 
                       onClick={() => navigateTo('hyrox')}
-                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full"
+                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full cursor-pointer active:scale-95 touch-manipulation"
                     >
                       {t.nav.hyrox}
                     </button>
@@ -947,7 +947,14 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                   <p className="text-smoke/60 text-sm font-medium tracking-widest uppercase">{t.intel.subtitle}</p>
                 </div>
                 
-                <div className="glass-card border-olive/20 p-8 md:p-16 bg-black/40 text-center flex flex-col items-center justify-center">
+                {/* Instagram Widget Container */}
+                <div className="w-full mb-12 flex justify-center relative z-50 overflow-hidden">
+                  <div className="w-full max-w-[320px] md:max-w-[640px] lg:max-w-[960px] mx-auto">
+                    <div className="elfsight-app-11ac2d1f-4d65-46a7-bdf8-5215bca16a3f" data-elfsight-app-lazy></div>
+                  </div>
+                </div>
+
+                <div className="glass-card border-olive/20 p-8 md:p-12 bg-black/40 text-center flex flex-col items-center justify-center max-w-2xl mx-auto">
                   <div className="w-16 h-16 rounded-full border border-olive/30 bg-olive/10 flex items-center justify-center mb-6">
                     <svg className="w-8 h-8 text-olive" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
@@ -957,6 +964,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                   <p className="text-smoke/70 text-sm md:text-base font-mono max-w-lg mb-8">
                     Mantente al día con nuestros próximos eventos de Hyrox, entrenamientos nuevos, y resultados de nuestra comunidad.
                   </p>
+                  
                   <a 
                     href="https://www.instagram.com/focus_boxnfitness/" 
                     target="_blank" 
@@ -982,7 +990,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             className="py-20 min-h-[85vh] flex items-center justify-center relative overflow-hidden"
           >
             {/* Background Video for Programas */}
-            <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-[#0B0B0B] overflow-hidden">
+            <div className="fixed inset-0 w-full h-full z-0 pointer-events-none bg-[#0B0B0B] overflow-hidden">
               <video 
                 autoPlay 
                 loop 
@@ -1181,7 +1189,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             className="py-12 relative min-h-screen overflow-hidden"
           >
             {/* Background Video for Clases */}
-            <div className="fixed inset-0 w-full h-full z-[-1] pointer-events-none bg-black">
+            <div className="fixed inset-0 w-full h-full z-0 pointer-events-none bg-black">
               <video 
                 autoPlay 
                 muted 
@@ -1355,12 +1363,12 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                    </div>
                    <div className="text-sm font-bold group-hover:text-olive transition-colors">+52 33 1804 2910</div>
                 </a>
-                <div className="flex items-center gap-4 group">
+                <a href="mailto:coach@thefocusplan.com" className="flex items-center gap-4 group cursor-pointer inline-flex w-fit">
                    <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all shrink-0">
                       <MessageSquare size={18} className="text-smoke group-hover:text-olive transition-colors" />
                    </div>
-                   <div className="text-sm font-bold truncate">misiones@focusbox.fit</div>
-                </div>
+                   <div className="text-sm font-bold truncate group-hover:text-olive transition-colors">coach@thefocusplan.com</div>
+                </a>
                 <div className="flex items-center gap-4 group">
                    <div className="w-10 h-10 border border-olive/20 flex items-center justify-center group-hover:border-olive transition-all shrink-0">
                       <MapPin size={18} className="text-smoke group-hover:text-olive transition-colors" />
@@ -1390,6 +1398,16 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
 
         <div className="mt-16 text-center text-[8px] opacity-20 tracking-[1em] uppercase">
           {t.footer.rights}
+        </div>
+        
+        <div className="mt-12 flex justify-center">
+          <a href="https://mjconsultoria.netlify.app" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+            <img 
+              src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/MJ%20Consultoria/LOGO%20MJ%20NEGRO.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJNSiBDb25zdWx0b3JpYS9MT0dPIE1KIE5FR1JPLmpwZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODMwNTE0NTMsImV4cCI6MTk0MDczMTQ1M30.EBWdjqmnhOUdW5m1JocPxeEP0x_YPGZ6_adKG41vr0o" 
+              alt="MJ Consultoría" 
+              className="h-24 md:h-32 w-auto rounded-md object-contain"
+            />
+          </a>
         </div>
       </footer>
     </div>
