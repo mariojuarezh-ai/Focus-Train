@@ -737,8 +737,8 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
       </AnimatePresence>
 
         {/* Tactical Spotify Player */}
-        <div className={`fixed bottom-6 right-6 z-[60] flex flex-col items-end transition-all duration-500 ${showMusicFab ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}>
-          <div className={`mb-4 w-[300px] md:w-[350px] glass-card border-olive/30 p-2 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.7)] transition-all duration-300 transform ${isMusicOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-10 pointer-events-none'}`}>
+        <div className={`fixed bottom-6 right-6 z-[60] flex flex-col items-end transition-all duration-500 pointer-events-none ${showMusicFab ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+          <div className={`mb-4 w-[300px] md:w-[350px] glass-card border-olive/30 p-2 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.7)] transition-all duration-300 transform ${isMusicOpen ? 'scale-100 opacity-100 translate-y-0 pointer-events-auto' : 'scale-90 opacity-0 translate-y-10 pointer-events-none'}`}>
             <div className="flex justify-between items-center px-2 py-1 mb-2 border-b border-olive/10">
               <div className="flex items-center gap-2">
                 {spotifyUser ? (
@@ -796,7 +796,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsMusicOpen(!isMusicOpen)}
-            className={`w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl ${
+            className={`w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl pointer-events-auto ${
               isMusicOpen ? 'bg-olive border-olive text-black' : 'bg-black/80 backdrop-blur-md border-olive/40 text-olive hover:border-olive'
             }`}
           >
@@ -828,9 +828,8 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             </div>
 
             {/* Hero Section - Immersive Vertical */}
-            <section id="hero" className="relative z-10 h-[90vh] flex items-center justify-center text-center px-6 bg-transparent">
+            <section id="hero" className="relative z-[40] h-[90vh] flex items-center justify-center text-center px-6 bg-transparent">
               <motion.div 
-
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
@@ -849,22 +848,22 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                   <div className="text-xs md:text-sm text-olive font-black tracking-[0.2em] uppercase">
                     {t.hero.cta_primary}
                   </div>
-                  <div className="flex flex-col mx-auto w-full max-w-3xl sm:flex-row gap-3 md:gap-6 justify-center relative z-[60]">
+                  <div className="flex flex-col mx-auto w-full max-w-3xl sm:flex-row gap-3 md:gap-6 justify-center relative z-[100] pointer-events-auto">
                     <button 
                       onClick={() => navigateTo('programas')}
-                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full cursor-pointer active:scale-95 touch-manipulation"
+                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full cursor-pointer active:scale-95 touch-manipulation pointer-events-auto"
                     >
                       {t.nav.programs}
                     </button>
                     <button 
                       onClick={() => navigateTo('clases')}
-                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full cursor-pointer active:scale-95 touch-manipulation"
+                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full cursor-pointer active:scale-95 touch-manipulation pointer-events-auto"
                     >
                       {t.nav.presencial}
                     </button>
                     <button 
                       onClick={() => navigateTo('hyrox')}
-                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full cursor-pointer active:scale-95 touch-manipulation"
+                      className="btn-tactical px-6 py-4 text-sm md:text-base font-black tracking-[0.1em] w-full cursor-pointer active:scale-95 touch-manipulation pointer-events-auto"
                     >
                       {t.nav.hyrox}
                     </button>
@@ -1324,7 +1323,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
       )}
 
       {/* Footer */}
-      <footer className="py-32 px-6 bg-[#0B0B0B]/80 backdrop-blur-md relative z-50">
+      <footer className="py-32 px-6 bg-[#0B0B0B]/80 backdrop-blur-md relative z-[90]">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-20 items-start">
           <div className="space-y-8">
             <button onClick={() => navigateTo('home')} className="relative z-50">
@@ -1400,14 +1399,17 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
           {t.footer.rights}
         </div>
         
-        <div className="mt-12 flex justify-center">
-          <a href="https://mjconsultoria.netlify.app" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+        <div className="mt-12 pb-32 md:pb-0 flex justify-center relative z-[100]">
+          <button 
+            onClick={() => window.open('https://mjconsultoria.netlify.app', '_blank', 'noopener,noreferrer')}
+            className="block hover:opacity-80 transition-opacity cursor-pointer active:scale-95 touch-manipulation focus:outline-none"
+          >
             <img 
               src="https://mmbmcgjqfzmlsibnpbyl.supabase.co/storage/v1/object/sign/MJ%20Consultoria/LOGO%20MJ%20NEGRO.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZjRmNjhlYS05MmFiLTRkMTItOGZiNi0yMjkzMWI0NTFiYzIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJNSiBDb25zdWx0b3JpYS9MT0dPIE1KIE5FR1JPLmpwZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODMwNTE0NTMsImV4cCI6MTk0MDczMTQ1M30.EBWdjqmnhOUdW5m1JocPxeEP0x_YPGZ6_adKG41vr0o" 
               alt="MJ Consultoría" 
               className="h-24 md:h-32 w-auto rounded-md object-contain"
             />
-          </a>
+          </button>
         </div>
       </footer>
     </div>
