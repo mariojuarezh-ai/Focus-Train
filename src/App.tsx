@@ -539,7 +539,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-olive flex items-center justify-center overflow-hidden">
                 <Logo className="scale-[0.25] md:scale-[0.3]" />
              </div>
-             <span className="font-stencil text-xl md:text-2xl tracking-tighter">FOCUS BOX</span>
+             <span className="font-stencil text-xl md:text-2xl tracking-tighter">FOCUS</span>
           </button>
           
           <div className="hidden md:flex items-center gap-6">
@@ -668,7 +668,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                  <div className="w-8 h-8 rounded-full border-2 border-olive flex items-center justify-center overflow-hidden">
                     <Logo className="scale-[0.25]" />
                  </div>
-                 <span className="font-stencil text-xl tracking-tighter text-olive">FOCUS BOX</span>
+                 <span className="font-stencil text-xl tracking-tighter text-olive">FOCUS</span>
               </div>
               <button 
                 onClick={() => setIsMenuOpen(false)}
