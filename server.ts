@@ -118,13 +118,13 @@ async function startServer() {
 
   // Export build zip
   app.get("/api/download-build", async (req, res) => {
-    const archiver = await import("archiver");
+    const archiverModule = (await import("archiver")) as any;
     
     // Set headers to trigger a file download
     res.attachment('website_files.zip');
     
     // Create an archiver instance
-    const archive = archiver.default('zip', {
+    const archive = (archiverModule.default || archiverModule)('zip', {
       zlib: { level: 9 } // Sets the compression level
     });
     

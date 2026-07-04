@@ -217,7 +217,7 @@ export const TransformationsCarousel = ({ language }: { language: 'es' | 'en' })
                   <div className="absolute top-0 left-0 right-0 h-[15%] bg-transparent backdrop-blur-[16px] z-10 pointer-events-none fade-out-bottom" style={{ maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)'}} />
                   <img
                     src={selectedPair.antes}
-                    alt="Antes"
+                    alt="Cambio físico antes del entrenamiento personalizado de alto rendimiento con nuestro coach en Guadalajara"
                     className="w-full h-full object-contain"
                   />
                 </div>

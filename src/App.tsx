@@ -84,18 +84,18 @@ const translations = {
       ]
     },
     programs: {
-      title: "PLANES",
-      title_accent: "ONLINE",
-      subtitle: "Estar presente no significa necesariamente estar físicamente al lado de alguien. Por eso, en FOCUS Online encontrarás mucho más que una rutina de entrenamiento: tendrás un plan personalizado, seguimiento constante y acompañamiento real durante todo tu proceso. Entrena desde cualquier parte del mundo, a tu ritmo y con la tranquilidad de saber que nunca estarás solo en el camino hacia tus objetivos.",
+      title: "ENTRENAMIENTO EN",
+      title_accent: "LÍNEA Y PLANES",
+      subtitle: "Estar presente no significa necesariamente estar físicamente al lado de alguien. Por eso, con nuestro entrenamiento en línea encontrarás mucho más que una rutina de entrenamiento convencional: tendrás un plan de training totalmente personalizado, seguimiento constante por tu coach y acompañamiento real durante todo tu proceso. Entrena desde cualquier parte del mundo, a tu propio ritmo y prepárate para tus metas o competiciones de HYROX con la tranquilidad de que nunca estarás solo.",
       essential: {
         title: "ESSENTIAL",
         phase: "Phase 01: Core Systems",
         price: "$300",
         unit: "MXN / Mes",
-        description: "El plan ESSENTIAL es ideal para gente que busca un plan personalizado con lo necesario para avanzar en sus objetivos",
+        description: "El plan ESSENTIAL de entrenamiento en línea es ideal para gente que busca un plan de training personalizado con lo necesario para avanzar en sus objetivos",
         features: [
           "Valoración inicial",
-          "Plan personalizado a tus objetivos",
+          "Plan personalizado a tus objetivos de entrenamiento",
           "Acceso ilimitado a la app",
           "PDF de regalo con conceptos básicos para tu plan",
           "Checklist de regalo \"hábitos diarios\" (formato descargable)",
@@ -111,10 +111,10 @@ const translations = {
         price: "$500",
         old_price: "$700",
         unit: "MXN / Mes",
-        description: "El plan FOCUSED no solo es entrenamiento, es acompañamiento en tiempo real que garantiza resultados",
+        description: "El plan FOCUSED de entrenamiento en línea no solo es entrenamiento, es acompañamiento de tu coach en tiempo real que garantiza resultados de alto rendimiento",
         features: [
           "Valoración inicial + ajustes constantes",
-          "Plan personalizado a tus objetivos",
+          "Plan personalizado a tus objetivos de training",
           "Acceso ilimitado a la app",
           "PDF de regalo con conceptos básicos para tu plan",
           "Checklist de regalo \"hábitos diarios\" (formato descargable)",
@@ -137,10 +137,10 @@ const translations = {
       }
     },
     clases: {
-      subtitle: "Ubicación Física",
-      title: "CLASES",
-      title_accent: "PRESENCIALES",
-      description: "Entrena con nosotros de manera presencial con sesiones completamente adaptadas a tus objetivos, nivel y experiencia. Ya sea que busques ganar músculo, perder grasa, mejorar tu condición física o simplemente sentirte mejor, trabajaremos juntos para lograrlo de forma segura y efectiva. Actualmente, el servicio presencial está disponible únicamente dentro de Zapopan, Jalisco.",
+      subtitle: "Ubicación Física en Guadalajara",
+      title: "CLASES CON COACH EN",
+      title_accent: "GUADALAJARA",
+      description: "Entrena con nosotros de manera presencial con sesiones de training completamente adaptadas a tus objetivos, nivel y experiencia por un coach en Guadalajara calificado. Ya sea que busques ganar fuerza, prepararte para HYROX, mejorar tu condición física o tu técnica de entrenamiento, trabajaremos juntos de forma segura y efectiva. Actualmente, el servicio presencial está disponible únicamente dentro de Zapopan y la Zona Metropolitana de Guadalajara.",
       individual_title: "POR CLASE",
       individual_subtitle: "1-4 personas",
       group_title: "MENSUALIDAD",
@@ -839,6 +839,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
                   {t.hero.status}
                 </div>
                 <h1 className="stencil text-4xl sm:text-5xl md:text-9xl leading-[0.8] mb-10 mx-auto max-w-[90vw]">
+                  <span className="sr-only">Focus: Coach de Entrenamiento en Guadalajara, Especialista en HYROX, Training y Entrenamiento en Línea Personalizado</span>
                   {t.hero.title}<br /> <span className="text-olive">{t.hero.subtitle}</span>
                 </h1>
                 <p className="text-base md:text-xl text-smoke/70 max-w-2xl mx-auto mb-12 font-medium tracking-wide">
@@ -1303,7 +1304,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
             <div className="relative h-[60vh] md:min-h-[600px] w-full mx-auto overflow-hidden rounded-none md:rounded-xl">
               <img 
                 src="https://thefocusplan.com/IMAGENES/FOTO%20SECCION%20PRINCIPAL%202.png" 
-                alt="Determinación Focus Box" 
+                alt="Sesión de training de alto rendimiento con nuestro coach de entrenamiento en Guadalajara - Focus Box" 
                 className="w-full h-full object-cover transition-all duration-700"
                 referrerPolicy="no-referrer"
               />

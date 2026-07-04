@@ -143,7 +143,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
                  <span className="text-[10px] font-black uppercase text-olive tracking-widest">Focus</span>
              </div>
           </div>
-          <h1 className="text-6xl md:text-8xl stencil text-olive tracking-widest mb-6">HYROX</h1>
+          <h2 className="text-6xl md:text-8xl stencil text-olive tracking-widest mb-6">HYROX</h2>
           <p className="text-xl md:text-2xl font-black uppercase tracking-widest bg-olive text-black inline-block px-4 py-2 mb-12">
             {t.introHeading1}
           </p>
@@ -152,7 +152,7 @@ export const HyroxGuide = ({ language }: HyroxGuideProps) => {
             <div className="absolute inset-0 bg-olive/20 translate-x-4 translate-y-4 rounded-sm"></div>
             <img 
               src="https://thefocusplan.com/IMAGENES/HYROX-HECTOR.png"
-              alt="Hyrox Ready"
+              alt="Atleta en entrenamiento de HYROX en Guadalajara preparado por nuestro coach - Focus Box"
               className="relative z-10 w-full h-auto object-cover rounded-sm border border-olive/30 shadow-2xl"
             />
           </div>

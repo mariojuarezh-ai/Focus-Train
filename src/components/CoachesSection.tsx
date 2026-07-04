@@ -100,50 +100,50 @@ export function CoachesSection({ language }: CoachesProps) {
           {/* Main Coach */}
           <div className="md:col-span-12 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-black/40 backdrop-blur-sm flex flex-col hover:shadow-[0_0_30px_rgba(118,132,85,0.15)]">
             <div className="w-full p-8 flex justify-center items-end bg-black/30">
-              <img 
-                src={mainImage}
-                alt={t.main.name}
-                className="w-full max-w-sm h-auto object-contain transition-transform duration-1000 group-hover:scale-105 relative z-10"
-              />
-            </div>
-            <div className="w-full p-8 md:p-12 flex flex-col justify-center border-t border-olive/20">
-              <div className="text-olive text-sm font-black tracking-widest uppercase mb-3 text-center">{t.main.role}</div>
-              <h3 className="stencil text-3xl md:text-5xl text-smoke mb-6 text-center">{t.main.name}</h3>
-              <div className="font-mono text-smoke/70 text-sm md:text-base leading-relaxed space-y-4 max-w-3xl mx-auto text-center">
-                <p className="font-bold text-olive mb-2 uppercase tracking-widest">{t.main.story_title}</p>
-                {t.main.story.map((paragraph: string, idx: number) => (
-                  <p key={idx}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Aux Coaches */}
-          <div className="md:col-span-6 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-black/40 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(118,132,85,0.15)] flex flex-col">
-            <div className="relative h-[350px] md:h-[450px] overflow-hidden flex justify-center items-center p-8 bg-black/30">
-              <img 
-                src={aux1Image}
-                alt={t.aux1.name}
-                className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
-              />
-            </div>
-            <div className="p-8 flex-grow flex flex-col border-t border-olive/20">
-              <div className="text-olive text-xs font-black tracking-widest uppercase mb-2">{t.aux1.role}</div>
-              <h3 className="stencil text-2xl text-smoke mb-4">{t.aux1.name}</h3>
-              <div className="font-mono text-smoke/70 text-sm leading-relaxed space-y-3">
-                {t.aux1.story ? t.aux1.story.map((p: string, i: number) => <p key={i}>{p}</p>) : <p>{(t.aux1 as any).desc}</p>}
-              </div>
-            </div>
-          </div>
-
-          <div className="md:col-span-6 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-black/40 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(118,132,85,0.15)] flex flex-col">
-            <div className="relative h-[350px] md:h-[450px] overflow-hidden flex justify-center items-center p-8 bg-black/30">
-              <img 
-                src={aux2Image}
-                alt={t.aux2.name}
-                className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
-              />
-            </div>
+               <img 
+                 src={mainImage}
+                 alt={`Coach de entrenamiento en Guadalajara especializado en HYROX, training táctico y boxeo - ${t.main.name}`}
+                 className="w-full max-w-sm h-auto object-contain transition-transform duration-1000 group-hover:scale-105 relative z-10"
+               />
+             </div>
+             <div className="w-full p-8 md:p-12 flex flex-col justify-center border-t border-olive/20">
+               <div className="text-olive text-sm font-black tracking-widest uppercase mb-3 text-center">{t.main.role}</div>
+               <h3 className="stencil text-3xl md:text-5xl text-smoke mb-6 text-center">{t.main.name}</h3>
+               <div className="font-mono text-smoke/70 text-sm md:text-base leading-relaxed space-y-4 max-w-3xl mx-auto text-center">
+                 <p className="font-bold text-olive mb-2 uppercase tracking-widest">{t.main.story_title}</p>
+                 {t.main.story.map((paragraph: string, idx: number) => (
+                   <p key={idx}>{paragraph}</p>
+                 ))}
+               </div>
+             </div>
+           </div>
+ 
+           {/* Aux Coaches */}
+           <div className="md:col-span-6 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-black/40 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(118,132,85,0.15)] flex flex-col">
+             <div className="relative h-[350px] md:h-[450px] overflow-hidden flex justify-center items-center p-8 bg-black/30">
+               <img 
+                 src={aux1Image}
+                 alt={`Coach en Guadalajara de entrenamiento funcional, boxeo y acondicionamiento - ${t.aux1.name}`}
+                 className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
+               />
+             </div>
+             <div className="p-8 flex-grow flex flex-col border-t border-olive/20">
+               <div className="text-olive text-xs font-black tracking-widest uppercase mb-2">{t.aux1.role}</div>
+               <h3 className="stencil text-2xl text-smoke mb-4">{t.aux1.name}</h3>
+               <div className="font-mono text-smoke/70 text-sm leading-relaxed space-y-3">
+                 {t.aux1.story ? t.aux1.story.map((p: string, i: number) => <p key={i}>{p}</p>) : <p>{(t.aux1 as any).desc}</p>}
+               </div>
+             </div>
+           </div>
+ 
+           <div className="md:col-span-6 group border border-olive/30 hover:border-olive transition-all duration-500 relative bg-black/40 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(118,132,85,0.15)] flex flex-col">
+             <div className="relative h-[350px] md:h-[450px] overflow-hidden flex justify-center items-center p-8 bg-black/30">
+               <img 
+                 src={aux2Image}
+                 alt={`Coach de entrenamiento de fuerza y training híbrido en Guadalajara - ${t.aux2.name}`}
+                 className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
+               />
+             </div>
             <div className="p-8 flex-grow flex flex-col border-t border-olive/20">
               <div className="text-olive text-xs font-black tracking-widest uppercase mb-2">{t.aux2.role}</div>
               <h3 className="stencil text-2xl text-smoke mb-4">{t.aux2.name}</h3>
