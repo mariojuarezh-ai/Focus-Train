@@ -83,7 +83,7 @@ export function CoachesSection({ language }: CoachesProps) {
   }[language];
 
   // Placeholder Unsplash images for fitness coaches. They will be in color per user request.
-  const mainImage = "https://thefocusplan.com/IMAGENES/FOTO%20HECTOR1%20SIN%20MARCA%20DE%20AGUA.png"; 
+  const mainImage = "https://thefocusplan.com/IMAGENES/FOTO%20HECTOR%202%20SIN%20MARCA%20DE%20AGUA.png"; 
   const aux1Image = "https://thefocusplan.com/IMAGENES/FOTO-MANUEL1-SIN%20MARCA%20DE%20AGUA.png";
   const aux2Image = "https://thefocusplan.com/IMAGENES/FOTO-FRANCISCO1%20SIN%20MARCA%20DE%20AGUA.jpg";
 

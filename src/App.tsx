@@ -1303,7 +1303,7 @@ const WhatsAppButton = ({ label, featured = false }: { label: string, featured?:
           <div className="w-full md:max-w-6xl mx-auto space-y-12">
             <div className="relative h-[60vh] md:min-h-[600px] w-full mx-auto overflow-hidden rounded-none md:rounded-xl">
               <img 
-                src="https://thefocusplan.com/IMAGENES/FOTO%20SECCION%20PRINCIPAL%202.png" 
+                src="https://thefocusplan.com/IMAGENES/FOTO%20HECTOR%20PAGINA%20PRINCIPAL.png" 
                 alt="Sesión de training de alto rendimiento con nuestro coach de entrenamiento en Guadalajara - Focus Box" 
                 className="w-full h-full object-cover transition-all duration-700"
                 referrerPolicy="no-referrer"
